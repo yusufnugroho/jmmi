@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class M_mente extends CI_Model {
 
 	/**
 	 * Index Page for this controller.
@@ -17,15 +17,12 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
-		$this->load->view('login');
+	public function __construct() {
+		parent::__construct();
 	}
-	public function login()
+	public function getDataMente()
 	{
-		$id = $this->input->post('id');
-		$pass = $this->input->post('pass');
-		
+		return $this->db->query("select * from mente");
 	}
 }
 
