@@ -12,6 +12,10 @@ class M_mentor extends CI_Model {
 	{
 		$this->db->query("insert into mentor values('$nrpmentor','$nrpkj','$depanmentor','$belakangmentor','$jkmentor','$hpmentor','$nrpmentor','Aktif')");
 	}
+	public function update($nrpmentor,$nrpkj,$depanmentor,$belakangmentor,$jkmentor,$hpmentor)
+	{
+		$this->db->query("update mentor set NRP_KJ = '$nrpkj', NAMA_DEPAN_MENTOR = '$depanmentor', NAMA_BELAKANG_MENTOR = '$belakangmentor', TELEPON_MENTOR = '$hpmentor' where NRP_MENTOR = '$nrpmentor'");
+	}
 	public function updateData($NRP)
 	{
 		

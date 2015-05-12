@@ -25,19 +25,30 @@ class Mentor extends CI_Controller {
 	}
 
 	public function index()
+	/*{
+		$data['as'] = 'mentor';
+		$this->load->view('login',$data);
+	}
+	public function login()
 	{
+		echo $this->input->post('nrp');
+		echo $this->input->post('password');
+	}
+	public function data()
+	*/{
 		$data['mentor'] = $this->m_mentor->getDataMentor();
-		$this->load->view('mentor',$data);
+		$this->load->view('mentor/mentor',$data);
 	}
 	public function addmentor()
 	{		
 		$data['kj'] = $this->m_kj->getData();
-		$this->load->view('addmentor',$data);
+		$this->load->view('mentor/add',$data);
 	}
 	public function update($NRP)
 	{
-		$data['all'] = $this->m_mentor->getData($NRP)->result();
-		$this->load->view('update',$data);
+		$data['all'] = $this->m_mentor->getData($NRP);
+		$data['kj'] = $this->m_kj->getData();
+		$this->load->view('mentor/update',$data);
 	}
 	public function Hapus($nrp)
 	{
@@ -53,6 +64,15 @@ class Mentor extends CI_Controller {
 		$jkmentor = $this->input->post('jkmentor');
 		$hpmentor = $this->input->post('hpmentor');
 		$this->m_mentor->insert($nrpmentor,$nrpkj,$depanmentor,$belakangmentor,$jkmentor,$hpmentor);
+		$this->index();
+	}
+	public function updatementor($nrpmentor)
+	{
+		$nrpkj = $this->input->post('nrpkj');
+		$depanmentor = $this->input->post('frontname');
+		$belakangmentor = $this->input->post('endname');
+		$hpmentor = $this->input->post('hpmentor');
+		$this->m_mentor->update($nrpmentor,$nrpkj,$depanmentor,$belakangmentor,$hpmentor);
 		$this->index();
 	}
 }

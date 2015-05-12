@@ -152,7 +152,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            DataTables Advanced Tables
+                            Data Mentor
                         </div>
                         <div class="col-md-6">
 	                        <a href="<?php echo base_url();?>index.php/mentor/addmentor" class="btn btn-danger">Add mentor</a>

@@ -166,35 +166,25 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
+                            <?php foreach($all->result() as $mentor){
+                                ?>
                                 <div class="col-lg-8 col-md-offset-2">
-                                    <form role="form" action='<?php echo base_url();?>index.php/mentor/insertmentor' method='post'>
+                                    <form role="form" action='<?php echo base_url();?>index.php/mentor/updatementor/<?php echo $mentor->NRP_MENTOR;?>' method='post'>
                                         <div class="form-group">
                                             <label>NRP Mentor</label>
-                                            <input type='text' name='nrpmentor'class="form-control">
+                                            <input type='text' name='nrpmentor'class="form-control" value="<?php echo $mentor->NRP_MENTOR;?>" disabled>
                                         </div>       
                                         <div class="form-group">
                                             <label>Nama Depan</label>
-                                            <input type='text' name='frontname'class="form-control">
+                                            <input type='text' name='frontname'class="form-control" value="<?php echo $mentor->NAMA_DEPAN_MENTOR;?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Belakang</label>
-                                            <input type='text' name='endname'class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Jenis Kelamin</label>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="jkmentor" id="L" value="L">Ikhwan
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="jkmentor" id="P" value="P">Akhwat
-                                                </label>
+                                            <input type='text' name='endname'class="form-control" value="<?php echo $mentor->NAMA_BELAKANG_MENTOR;?>">
                                         </div>
                                         <div class="form-group">
                                             <label>No Telepon</label>
-                                            <input type='text' name='hpmentor'class="form-control">
+                                            <input type='text' name='hpmentor'class="form-control" value="<?php echo $mentor->TELEPON_MENTOR;?>">
                                         </div> 
                                         <div class="form-group">
                                             <label>NRP - Nama Koordinator Jurusan</label>
@@ -210,13 +200,16 @@
                                                 }
                                             ?>
                                             </select>
-                                        </div>                
+                                        </div>                     
                                         <div>
-                                            <button type="submit" class="btn btn-default">Submit Button</button>
-                                            <button type="reset" class="btn btn-default">Reset Button</button>
+                                            <button type="submit" class="btn btn-default">Update</button>
+                                            <button type="reset" class="btn btn-default">Reset</button>
                                         </div>
                                     </form>
                                 </div>
+                                <?php
+                            }
+                            ?>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
                             <!-- /.row (nested) -->

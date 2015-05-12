@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Mentor</title>
+<title>mente</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,13 +50,13 @@
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Mentor<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> mente<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/mentor/addmentor">Profil Mentor</a>
+                                    <a href="<?php echo base_url();?>index.php/mente/addmente">Profil mente</a>
                                 </li>
                                 <li>
-                                    <a href="flot.html">Data Mentor</a>
+                                    <a href="flot.html">Data mente</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -162,15 +162,15 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Masukkan data mentor
+                            Masukkan data Mente
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-8 col-md-offset-2">
-                                    <form role="form" action='<?php echo base_url();?>index.php/mentor/insertmentor' method='post'>
+                                    <form role="form" action='<?php echo base_url();?>index.php/mente/insertmente' method='post'>
                                         <div class="form-group">
-                                            <label>NRP Mentor</label>
-                                            <input type='text' name='nrpmentor'class="form-control">
+                                            <label>NRP Mente</label>
+                                            <input type='text' name='nrpmente'class="form-control">
                                         </div>       
                                         <div class="form-group">
                                             <label>Nama Depan</label>
@@ -184,33 +184,50 @@
                                             <label>Jenis Kelamin</label>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="jkmentor" id="L" value="L">Ikhwan
+                                                    <input type="radio" name="jkmente" id="L" value="L">Ikhwan
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="jkmentor" id="P" value="P">Akhwat
+                                                    <input type="radio" name="jkmente" id="P" value="P">Akhwat
                                                 </label>
                                         </div>
                                         <div class="form-group">
                                             <label>No Telepon</label>
-                                            <input type='text' name='hpmentor'class="form-control">
+                                            <input type='text' name='hpmente'class="form-control">
                                         </div> 
                                         <div class="form-group">
-                                            <label>NRP - Nama Koordinator Jurusan</label>
-                                            <select name='nrpkj' class="form-control">
+                                            <label>NRP - Nama Mentor</label>
+                                            <select name='nrpmentor' class="form-control"required>
+                                            <option> </option>
                                             <?php
-                                                foreach ($kj->result() as $row)
+                                                foreach ($mentor->result() as $row)
                                                 {
-                                                    echo '<option value='.$row->NRP_KJ.'>';
-                                                    echo $row->NRP_KJ." - ";
-                                                    echo $row->NAMA_DEPAN_KJ." ";
-                                                    echo $row->NAMA_BELAKANG_KJ;
+                                                    echo '<option value='.$row->NRP_MENTOR.'>';
+                                                    echo $row->NRP_MENTOR." - ";
+                                                    echo $row->NAMA_DEPAN_MENTOR." ";
+                                                    echo $row->NAMA_BELAKANG_MENTOR;
                                                     echo '</option>';
                                                 }
                                             ?>
                                             </select>
-                                        </div>                
+                                        </div>           
+                                        <div class="form-group">
+                                            <label>NIP - Nama Dosen</label>
+                                            <select name='nipdosen' class="form-control"required>
+                                            <option> </option>
+                                            <?php
+                                                foreach ($dosen->result() as $row)
+                                                {
+                                                    echo '<option value='.$row->NIP_DOSEN.'>';
+                                                    echo $row->NIP_DOSEN." - ";
+                                                    echo $row->NAMA_DEPAN_DOSEN." ";
+                                                    echo $row->NAMA_BELAKANG_DOSEN;
+                                                    echo '</option>';
+                                                }
+                                            ?>
+                                            </select>
+                                        </div>                   
                                         <div>
                                             <button type="submit" class="btn btn-default">Submit Button</button>
                                             <button type="reset" class="btn btn-default">Reset Button</button>
