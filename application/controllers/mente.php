@@ -45,7 +45,7 @@ class Mente extends CI_Controller {
 	}
 	public function Hapus($nrp)
 	{
-		$this->m_mentor->hapusMentor($nrp);
+		$this->m_mente->hapusMente($nrp);
 		$this->index();
 	}
 	public function insertmente()

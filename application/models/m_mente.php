@@ -22,7 +22,7 @@ class M_mente extends CI_Model {
 	}
 	public function hapusmente($nrp)
 	{
-		$this->db->query("update mente set STATUS_mente ='Tidak Aktif' where NRP_MENTE='$nrp'");
+		$this->db->query("update mente set STATUS_MENTE ='Tidak Aktif' where NRP_MENTE='$nrp'");
 	}
 	public function getData($nrp)
 	{
