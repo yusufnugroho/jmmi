@@ -28,4 +28,9 @@ class M_mentor extends CI_Model {
 	{
 		return $this->db->query("select * from mentor where NRP_MENTOR='$nrp'");
 	}
+	public function select_where($tablename, $where)
+	{
+		$data = $this->db->get_where($tablename, $where);
+		return $data->result_array();
+	}
 }

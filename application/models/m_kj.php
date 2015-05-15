@@ -24,6 +24,11 @@ class M_kj extends CI_Model {
 	{
 		return $this->db->query("select * from kj");
 	}
+	public function select_where($tablename, $where)
+	{
+		$data = $this->db->get_where($tablename, $where);
+		return $data->result_array();
+	}
 }
 
 /* End of file welcome.php */

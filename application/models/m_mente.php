@@ -28,6 +28,11 @@ class M_mente extends CI_Model {
 	{
 		return $this->db->query("select * from mente where NRP_MENTE='$nrp'");
 	}
+	public function select_where($tablename, $where)
+	{
+		$data = $this->db->get_where($tablename, $where);
+		return $data->result_array();
+	}
 }
 
 /* End of file welcome.php */
