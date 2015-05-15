@@ -37,10 +37,10 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                   <form role="form" action='<?php echo base_url();?>index.php/mentor/login' method='post'>
+                   <form role="form" action='<?php echo base_url();?>index.php/welcome/login' method='post'>
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="NRP" name="nrp" type="text" autofocus>
+                                    <input class="form-control" placeholder="ID" name="id" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
@@ -51,7 +51,7 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                <button class="btn btn-lg btn-success btn-block">Login</button>
                             </fieldset>
                         </form>
                     </div>
