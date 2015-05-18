@@ -25,17 +25,16 @@ class Kj extends CI_Controller {
 		$data['dosen'] = $this->m_dosen->getDataDosen();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
-		$this->load->view('kj/addkj',$data);
+		$this->load->view('kj/addkj');
                 $this->load->view('dashboard/footer');
         }
 	public function update($NRP)
 	{
-		$data['all'] = $this->m_mente->getData($NRP);
-		$data['mentor'] = $this->m_mentor->getDataMentor();
-		$data['dosen'] = $this->m_dosen->getDataDosen();
+
+                $data['kj'] = $this->m_kj->getData($NRP);
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
-		$this->load->view('mente/updateMente',$data);
+		$this->load->view('kj/updateKJ',$data);
                 $this->load->view('dashboard/footer');
 	}
         public function active($nrp)

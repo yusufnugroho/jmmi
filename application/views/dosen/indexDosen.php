@@ -1,5 +1,5 @@
 <!--Header-->
-<!--Navbar-->
+
 
         <div id="page-wrapper">
             <div class="row">
@@ -13,7 +13,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            DataTables Advanced Tables
+                            Data Mente
                         </div>
                         
                         <!-- /.panel-heading -->
@@ -22,35 +22,33 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>NRP</th>
+                                            <th>NIP</th>
                                             <th>Nama</th>
-                                            <th>Jenis Kelamin</th>
                                             <th>Telepon</th>
-                                            <th>Status</th>    
-                                            <th>Action</th>    
+                                            <th>Status</th>
+                                            <th>Action</th>
                                         </tr>   
                                     </thead>
                                     <tbody>
-                                    <?php foreach($mentor->result() as $row){
+                                    <?php foreach($dosen->result() as $row)
+                                    {
 
-                                        echo '<tr><td>'. $row->NRP_MENTOR .'</td>
-                                            <td>'. $row->NAMA_DEPAN_MENTOR." ". $row->NAMA_BELAKANG_MENTOR.'</td>
-                                            <td>'. $row->jk_mentor .'
-                                            <td>'. $row->TELEPON_MENTOR .'</td>
-                                            <td> 
-                                            ';
-                                            $status=$row->STATUS_MENTOR;
+                                        echo '<tr><td>'. $row->NIP_DOSEN .'</td>
+                                            <td>'. $row->NAMA_DEPAN_DOSEN." ". $row->NAMA_BELAKANG_DOSEN.'</td>
+                                            <td>'. $row->TELEPON_DOSEN .'</td>
+                                            <td>'; 
+                                            $status=$row->STATUS_DOSEN;
                                             if($status == "Aktif")
                                             {
-                                                echo '<a href='. base_url()."index.php/mentor/deactive/".$row->NRP_MENTOR.' class="btn btn-success">Deactive</a>';
+                                                echo '<a href='. base_url()."index.php/dosen/deactive/".$row->NIP_DOSEN.' class="btn btn-success">Deactive</a>';
                                             }
                                              elseif($status == "Tidak Aktif")
                                              {
-                                                 echo '<a href='. base_url()."index.php/mentor/active/".$row->NRP_MENTOR.' class="btn btn-success">Active</a>';
-                                             };
-                                             echo '</td><td>';
-                                               echo '<a href='. base_url()."index.php/mentor/update/".$row->NRP_MENTOR.' class="btn btn-warning"> Edit</a>
-                                            <a href='. base_url()."index.php/mentor/hapus/".$row->NRP_MENTOR.' class="btn btn-danger"> Hapus </a> </td></tr>';
+                                                 echo '<a href='. base_url()."index.php/dosen/active/".$row->NIP_DOSEN.' class="btn btn-success">Active</a>';
+                                             };echo '</ td>';
+                                             
+                                            echo '<td> <a href='. base_url()."index.php/dosen/update/".$row->NIP_DOSEN.' class="btn btn-primary"> Edit</a>
+                                            </td></tr>';
                                     }       
                                     ?>
                                     </tbody>
@@ -69,5 +67,4 @@
 
     </div>
     <!-- /#wrapper -->
-
 <!--Footer-->

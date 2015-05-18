@@ -15,9 +15,7 @@
                         <div class="panel-heading">
                             Data Mente
                         </div>
-                        <div class="col-md-6">
-	                        <a href="<?php echo base_url();?>index.php/kj/addkj" class="btn btn-danger">Add KJ</a>
-                        </div>
+                        
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="dataTable_wrapper">

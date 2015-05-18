@@ -29,7 +29,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="<?php echo base_url();?>index.php/dashboard/""><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <!--Mente-->
                         <li>
@@ -70,6 +70,19 @@
                                 </li>
                             </ul>
                         </li>
+                        <!--Dosen-->
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Dosen<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url();?>index.php/dosen/">Daftar Dosen</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>index.php/dosen/addDosen">Tambah Dosen</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--End Of NavBar-->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

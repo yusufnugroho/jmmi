@@ -12,29 +12,28 @@ class M_dosen extends CI_Model {
 	{
 		return $this->db->query("select * from Dosen where STATUS_DOSEN='Aktif'");
 	}
-	public function insert($nipdosen,$nrpkj,$depanDosen,$belakangDosen,$jkDosen,$hpDosen)
+	public function insert($nipdosen,$depanDosen,$belakangDosen,$hpDosen)
 	{
-		$this->db->query("insert into Dosen values('$nipdosen','$nrpkj','$depanDosen','$belakangDosen','$jkDosen','$hpDosen','$nipdosen','Aktif')");
+		$this->db->query("INSERT INTO `dosen`(`NIP_DOSEN`, `NAMA_DEPAN_DOSEN`, `NAMA_BELAKANG_DOSEN`, `TELEPON_DOSEN`, `PASSWORD_DOSEN`, `STATUS_DOSEN`) VALUES ('$nipdosen','$depanDosen','$belakangDosen','$hpDosen','$nipdosen','Aktif')");
 	}
-	public function update($nipdosen,$nrpkj,$depanDosen,$belakangDosen,$jkDosen,$hpDosen)
+	public function update($nipdosen,$depanDosen,$belakangDosen,$hpDosen)
 	{
-		$this->db->query("update Dosen set NRP_KJ = '$nrpkj', NAMA_DEPAN_Dosen = '$depanDosen', NAMA_BELAKANG_Dosen = '$belakangDosen', TELEPON_Dosen = '$hpDosen' where NIP_DOSEN = '$nipdosen'");
-	}
-	public function updateData($NRP)
-	{
-		
+		$this->db->query("update Dosen set NIP_DOSEN = '$nipdosen', NAMA_DEPAN_Dosen = '$depanDosen', NAMA_BELAKANG_Dosen = '$belakangDosen', TELEPON_Dosen = '$hpDosen' where NIP_DOSEN = '$nipdosen'");
 	}
 	public function hapusDosen($nrp)
 	{
 		$this->db->query("update Dosen set STATUS_DOSEN ='Tidak Aktif' where NIP_DOSEN='$nrp'");
 	}
-	public function getData($nrp)
+	public function getData($nip)
 	{
-		return $this->db->query("select * from Dosen where NIP_DOSEN='$nrp'");
+		return $this->db->query("select * from Dosen where NIP_DOSEN='$nip'");
 	}
-	public function select_where($tablename, $where)
+        public function active($nip)
 	{
-		$data = $this->db->get_where($tablename, $where);
-		return $data->result_array();
+		$this->db->query("update dosen set STATUS_DOSEN ='Aktif' where NIP_DOSEN='$nip'");
+	}
+        public function deactive($nip)
+	{
+		$this->db->query("update dosen set STATUS_DOSEN ='Tidak Aktif' where NIP_DOSEN='$nip'");
 	}
 }
