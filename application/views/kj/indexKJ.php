@@ -26,9 +26,9 @@
                                         <tr>
                                             <th>NRP</th>
                                             <th>Nama</th>
-                                            <th>Jenis Kelamin</th>
                                             <th>Telepon</th>
-                                            <th>Action</th>    
+                                            <th>Status</th>
+                                            <th>Action</th>
                                         </tr>   
                                     </thead>
                                     <tbody>
@@ -38,8 +38,19 @@
                                         echo '<tr><td>'. $row->NRP_KJ .'</td>
                                             <td>'. $row->NAMA_DEPAN_KJ." ". $row->NAMA_BELAKANG_KJ.'</td>
                                             <td>'. $row->TELEPON_KJ .'</td>
-                                            <td> <a href='. base_url()."index.php/mente/update/".$row->NRP_KJ.' class="btn btn-primary"> Edit</a>
-                                            <a href='. base_url()."index.php/kj/hapus/".$row->NRP_KJ.' class="btn btn-danger"> Hapus </a> </td></tr>';
+                                            <td>'; 
+                                            $status=$row->STATUS_KJ;
+                                            if($status == "Aktif")
+                                            {
+                                                echo '<a href='. base_url()."index.php/kj/deactive/".$row->NRP_KJ.' class="btn btn-success">Active</a>';
+                                            }
+                                             elseif($status == "Tidak Aktif")
+                                             {
+                                                 echo '<a href='. base_url()."index.php/kj/active/".$row->NRP_KJ.' class="btn btn-success">Deactive</a>';
+                                             };echo '</ td>';
+                                             
+                                            echo '<td> <a href='. base_url()."index.php/kj/update/".$row->NRP_KJ.' class="btn btn-primary"> Edit</a>
+                                            </td></tr>';
                                     }       
                                     ?>
                                     </tbody>

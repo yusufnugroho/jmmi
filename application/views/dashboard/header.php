@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Mentor</title>
+<title>Mentoring JMMI</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,6 +27,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.html">JMMI/a>
             </div>
             

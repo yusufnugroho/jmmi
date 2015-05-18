@@ -60,13 +60,13 @@
                         </li>
                         <!--Koordinator Jurusan-->
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Mentor<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Koordinator Jurusan<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/kj/">Daftar KJ</a>
+                                    <a href="<?php echo base_url();?>index.php/kj/">Daftar Koordinator Jurusan</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/kj/addkj">Tambah Mentor</a>
+                                    <a href="<?php echo base_url();?>index.php/kj/addkj">Tambah Koordinator Jurusan</a>
                                 </li>
                             </ul>
                         </li>

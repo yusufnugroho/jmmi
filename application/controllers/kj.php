@@ -16,7 +16,7 @@ class Kj extends CI_Controller {
 		$data['kj'] = $this->m_kj->getDataKJ();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
-		$this->load->view('kj/index',$data);
+		$this->load->view('kj/indexKJ',$data);
                 $this->load->view('dashboard/footer');
 	}
 	public function addkj()
@@ -25,7 +25,7 @@ class Kj extends CI_Controller {
 		$data['dosen'] = $this->m_dosen->getDataDosen();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
-		$this->load->view('mente/add',$data);
+		$this->load->view('kj/addkj',$data);
                 $this->load->view('dashboard/footer');
         }
 	public function update($NRP)
@@ -35,34 +35,43 @@ class Kj extends CI_Controller {
 		$data['dosen'] = $this->m_dosen->getDataDosen();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
-		$this->load->view('kj/update',$data);
+		$this->load->view('mente/updateMente',$data);
                 $this->load->view('dashboard/footer');
+	}
+        public function active($nrp)
+	{
+		$this->m_kj->active($nrp);
+		$this->index();
+	}
+        public function deactive($nrp)
+	{
+		$this->m_kj->deactive($nrp);
+		$this->index();
 	}
 	public function Hapus($nrp)
 	{
 		$this->m_kj->hapus($nrp);
 		$this->index();
 	}
+
 	public function insertkj()
 	{
-		$nrpmente = $this->input->post('nrpmente');
-		$nrpmentor = $this->input->post('nrpmentor');
-		$nipdosen = $this->input->post('nipdosen');
-		$depanmente = $this->input->post('frontname');
-		$belakangmente = $this->input->post('endname');
-		$jkmente = $this->input->post('jkmente');
-		$hpmente = $this->input->post('hpmente');
-		$this->m_mente->insert($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$jkmente,$hpmente);
+		$nrpkj = $this->input->post('nrpkj');
+		$depan = $this->input->post('frontname');
+		$belakang = $this->input->post('endname');
+		$jkkj = $this->input->post('jkkj');
+		$hpkj = $this->input->post('hpkj');
+		$this->m_kj->insert($nrpkj,$depan,$belakang,$jkkj,$hpkj);
 		$this->index();
 	}
 	public function updatekj($nrpkj)
 	{
-		$nrpmentor = $this->input->post('nrpmentor');
-		$nipdosen = $this->input->post('nipdosen');
-		$depanmente = $this->input->post('frontname');
-		$belakangmente = $this->input->post('endname');
-		$hpmente = $this->input->post('hpmente');
-		$this->m_mente->update($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$hpmente);
+		$nrpkj = $this->input->post('nrpkj');
+		$depankj = $this->input->post('frontname');
+		$belakangkj = $this->input->post('endname');
+		$hpkj = $this->input->post('hpkj');
+                $jkkj = $this->input->post('jkkj');
+		$this->m_kj->update($nrpkj,$depanmente,$belakangmente,$hpkj,$jkkj);
 		$this->index();
 	}
 }

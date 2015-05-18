@@ -32,6 +32,7 @@
                                             <th>Mentor</th>
                                             <th>Dosen</th>
                                             <th>Nilai</th>
+                                            <th>Status</th>    
                                             <th>Action</th>    
                                         </tr>   
                                     </thead>
@@ -57,6 +58,7 @@
                                              {
                                                  echo '<a href='. base_url()."index.php/mente/active/".$row->NRP_MENTE.' class="btn btn-success">Deactive</a>';
                                              };
+                                             echo '<td>';
                                                echo '<a href='. base_url()."index.php/mente/update/".$row->NRP_MENTE.' class="btn btn-warning"> Edit</a>
                                             <a href='. base_url()."index.php/mente/hapus/".$row->NRP_MENTE.' class="btn btn-danger"> Hapus </a> </td></tr>';    
                                     }       

@@ -28,6 +28,7 @@
                                             <th>Nama</th>
                                             <th>Jenis Kelamin</th>
                                             <th>Telepon</th>
+                                            <th>Status</th>    
                                             <th>Action</th>    
                                         </tr>   
                                     </thead>
@@ -49,6 +50,7 @@
                                              {
                                                  echo '<a href='. base_url()."index.php/mentor/active/".$row->NRP_MENTOR.' class="btn btn-success">Deactive</a>';
                                              };
+                                             echo '</td><td>';
                                                echo '<a href='. base_url()."index.php/mentor/update/".$row->NRP_MENTOR.' class="btn btn-warning"> Edit</a>
                                             <a href='. base_url()."index.php/mentor/hapus/".$row->NRP_MENTOR.' class="btn btn-danger"> Hapus </a> </td></tr>';
                                     }       

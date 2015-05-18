@@ -6,19 +6,15 @@ class M_kj extends CI_Model {
 	}
 	public function getDataKJ()
 	{
-		return $this->db->query("select * from KJ where STATUS_KJ='Aktif'");
+		return $this->db->query("select * from KJ where 1");
 	}
-	public function insert($nrpkj,$depankj,$belakangkj,$telepon_kj)
+	public function insert($nrpkj,$depankj,$belakangkj,$jkkj,$telepon_kj)
 	{
-		$this->db->query("insert into mente values('$nrpkj','$depankj','$belakangkj','$telepon_kj','Aktif','$nrpkj')");
+		$this->db->query("INSERT INTO `kj`(`NRP_KJ`, `NAMA_DEPAN_KJ`, `NAMA_BELAKANG_KJ`, `TELEPON_KJ`, `STATUS_KJ`, `PASSWORD_KJ`,`JK_KJ`) VALUES ('$nrpkj','$depankj','$belakangkj','$telepon_kj','Aktif','$nrpkj','$jkkj')");
 	}
-	public function update($nrpkj,$depankj,$belakangkj,$hpkj,$status_kj)
+	public function update($nrpkj,$depanmente,$belakangmente,$hpkj,$jkkj)
 	{
-		$this->db->query("UPDATE `kj` SET `NRP_KJ`='$nrpkj',`NAMA_DEPAN_KJ`='$depankj',`NAMA_BELAKANG_KJ`='$belakangkj',`TELEPON_KJ`='$hpkj',`STATUS_KJ`='$status_kj' WHERE 1");
-	}
-	public function updateData($NRP)
-	{
-		
+		$this->db->query("UPDATE `kj` SET `NRP_KJ`='$nrpkj',`NAMA_DEPAN_KJ`='$depankj',`NAMA_BELAKANG_KJ`='$belakangkj',`TELEPON_KJ`='$hpkj', `JK_KJ`='$jkkj' WHERE 1");
 	}
 	public function hapus($nrp)
 	{
@@ -33,7 +29,12 @@ class M_kj extends CI_Model {
 		$data = $this->db->get_where($tablename, $where);
 		return $data->result_array();
 	}
+        public function active($nrp)
+	{
+		$this->db->query("update kj set STATUS_KJ ='Aktif' where NRP_KJ='$nrp'");
+	}
+        public function deactive($nrp)
+	{
+		$this->db->query("update kj set STATUS_KJ ='Tidak Aktif' where NRP_KJ='$nrp'");
+	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
