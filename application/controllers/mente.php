@@ -37,11 +37,22 @@ class Mente extends CI_Controller {
 		$this->load->view('mente/updateMente',$data);
                 $this->load->view('dashboard/footer');
 	}
+        public function active($nrp)
+	{
+		$this->m_mente->active($nrp);
+		$this->index();
+	}
+        public function deactive($nrp)
+	{
+		$this->m_mente->deactive($nrp);
+		$this->index();
+	}
 	public function Hapus($nrp)
 	{
 		$this->m_mente->hapusMente($nrp);
 		$this->index();
 	}
+
 	public function insertmente()
 	{
 		$nrpmente = $this->input->post('nrpmente');
@@ -61,7 +72,8 @@ class Mente extends CI_Controller {
 		$depanmente = $this->input->post('frontname');
 		$belakangmente = $this->input->post('endname');
 		$hpmente = $this->input->post('hpmente');
-		$this->m_mente->update($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$hpmente);
+                $jkmente = $this->input->post('jkmente');
+		$this->m_mente->update($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$hpmente,$jkmente);
 		$this->index();
 	}
 }

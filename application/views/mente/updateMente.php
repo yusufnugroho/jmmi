@@ -45,11 +45,23 @@
                                         <div class="form-group">
                                             <label>No Telepon</label>
                                             <input type='text' name='hpmente'class="form-control" value="<?php echo $mente->TELEPON_MENTE;?>">
-                                        </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Jenis Kelamin</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="jkmente" id="L" value="L">Ikhwan
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="jkmente" id="P" value="P">Akhwat
+                                                </label>
+                                        </div>
                                         <div class="form-group">
                                             <label>NRP - Nama Mentor</label>
                                             <select name='nrpmentor' class="form-control"required>
-                                            <option> </option>
+                                            <option disabled> </option>
                                             <?php
                                                 foreach ($mentor->result() as $row)
                                                 {
@@ -65,7 +77,7 @@
                                         <div class="form-group">
                                             <label>NIP - Nama Dosen</label>
                                             <select name='nipdosen' class="form-control"required>
-                                            <option> </option>
+                                            <option disabled> </option>
                                             <?php
                                                 foreach ($dosen->result() as $row)
                                                 {

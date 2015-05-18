@@ -25,6 +25,7 @@
                                     <thead>
                                         <tr>
                                             <th>NRP</th>
+                                            <th>NRP Mentor</th>
                                             <th>Nama</th>
                                             <th>Jenis Kelamin</th>
                                             <th>Telepon</th>
@@ -37,15 +38,27 @@
                                     <tbody>
                                     <?php foreach($mente->result() as $row){
 
-                                        echo '<tr><td>'. $row->NRP_MENTE .'</td>
+                                        echo '<tr>
+                                            <td>'. $row->NRP_MENTE .'</td>
+                                            <td>'. $row->NRP_MENTOR .'</td>
                                             <td>'. $row->NAMA_DEPAN_MENTE." ". $row->NAMA_BELAKANG_MENTE.'</td>
                                             <td>'.$row->JK_MENTE.'</td>
                                             <td>'. $row->TELEPON_MENTE .'</td>
                                             <td>'. $row->NRP_MENTOR.'</td>
                                             <td>'. $row->NIP_DOSEN.'</td>
                                             <td>'. $row->NILAI_MENTE.'</td>
-                                            <td> <a href='. base_url()."index.php/mente/update/".$row->NRP_MENTE.' class="btn btn-primary"> Edit</a>
-                                            <a href='. base_url()."index.php/mente/hapus/".$row->NRP_MENTE.' class="btn btn-danger"> Hapus </a> </td></tr>';
+                                            <td>'; 
+                                            $status=$row->STATUS_MENTE;
+                                            if($status == "Aktif")
+                                            {
+                                                echo '<a href='. base_url()."index.php/mente/deactive/".$row->NRP_MENTE.' class="btn btn-success">Active</a>';
+                                            }
+                                             elseif($status == "Tidak Aktif")
+                                             {
+                                                 echo '<a href='. base_url()."index.php/mente/active/".$row->NRP_MENTE.' class="btn btn-success">Deactive</a>';
+                                             };
+                                               echo '<a href='. base_url()."index.php/mente/update/".$row->NRP_MENTE.' class="btn btn-warning"> Edit</a>
+                                            <a href='. base_url()."index.php/mente/hapus/".$row->NRP_MENTE.' class="btn btn-danger"> Hapus </a> </td></tr>';    
                                     }       
                                     ?>
                                     </tbody>
