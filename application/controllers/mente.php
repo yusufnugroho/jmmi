@@ -37,6 +37,14 @@ class Mente extends CI_Controller {
 		$this->load->view('mente/updateMente',$data);
                 $this->load->view('dashboard/footer');
 	}
+        public function updateNilai($nrp)
+        {
+                $data['mente'] = $this->m_mente->getData($nrp);
+                $this->load->view('dashboard/header');
+                $this->load->view('dashboard/navbar');
+		$this->load->view('mente/updateNilai',$data);
+                $this->load->view('dashboard/footer');
+        }
         public function active($nrp)
 	{
 		$this->m_mente->active($nrp);
@@ -76,5 +84,12 @@ class Mente extends CI_Controller {
 		$this->m_mente->update($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$hpmente,$jkmente);
 		$this->index();
 	}
+	public function updateNilaiReady($nrpmente)
+	{
+		$nilai = $this->input->post('nilai');
+           	$this->m_mente->updateNilai($nrpmente,$nilai);
+		$this->index();
+	}
+        
 }
 

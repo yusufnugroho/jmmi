@@ -16,6 +16,12 @@ class M_mente extends CI_Model {
 	{
 		$this->db->query("update mente set NRP_MENTOR = '$nrpmentor', NAMA_DEPAN_mente = '$depanmente', NAMA_BELAKANG_mente = '$belakangmente', TELEPON_mente = '$hpmente', JK_MENTE='$jkmente' where NRP_MENTE = '$nrpmente'");
 	}
+        public function updateNilai($nrp,$nilai)
+	{
+                echo $nilai;
+                echo $nrp;
+		$this->db->query("UPDATE `mente` SET `NILAI_MENTE`='$nilai' WHERE NRP_MENTE='$nrp'");
+	}
 	public function hapusMente($nrp)
 	{
 		$this->db->query("DELETE FROM `mente` WHERE nrp_mente =$nrp");

@@ -56,8 +56,10 @@
                                                  echo '<a href='. base_url()."index.php/mente/active/".$row->NRP_MENTE.' class="btn btn-success">Active</a>';
                                              };
                                              echo '<td>';
-                                               echo '<a href='. base_url()."index.php/mente/update/".$row->NRP_MENTE.' class="btn btn-warning"> Edit</a>
-                                            <a href='. base_url()."index.php/mente/hapus/".$row->NRP_MENTE.' class="btn btn-danger"> Hapus </a> </td></tr>';    
+                                             echo '
+                                                <a href='. base_url()."index.php/mente/updateNilai/".$row->NRP_MENTE.' class="btn btn-info"> Nilai</a>
+                                                <a href='. base_url()."index.php/mente/update/".$row->NRP_MENTE.' class="btn btn-warning"> Edit</a>
+                                                <a href='. base_url()."index.php/mente/hapus/".$row->NRP_MENTE.' class="btn btn-danger"> Hapus </a> </td></tr>';    
                                     }       
                                     ?>
                                     </tbody>
