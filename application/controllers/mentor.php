@@ -14,22 +14,35 @@ class Mentor extends CI_Controller {
 		$data['mentor'] = $this->m_mentor->getDataMentor();
 		$this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
-                $this->load->view('mentor/mentor',$data);
+                $this->load->view('mentor/indexMentor',$data);
                 $this->load->view('dashboard/footer');
 	}
 	public function addmentor()
 	{		
-		$data['kj'] = $this->m_kj->getData();
+                $data['mentor'] = $this->m_kj->getDataKJ();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
-		$this->load->view('mentor/add',$data);
+		$this->load->view('mentor/addMentor',$data);
                 $this->load->view('dashboard/footer');
 	}
 	public function update($NRP)
 	{
 		$data['all'] = $this->m_mentor->getData($NRP);
-		$data['kj'] = $this->m_kj->getData();
-		$this->load->view('mentor/update',$data);
+                $data['kj'] = $this->m_kj->getDataKJ();
+		$this->load->view('./dashboard/header');
+                $this->load->view('./dashboard/navbar');
+                $this->load->view('mentor/updateMentor',$data);
+                $this->load->view('./dashboard/footer');
+	}
+        public function active($nrp)
+	{
+		$this->m_mentor->active($nrp);
+		$this->index();
+	}
+        public function deactive($nrp)
+	{
+		$this->m_mentor->deactive($nrp);
+		$this->index();
 	}
 	public function Hapus($nrp)
 	{
@@ -38,6 +51,7 @@ class Mentor extends CI_Controller {
 	}
 	public function insertmentor()
 	{
+                
 		$nrpmentor = $this->input->post('nrpmentor');
 		$nrpkj = $this->input->post('nrpkj');
 		$depanmentor = $this->input->post('frontname');
@@ -53,10 +67,9 @@ class Mentor extends CI_Controller {
 		$depanmentor = $this->input->post('frontname');
 		$belakangmentor = $this->input->post('endname');
 		$hpmentor = $this->input->post('hpmentor');
-		$this->m_mentor->update($nrpmentor,$nrpkj,$depanmentor,$belakangmentor,$hpmentor);
+		$jkmentor = $this->input->post('jkmentor');
+                $nrpmentor = $nrpmentor;
+		$this->m_mentor->update($nrpmentor,$nrpkj,$depanmentor,$belakangmentor,$jkmentor,$hpmentor);
 		$this->index();
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

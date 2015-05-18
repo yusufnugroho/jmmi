@@ -15,7 +15,7 @@ class Mente extends CI_Controller {
 		$data['mente'] = $this->m_mente->getDataMente();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
-		$this->load->view('mente/mente',$data);
+		$this->load->view('mente/indexMente',$data);
                 $this->load->view('dashboard/footer');
 	}
 	public function addmente()
@@ -24,7 +24,7 @@ class Mente extends CI_Controller {
 		$data['dosen'] = $this->m_dosen->getDataDosen();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
-		$this->load->view('mente/add',$data);
+		$this->load->view('mente/addMente',$data);
                 $this->load->view('dashboard/footer');
         }
 	public function update($NRP)
@@ -34,7 +34,7 @@ class Mente extends CI_Controller {
 		$data['dosen'] = $this->m_dosen->getDataDosen();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
-		$this->load->view('mente/update',$data);
+		$this->load->view('mente/updateMente',$data);
                 $this->load->view('dashboard/footer');
 	}
 	public function Hapus($nrp)

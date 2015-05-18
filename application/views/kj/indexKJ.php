@@ -1,5 +1,5 @@
 <!--Header-->
-<!--Navbar-->
+
 
         <div id="page-wrapper">
             <div class="row">
@@ -13,10 +13,10 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            DataTables Advanced Tables
+                            Data Mente
                         </div>
                         <div class="col-md-6">
-	                        <a href="<?php echo base_url();?>index.php/mentor/addmentor" class="btn btn-danger">Add mentor</a>
+	                        <a href="<?php echo base_url();?>index.php/kj/addkj" class="btn btn-danger">Add KJ</a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -32,14 +32,14 @@
                                         </tr>   
                                     </thead>
                                     <tbody>
-                                    <?php foreach($mentor->result() as $row){
+                                    <?php foreach($kj->result() as $row)
+                                    {
 
-                                        echo '<tr><td>'. $row->NRP_MENTOR .'</td>
-                                            <td>'. $row->NAMA_DEPAN_MENTOR." ". $row->NAMA_BELAKANG_MENTOR.'</td>
-                                            <td>'. $row->jk_mentor .'
-                                            <td>'. $row->TELEPON_MENTOR .'</td>
-                                            <td> <a href='. base_url()."index.php/mentor/update/".$row->NRP_MENTOR.' class="btn btn-primary"> Edit</a>
-                                            <a href='. base_url()."index.php/mentor/hapus/".$row->NRP_MENTOR.' class="btn btn-danger"> Hapus </a> </td></tr>';
+                                        echo '<tr><td>'. $row->NRP_KJ .'</td>
+                                            <td>'. $row->NAMA_DEPAN_KJ." ". $row->NAMA_BELAKANG_KJ.'</td>
+                                            <td>'. $row->TELEPON_KJ .'</td>
+                                            <td> <a href='. base_url()."index.php/mente/update/".$row->NRP_KJ.' class="btn btn-primary"> Edit</a>
+                                            <a href='. base_url()."index.php/kj/hapus/".$row->NRP_KJ.' class="btn btn-danger"> Hapus </a> </td></tr>';
                                     }       
                                     ?>
                                     </tbody>
@@ -58,5 +58,4 @@
 
     </div>
     <!-- /#wrapper -->
-
 <!--Footer-->

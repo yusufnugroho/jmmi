@@ -1,28 +1,32 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class M_kj extends CI_Model {
-
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
 	public function __construct() {
 		parent::__construct();
 	}
-	public function getData()
+	public function getDataKJ()
 	{
-		return $this->db->query("select * from kj");
+		return $this->db->query("select * from KJ where STATUS_KJ='Aktif'");
+	}
+	public function insert($nrpkj,$depankj,$belakangkj,$telepon_kj)
+	{
+		$this->db->query("insert into mente values('$nrpkj','$depankj','$belakangkj','$telepon_kj','Aktif','$nrpkj')");
+	}
+	public function update($nrpkj,$depankj,$belakangkj,$hpkj,$status_kj)
+	{
+		$this->db->query("UPDATE `kj` SET `NRP_KJ`='$nrpkj',`NAMA_DEPAN_KJ`='$depankj',`NAMA_BELAKANG_KJ`='$belakangkj',`TELEPON_KJ`='$hpkj',`STATUS_KJ`='$status_kj' WHERE 1");
+	}
+	public function updateData($NRP)
+	{
+		
+	}
+	public function hapus($nrp)
+	{
+		$this->db->query("DELETE FROM `kj` WHERE NRP_KJ='$nrp'");
+	}
+	public function getData($nrp)
+	{
+		return $this->db->query("select * from kj where NRP_KJ='$nrp'");
 	}
 	public function select_where($tablename, $where)
 	{
