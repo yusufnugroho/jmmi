@@ -6,6 +6,10 @@ class M_dosen extends CI_Model {
 	}
 	public function getDataDosen()
 	{
+		return $this->db->query("select * from Dosen where 1");
+	}
+        public function getDataDosenActive()
+	{
 		return $this->db->query("select * from Dosen where STATUS_DOSEN='Aktif'");
 	}
 	public function insert($nipdosen,$nrpkj,$depanDosen,$belakangDosen,$jkDosen,$hpDosen)

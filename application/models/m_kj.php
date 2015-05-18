@@ -8,6 +8,10 @@ class M_kj extends CI_Model {
 	{
 		return $this->db->query("select * from KJ where 1");
 	}
+	public function getDataKJActive()
+	{
+		return $this->db->query("select * from KJ where STATUS_KJ='Aktif' ");
+	}        
 	public function insert($nrpkj,$depankj,$belakangkj,$jkkj,$telepon_kj)
 	{
 		$this->db->query("INSERT INTO `kj`(`NRP_KJ`, `NAMA_DEPAN_KJ`, `NAMA_BELAKANG_KJ`, `TELEPON_KJ`, `STATUS_KJ`, `PASSWORD_KJ`,`JK_KJ`) VALUES ('$nrpkj','$depankj','$belakangkj','$telepon_kj','Aktif','$nrpkj','$jkkj')");

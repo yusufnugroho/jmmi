@@ -19,7 +19,7 @@ class Mentor extends CI_Controller {
 	}
 	public function addmentor()
 	{		
-                $data['mentor'] = $this->m_kj->getDataKJ();
+                $data['kj'] = $this->m_kj->getDataKJActive();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
 		$this->load->view('mentor/addMentor',$data);
@@ -28,7 +28,7 @@ class Mentor extends CI_Controller {
 	public function update($NRP)
 	{
 		$data['all'] = $this->m_mentor->getData($NRP);
-                $data['kj'] = $this->m_kj->getDataKJ();
+                $data['kj'] = $this->m_kj->getDataKJActive();
 		$this->load->view('./dashboard/header');
                 $this->load->view('./dashboard/navbar');
                 $this->load->view('mentor/updateMentor',$data);

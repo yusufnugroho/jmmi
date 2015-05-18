@@ -42,11 +42,11 @@
                                             $status=$row->STATUS_KJ;
                                             if($status == "Aktif")
                                             {
-                                                echo '<a href='. base_url()."index.php/kj/deactive/".$row->NRP_KJ.' class="btn btn-success">Active</a>';
+                                                echo '<a href='. base_url()."index.php/kj/deactive/".$row->NRP_KJ.' class="btn btn-success">Deactive</a>';
                                             }
                                              elseif($status == "Tidak Aktif")
                                              {
-                                                 echo '<a href='. base_url()."index.php/kj/active/".$row->NRP_KJ.' class="btn btn-success">Deactive</a>';
+                                                 echo '<a href='. base_url()."index.php/kj/active/".$row->NRP_KJ.' class="btn btn-success">Active</a>';
                                              };echo '</ td>';
                                              
                                             echo '<td> <a href='. base_url()."index.php/kj/update/".$row->NRP_KJ.' class="btn btn-primary"> Edit</a>

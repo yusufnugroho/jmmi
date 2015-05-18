@@ -62,7 +62,7 @@
                                             <select name='nrpkj' class="form-control"required>
                                             <option> </option>
                                             <?php
-                                                foreach ($mentor->result() as $row)
+                                                foreach ($kj->result() as $row)
                                                 {
                                                     echo '<option value='.$row->NRP_KJ.'>';
                                                     echo $row->NRP_KJ." ";

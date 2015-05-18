@@ -20,7 +20,7 @@ class Mente extends CI_Controller {
 	}
 	public function addmente()
 	{		
-		$data['mentor'] = $this->m_mentor->getDataMentor();
+		$data['mentor'] = $this->m_mentor->getDataMentorActive();
 		$data['dosen'] = $this->m_dosen->getDataDosen();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
@@ -30,8 +30,8 @@ class Mente extends CI_Controller {
 	public function update($NRP)
 	{
 		$data['all'] = $this->m_mente->getData($NRP);
-		$data['mentor'] = $this->m_mentor->getDataMentor();
-		$data['dosen'] = $this->m_dosen->getDataDosen();
+		$data['mentor'] = $this->m_mentor->getDataMentorActive();
+		$data['dosen'] = $this->m_dosen->getDataDosenActive();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
 		$this->load->view('mente/updateMente',$data);
