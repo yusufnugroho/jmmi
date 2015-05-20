@@ -46,7 +46,11 @@ class Mentor extends CI_Controller {
 	}
 	public function Hapus($nrp)
 	{
-		$this->m_mentor->hapusMentor($nrp);
+		$where = array(
+			'NRP_MENTOR' => $nrp, 
+		);
+		$this->m_mentor->hapusMentor('mentor', $where);
+		//$this->m_mentor->hapusMentor($nrp);
 		$this->index();
 	}
 	public function insertmentor()
