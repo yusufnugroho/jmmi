@@ -30,19 +30,18 @@ class Kj extends CI_Controller {
         }
 	public function update($NRP)
 	{
-
-                $data['kj'] = $this->m_kj->getData($NRP);
-                $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
+        $data['kj'] = $this->m_kj->getData($NRP);
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar');
 		$this->load->view('kj/updateKJ',$data);
-                $this->load->view('dashboard/footer');
+        $this->load->view('dashboard/footer');
 	}
-        public function active($nrp)
+	public function active($nrp)
 	{
 		$this->m_kj->active($nrp);
 		$this->index();
 	}
-        public function deactive($nrp)
+	public function deactive($nrp)
 	{
 		$this->m_kj->deactive($nrp);
 		$this->index();
@@ -65,12 +64,15 @@ class Kj extends CI_Controller {
 	}
 	public function updatekj($nrpkj)
 	{
-		$nrpkj = $this->input->post('nrpkj');
-		$depankj = $this->input->post('frontname');
-		$belakangkj = $this->input->post('endname');
-		$hpkj = $this->input->post('hpkj');
-                $jkkj = $this->input->post('jkkj');
-		$this->m_kj->update($nrpkj,$depanmente,$belakangmente,$hpkj,$jkkj);
+		$update_where = array('NRP_KJ' => $nrpkj);
+		$update_data = array(
+			'NRP_KJ'=>$nrpkj,
+			'NAMA_DEPAN_KJ' => $this->input->post('frontname'),
+			'NAMA_BELAKANG_KJ' => $this->input->post('endname'),
+			'TELEPON_KJ' => $this->input->post('hpkj'),
+			'JK_KJ' => $this->input->post('jkkj'),
+			);
+		$this->m_kj->update('kj', $update_where, $update_data);
 		$this->index();
 	}
 }
