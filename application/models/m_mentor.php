@@ -25,9 +25,11 @@ class M_mentor extends CI_Model {
 	{
 		
 	}
-	public function hapusMentor($nrp)
+	public function hapusMentor($table, $nrp)
 	{
-		$this->db->query("DELETE FROM `mentor` WHERE nrp_mentor =$nrp");
+		$this->db->where($nrp);
+		$this->db->delete($table);
+		//$this->db->query("DELETE FROM `mentor` WHERE `NRP_MENTOR` =`$nrp`");
 	}
         public function active($nrp)
 	{

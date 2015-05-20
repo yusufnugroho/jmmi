@@ -40,11 +40,11 @@
                                             $status=$row->STATUS_DOSEN;
                                             if($status == "Aktif")
                                             {
-                                                echo '<a href='. base_url()."index.php/dosen/deactive/".$row->NIP_DOSEN.' class="btn btn-success">Deactive</a>';
+                                                echo '<a href='. base_url()."index.php/dosen/deactive/".$row->NIP_DOSEN.' class="btn btn-success">Activated</a>';
                                             }
                                              elseif($status == "Tidak Aktif")
                                              {
-                                                 echo '<a href='. base_url()."index.php/dosen/active/".$row->NIP_DOSEN.' class="btn btn-success">Active</a>';
+                                                 echo '<a href='. base_url()."index.php/dosen/active/".$row->NIP_DOSEN.' class="btn btn-danger">Deactivated</a>';
                                              };echo '</ td>';
                                              
                                             echo '<td> <a href='. base_url()."index.php/dosen/update/".$row->NIP_DOSEN.' class="btn btn-primary"> Edit</a>

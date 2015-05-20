@@ -16,9 +16,11 @@ class M_kj extends CI_Model {
 	{
 		$this->db->query("INSERT INTO `kj`(`NRP_KJ`, `NAMA_DEPAN_KJ`, `NAMA_BELAKANG_KJ`, `TELEPON_KJ`, `STATUS_KJ`, `PASSWORD_KJ`,`JK_KJ`) VALUES ('$nrpkj','$depankj','$belakangkj','$telepon_kj','Aktif','$nrpkj','$jkkj')");
 	}
-	public function update($nrpkj,$depanmente,$belakangmente,$hpkj,$jkkj)
+	public function update($table, $where, $data)
 	{
-		$this->db->query("UPDATE `kj` SET `NRP_KJ`='$nrpkj',`NAMA_DEPAN_KJ`='$depankj',`NAMA_BELAKANG_KJ`='$belakangkj',`TELEPON_KJ`='$hpkj', `JK_KJ`='$jkkj' WHERE 1");
+		$this->db->where($where);
+		$this->db->update($table, $data);
+		//$this->db->query("UPDATE `kj` SET `NRP_KJ`='$nrpkj',`NAMA_DEPAN_KJ`='$depankj',`NAMA_BELAKANG_KJ`='$belakangkj',`TELEPON_KJ`='$hpkj', `JK_KJ`='$jkkj' WHERE 1");
 	}
 	public function hapus($nrp)
 	{

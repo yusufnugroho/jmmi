@@ -36,4 +36,9 @@ class M_dosen extends CI_Model {
 	{
 		$this->db->query("update dosen set STATUS_DOSEN ='Tidak Aktif' where NIP_DOSEN='$nip'");
 	}
+	public function select_where($tablename, $where)
+	{
+		$data = $this->db->get_where($tablename, $where);
+		return $data->result_array();
+	}
 }

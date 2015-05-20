@@ -49,11 +49,11 @@
                                             $status=$row->STATUS_MENTE;
                                             if($status == "Aktif")
                                             {
-                                                echo '<a href='. base_url()."index.php/mente/deactive/".$row->NRP_MENTE.' class="btn btn-success">Deactive</a>';
+                                                echo '<a href='. base_url()."index.php/mente/deactive/".$row->NRP_MENTE.' class="btn btn-success">Activated</a>';
                                             }
                                              elseif($status == "Tidak Aktif")
                                              {
-                                                 echo '<a href='. base_url()."index.php/mente/active/".$row->NRP_MENTE.' class="btn btn-success">Active</a>';
+                                                 echo '<a href='. base_url()."index.php/mente/active/".$row->NRP_MENTE.' class="btn btn-danger">Deactivated</a>';
                                              };
                                              echo '<td>';
                                              echo '
