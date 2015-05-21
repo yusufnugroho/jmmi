@@ -14,7 +14,9 @@
 <link href="<?php echo base_url();?>assets/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/dist/css/sb-admin-2.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script src="<?php echo base_url();?>assets/ckeditor/ckeditor.js"></script>
 </head>
+
 <body>
     <div id="wrapper">
 

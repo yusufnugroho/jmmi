@@ -29,8 +29,22 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="<?php echo base_url();?>index.php/dashboard/""><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="<?php echo base_url();?>index.php/dashboard/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
+                        <!--Artikel-->
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Artikel<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url();?>index.php/artikel/buatartikel">Buat Artikel</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>index.php/artikel/">Daftar Artikel</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!--Mentor-->
                         <!--Mente-->
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Mente<span class="fa arrow"></span></a>
