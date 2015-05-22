@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Buat Artikel
+                    <h1 class="page-header">Buat Materi
                     
                     </h1>
                 </div>
@@ -21,7 +21,7 @@
                         <form role="form" action="create" method="POST">
                             <div class="form-group">
                                 <label></label>
-                                <input class="form-control" name="title" placeholder="Judul Artikel">
+                                <input class="form-control" name="title" placeholder="Judul materi">
                                 
                             </div>
                                 <label></label>

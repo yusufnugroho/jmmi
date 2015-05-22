@@ -39,12 +39,26 @@
                                     <a href="<?php echo base_url();?>index.php/artikel/buatartikel">Buat Artikel</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/artikel/">Daftar Artikel</a>
+                                    <a href="<?php echo base_url();?>index.php/artikel">Daftar Artikel</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <!--Mentor-->
+                        <!--Artikel-->
+                        <!--Materi-->
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Materi<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url();?>index.php/materi/buatmateri">Buat Materi</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>index.php/materi">Daftar Materi</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!--Materi-->
                         <!--Mente-->
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Mente<span class="fa arrow"></span></a>
