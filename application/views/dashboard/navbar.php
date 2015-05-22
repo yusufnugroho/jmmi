@@ -59,6 +59,20 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <!--Materi-->
+                        <!--Agenda-->
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Agenda<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url();?>index.php/agenda/addagenda">Tambah Agenda</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>index.php/agenda">Daftar Agenda</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!--Agenda-->
                         <!--Mente-->
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Mente<span class="fa arrow"></span></a>
