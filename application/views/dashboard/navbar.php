@@ -55,6 +55,9 @@
                                 <li>
                                     <a href="<?php echo base_url();?>index.php/materi">Daftar Materi</a>
                                 </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>index.php/materi/unggahmateri">Unggah Materi</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

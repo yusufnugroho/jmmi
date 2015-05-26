@@ -5,21 +5,33 @@ class m_materi extends CI_Model {
 		parent::__construct();
 		
 	}
-	public function insert($tablename, $where)
+	public function insert($tablename, $data)
 	{
-		return $this->db->insert($tablename, $where);
+		return $this->db->insert($tablename, $data);
 	}
 	public function gettable($tablename)
 	{
 		return $this->db->query("SELECT * FROM $tablename")->result_array();
 	}
+
 	public function select_where($tablename, $where)
 	{
 		$data = $this->db->get_where($tablename, $where);
 		return $data->result_array();
 	}
+	public function insertFile($data)
+	{
+		return $this->db->insert('file', $data);
+	}
 	public function getID($tablename)
 	{
 		return $this->db->query("select * from $tablename where 1 ORDER BY ID_MATERI DESC LIMIT 1")->result_array();
+	}
+	public function getTag()
+	{
+		$this->db->from('tag_materi');
+		$this->db->order_by("tag", "asc");
+		$query = $this->db->get(); 
+		return $query->result_array();
 	}
 }
