@@ -18,22 +18,20 @@ class M_mente extends CI_Model {
 	}
         public function updateNilai($nrp,$nilai)
 	{
-                echo $nilai;
-                echo $nrp;
 		$this->db->query("UPDATE `mente` SET `NILAI_MENTE`='$nilai' WHERE NRP_MENTE='$nrp'");
 	}
 	public function hapusMente($nrp)
 	{
 		$this->db->query("DELETE FROM `mente` WHERE nrp_mente =$nrp");
 	}
-	public function getData($nrp)
-	{
-		return $this->db->query("select * from mente where NRP_MENTE='$nrp'");
-	}
-	public function select_where($tablename, $where)
+        public function select_where($tablename, $where)
 	{
 		$data = $this->db->get_where($tablename, $where);
 		return $data->result_array();
+	}
+	public function getData($nrp)
+	{
+		return $this->db->query("select * from mente where NRP_MENTE='$nrp'");
 	}
         public function active($nrp)
 	{

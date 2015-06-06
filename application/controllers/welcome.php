@@ -2,21 +2,6 @@
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
         public function __construct() {
 		parent::__construct();
                 $this->load->model('m_mentor');
@@ -27,20 +12,25 @@ class Welcome extends CI_Controller {
 	{
 		$session_check = $this->session->userdata('akses');
 		if (!empty($session_check)){
-			if ($session_check == 'dosen')
-                        {
+			if ($session_check == 'dosen'){
+				redirect('dashboard');
 				echo "LOGIN BERHASIL : DOSEN";
+
 			}
 			elseif ($session_check == 'kj') {
 				echo "LOGIN BERHASIL : KJ";
+				redirect('dashboard');
 			}
 			elseif ($session_check == 'mente') {
 				echo "LOGIN BERHASIL : MENTE";
+				redirect('dashboard');
 			}
 			elseif ($session_check == 'mentor') {
 				echo "LOGIN BERHASIL : MENTOR";
+				redirect('dashboard');
 			}
 			echo "<br><a href='".base_url()."index.php/welcome/logout'>LOGOUT</a>";
+			echo $this->session->userdata('id');
 		}
 		else {
 			$this->load->view('login');
@@ -101,12 +91,13 @@ class Welcome extends CI_Controller {
 					'PASS_MENTE'=> $password,
 				);
 				$result_mente = $this->m_mente->select_where('mente', $login_mente);
+				
 				if (!empty($result_mente)){
 					$session_data = array(
 					'akses'=>"mente",
-					'id'=>$result_kj[0]['NRP_MENTE'],
-					'nama_depan'=>$result_kj[0]['NAMA_DEPAN_MENTE'],
-					'nama_belakang'=>$result_kj[0]['NAMA_BELAKANG_MENTE'],
+					'id'=>$result_mente[0]['NRP_MENTE'],
+					'nama_depan'=>$result_mente[0]['NAMA_DEPAN_MENTE'],
+					'nama_belakang'=>$result_mente[0]['NAMA_BELAKANG_MENTE'],
 					);
 				$this->session->set_userdata($session_data);
 				$session_id = $this->session->userdata('session_id');
@@ -122,9 +113,9 @@ class Welcome extends CI_Controller {
 					if (!empty($result_mentor)){
 						$session_data = array(
 							'akses'=>"kj",
-							'id'=>$result_kj[0]['NRP_MENTOR'],
-							'nama_depan'=>$result_kj[0]['NAMA_DEPAN_MENTOR'],
-							'nama_belakang'=>$result_kj[0]['NAMA_BELAKANG_MENTOR'],
+							'id'=>$result_mentor[0]['NRP_MENTOR'],
+							'nama_depan'=>$result_mentor[0]['NAMA_DEPAN_MENTOR'],
+							'nama_belakang'=>$result_mentor[0]['NAMA_BELAKANG_MENTOR'],
 							);
 						$this->session->set_userdata($session_data);
 						$session_id = $this->session->userdata('session_id');
@@ -142,8 +133,6 @@ class Welcome extends CI_Controller {
 	{
 		$this->session->sess_destroy();
 		$this->session->set_flashdata('keterangan', 'telah logout');
-		//echo $this->session->flashdata('keterangan');
-		//echo $flash;
 		redirect('welcome');
 	}
 }
