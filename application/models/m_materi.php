@@ -17,7 +17,7 @@ class m_materi extends CI_Model {
 	public function select_where($tablename, $where)
 	{
 		$data = $this->db->get_where($tablename, $where);
-		return $data->result_array();
+		return $data;
 	}
 	public function insertFile($data)
 	{
@@ -33,5 +33,9 @@ class m_materi extends CI_Model {
 		$this->db->order_by("tag", "asc");
 		$query = $this->db->get(); 
 		return $query->result_array();
+	}
+	public function delete($where, $id)
+	{
+		$this->db->delete($where, $id); 
 	}
 }

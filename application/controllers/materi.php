@@ -104,6 +104,23 @@ class Materi extends CI_Controller {
 		$this->load->view('materi/buatmateri', $data);
 		$this->load->view('dashboard/footer');
 	}
+	public function showMateri($id)
+	{
+		$this->load->model("m_materi");
+		$where = array('ID' => $id);
+		$data['file'] = $this->m_materi->select_where('file',$where);
+        $this->load->view('dashboard/header');
+		$this->load->view('dashboard/navbar');
+		$this->load->view('materi/lihat', $data);
+		$this->load->view('dashboard/footer');
+	}
+	public function hapus($id)
+	{
+		$this->load->model("m_materi");
+		$where = array('ID' => $id);
+		$data['file'] = $this->m_materi->delete('file',$where);
+		$this->index();
+	}
 }
 
 /* End of file welcome.php */

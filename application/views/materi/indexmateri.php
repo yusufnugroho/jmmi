@@ -59,9 +59,8 @@
                                             <td> <?php echo $row['PENULIS_MATERI'];?></td>
                                             <td> <?php echo $row['TAG'];?></td>
                                             <td>
-                                                <a href="#" class="btn btn-info" value="Lihat">Lihat</a>
-                                                <a href="#" class="btn btn-warning" value="Ubah">Ubah</a> 
-                                                <a href="#" class="btn btn-danger" value="Hapus">Hapus</a>
+                                                <a href="<?php echo base_url();?>index.php/materi/showMateri/<?php echo $row['ID'];?>" class="btn btn-info" value="Lihat">Lihat</a>
+                                                <a href="<?php echo base_url();?>index.php/materi/hapus/<?php echo $row['ID'];?>" class="btn btn-danger" value="Hapus">Hapus</a>
                                             </td>   
                                         </tr>
                                     <?php
