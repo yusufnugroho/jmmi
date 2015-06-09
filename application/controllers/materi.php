@@ -90,7 +90,7 @@ class Materi extends CI_Controller {
 	{
 		$this->load->model('m_materi');
 		$data['tag'] = $this->m_materi->getTag('tag_materi');
-        $this->load->view('dashboard/header');
+                $this->load->view('dashboard/header');
 		$this->load->view('dashboard/navbar');
 		$this->load->view('materi/unggahmateri', $data);
 		$this->load->view('dashboard/footer');
