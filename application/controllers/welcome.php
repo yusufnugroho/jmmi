@@ -4,7 +4,7 @@ class Welcome extends CI_Controller {
 
         public function __construct() {
 		parent::__construct();
-                $this->load->model('m_mentor');
+        $this->load->model('m_mentor');
 		$this->load->model('m_mente');
 		$this->load->model('m_dosen');
 	}

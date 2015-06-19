@@ -13,9 +13,9 @@ class Mentor extends CI_Controller {
 	{
 		$data['mentor'] = $this->m_mentor->getDataMentor();
 		$this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
-                $this->load->view('mentor/indexMentor',$data);
-                $this->load->view('dashboard/footer');
+        $this->load->view('dashboard/navbar');
+        $this->load->view('mentor/indexMentor',$data);
+        $this->load->view('dashboard/footer');
 	}
 	public function addmentor()
 	{		
@@ -28,11 +28,11 @@ class Mentor extends CI_Controller {
 	public function update($NRP)
 	{
 		$data['all'] = $this->m_mentor->getData($NRP);
-                $data['kj'] = $this->m_kj->getDataKJActive();
+        $data['kj'] = $this->m_kj->getDataKJActive();
 		$this->load->view('./dashboard/header');
-                $this->load->view('./dashboard/navbar');
-                $this->load->view('mentor/updateMentor',$data);
-                $this->load->view('./dashboard/footer');
+        $this->load->view('./dashboard/navbar');
+        $this->load->view('mentor/updateMentor',$data);
+        $this->load->view('./dashboard/footer');
 	}
         public function active($nrp)
 	{
@@ -54,8 +54,7 @@ class Mentor extends CI_Controller {
 		$this->index();
 	}
 	public function insertmentor()
-	{
-                
+	{    
 		$nrpmentor = $this->input->post('nrpmentor');
 		$nrpkj = $this->input->post('nrpkj');
 		$depanmentor = $this->input->post('frontname');
@@ -72,7 +71,7 @@ class Mentor extends CI_Controller {
 		$belakangmentor = $this->input->post('endname');
 		$hpmentor = $this->input->post('hpmentor');
 		$jkmentor = $this->input->post('jkmentor');
-                $nrpmentor = $nrpmentor;
+        $nrpmentor = $nrpmentor;
 		$this->m_mentor->update($nrpmentor,$nrpkj,$depanmentor,$belakangmentor,$jkmentor,$hpmentor);
 		$this->index();
 	}
