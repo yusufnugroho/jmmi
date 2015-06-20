@@ -39,7 +39,7 @@ Class Mentor1516 eXtends CI_Controller{
 			'komitmen' => $this->input->post('komitmen')
 		);
 		$this->m_apply->insert('apply_mentor', $data);
-        $this->load->view('applymentor/formDaftarMentor');
+                $this->load->view('applymentor/formDaftarMentor');
 	}
 
 	public function applicant()
@@ -47,7 +47,10 @@ Class Mentor1516 eXtends CI_Controller{
 		# code...
 		$this->load->model('m_apply');
 		$data['applicant'] = $this->m_apply->getall('apply_mentor');
+               // $this->load->view('dashboard/header');
+                $this->load->view('dashboard/navbar'); 
 		$this->load->view('applymentor/list',$data);
+                //$this->load->view('dashboard/footer');
 	}
 }
 ?>

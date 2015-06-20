@@ -11,7 +11,7 @@ class Materi extends CI_Controller {
 		$this->load->model("m_materi");
 		$data['materi'] = $this->m_materi->gettable('materi');
 		$data['file'] = $this->m_materi->gettable('file');
-        $this->load->view('dashboard/header');
+                $this->load->view('dashboard/header');
 		$this->load->view('dashboard/navbar');
 		$this->load->view('materi/indexmateri',$data);
 		$this->load->view('dashboard/footer');

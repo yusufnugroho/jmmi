@@ -40,21 +40,21 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-8 col-md-offset-1">
-                                    <form role="form" action='<?php echo base_url();?>index.php/mentor1516/doapply' method='post'>
+                                    <form role="form" action='<?php echo base_url();?>/mentor1516/doapply' method='post'>
                                     <div class="panel-heading">
                                         <h3> <strong> Data Diri </strong> </h3>
                                     </div>
                                         <div class="form-group">
                                             <label>NRP</label>
-                                            <input type='text' name='nrp'class="form-control">
+                                            <input type='text' name='nrp'class="form-control" required>
                                         </div>       
                                         <div class="form-group">
                                             <label>Nama Depan</label>
-                                            <input type='text' name='nama_depan'class="form-control">
+                                            <input type='text' name='nama_depan'class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Belakang</label>
-                                            <input type='text' name='nama_belakang'class="form-control">
+                                            <input type='text' name='nama_belakang'class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Jenis Kelamin</label>
@@ -70,16 +70,17 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type='email' name='email'class="form-control">
+                                            <input type='email' name='email'class="form-control" required>
                                         </div> 
                                         <div class="form-group">
                                             <label>No Telepon</label>
-                                            <input type='text' name='hp'class="form-control">
+                                            <input type='text' name='hp'class="form-control" required>
                                         </div> 
                                         <div class="form-group">
                                             <label>IPK</label>&nbsp &nbsp<snall>(dipisahkan dengan tanda titik)</snall>
-                                            <input type='number'step="any" name='ipk'class="form-control">
+                                            <input type='number'step="any" name='ipk'class="form-control" required>
                                         </div> 
+                                        /* Prestasi isnot required*/
                                         <div class="form-group">
                                             <label>Prestasi</label>
                                             <input type='textarea' name='prestasi'class="form-control">
@@ -89,7 +90,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Mentor Saat Ini</label>
-                                            <input type='text' name='mentor_sekarang'class="form-control">
+                                            <input type='text' name='mentor_sekarang'class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Kondisi Mentoring</label>
@@ -103,27 +104,27 @@
                                         </div>    
                                         <div class="form-group">
                                             <label>Shalat Wajib Berjamaah di Awal Waktu</label>
-                                            <input type='number' name='wajib'class="form-control col-md-1">
+                                            <input type='number' name='wajib'class="form-control col-md-1" required>
                                         </div> 
                                         <div class="form-group">
                                             <label>Tilawatil Quran</label>
-                                            <input type='number' name='tilawatil'class="form-control col-md-1">
+                                            <input type='number' name='tilawatil'class="form-control col-md-1" required>
                                         </div> 
                                         <div class="form-group">
                                             <label>Wirid Alma'tsurat</label>
-                                            <input type='number' name='wirid'class="form-control col-md-1">
+                                            <input type='number' name='wirid'class="form-control col-md-1" required>
                                         </div> 
                                         <div class="form-group">
                                             <label>Shalat Dhuha</label>
-                                            <input type='number' name='dhuha'class="form-control col-md-1">
+                                            <input type='number' name='dhuha'class="form-control col-md-1" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Shalat Malam</label>
-                                            <input type='number' name='malam'class="form-control col-md-1">
+                                            <input type='number' name='malam'class="form-control col-md-1" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Bacaan Favorit</label>
-                                            <textarea style="height:90px"class="form-control col-lg-12" name='bacaan'></textarea>
+                                            <textarea style="height:90px"class="form-control col-lg-12" name='bacaan' required></textarea>
                                         </div>
                                         <br>
                                         <br>
@@ -135,11 +136,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Motivasi Menjadi Mentor</label>
-                                            <textarea style="height:90px"class="form-control col-lg-12"name='motivasi'></textarea>
+                                            <textarea style="height:90px"class="form-control col-lg-12"name='motivasi' required></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Saran Untuk Pelaksanaan Mentoring Wajib atau Badan Pelaksana Mentoring</label>
-                                            <textarea style="height:90px"class="form-control col-lg-12"name='saran'></textarea>
+                                            <textarea style="height:90px"class="form-control col-lg-12"name='saran' required></textarea>
                                         </div>
                                         <br>
                                         <br>
@@ -154,7 +155,10 @@
                                             Komitmen Saya (ditulis ulang) *</label>
                                             <label>
 “Saya menyatakan bahwa data yang telah saya isi di atas adalah benar dan dapat dipertanggung jawabkan, dan saya berkomitmen akan mengikuti segala bentuk pembinaan dari BPM JMMI ITS jika diterima menjadi mentor, serta siap menerima sangsi jika melanggar aturan yang telah dibuat.”</label>
-                                            <textarea style="height:90px"class="col-lg-12"name='komitmen'></textarea>
+                                            <textarea style="height:90px"class="col-lg-12"name='komitmen' required></textarea>
+                                            <!--
+                                                Perlu ada pengecekan Komitmen. Apakah sudah sama atau belum.
+                                            -->
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-default">Submit Button</button>
