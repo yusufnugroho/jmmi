@@ -130,7 +130,7 @@ $assets_location = base_url()."assets/basica/";
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Login</h4>
         </div>
-        <form action="<?php echo $assets_location;?>/home/login" method="POST">
+        <form action="<?php echo $assets_location;?>/welcome/login" method="POST">
         <div class="modal-body">
             <div class="row">
                 <div class="col-md-4">
