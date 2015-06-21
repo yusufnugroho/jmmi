@@ -129,13 +129,13 @@ class Welcome extends CI_Controller {
 			}
 		}
 	}
-	public function logout()
-	{
-		$this->session->sess_destroy();
-		$this->session->set_flashdata('keterangan', 'telah logout');
-		redirect('welcome');
-	}
-}
+            public function logout()
+            {
+                    $this->session->sess_destroy();
+                    $this->session->set_flashdata('keterangan', 'telah logout');
+                    redirect('welcome');
+            }
+    }
 
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

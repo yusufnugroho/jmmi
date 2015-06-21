@@ -41,6 +41,9 @@
                                 <li>
                                     <a href="<?php echo base_url();?>index.php/artikel">Daftar Artikel</a>
                                 </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>artikel/testArtikel">Test Artikel</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

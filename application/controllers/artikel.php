@@ -50,11 +50,20 @@ class artikel extends CI_Controller {
 	function buatartikel()
 	{
 		$this->load->model('m_artikel');
-        $this->load->view('dashboard/header');
+                $this->load->view('dashboard/header');
 		$this->load->view('dashboard/navbar');
 		$this->load->view('artikel/buatartikel');
 		$this->load->view('dashboard/footer');
 	}
+        function testArtikel()
+	{
+		$this->load->model('m_artikel');
+                $this->load->view('dashboard/header');
+		$this->load->view('dashboard/navbar');
+		$this->load->view('artikel/testArtikel');
+		$this->load->view('dashboard/footer');
+	}
+        //&lt;p&gt;MU&lt;/p&gt;
 }
 
 /* End of file welcome.php */
