@@ -13,6 +13,12 @@ class Dosen extends CI_Controller {
 
 	public function index()
 	{
+                 /*
+                 * Check Session*/ 
+                $session_check = $this->session->userdata('akses');
+		echo $session_check;
+		if (empty($session_check)) redirect('welcome/logout');
+                
 		$data['dosen'] = $this->m_dosen->getDataDosen();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');

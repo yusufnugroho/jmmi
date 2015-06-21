@@ -14,6 +14,13 @@
 <link href="<?php echo base_url();?>assets/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/dist/css/sb-admin-2.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--Additional Jquery Library for form validation-->
+
+<script src="<?php echo base_url();?>assets/js/additional-methods.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/jquery.validate.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/jquery-1.11.1.min"></script>
+
+<!--CK-EDITOR JS-->
 <script src="<?php echo base_url();?>assets/ckeditor/ckeditor.js"></script>
 </head>
 

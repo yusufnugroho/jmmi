@@ -29,20 +29,17 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="<?php echo base_url();?>index.php/dashboard/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="<?php echo base_url();?>dashboard/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <!--Artikel-->
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Artikel<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/artikel/buatartikel">Buat Artikel</a>
+                                    <a href="<?php echo base_url();?>artikel/buatartikel">Buat Artikel</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/artikel">Daftar Artikel</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url();?>artikel/testArtikel">Test Artikel</a>
+                                    <a href="<?php echo base_url();?>artikel">Daftar Artikel</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -53,13 +50,13 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Materi<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/materi/buatmateri">Buat Materi</a>
+                                    <a href="<?php echo base_url();?>materi/buatmateri">Buat Materi</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/materi">Daftar Materi</a>
+                                    <a href="<?php echo base_url();?>materi">Daftar Materi</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/materi/unggahmateri">Unggah Materi</a>
+                                    <a href="<?php echo base_url();?>materi/unggahmateri">Unggah Materi</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -70,10 +67,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Agenda<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/agenda/addagenda">Tambah Agenda</a>
+                                    <a href="<?php echo base_url();?>agenda/addagenda">Tambah Agenda</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/agenda">Daftar Agenda</a>
+                                    <a href="<?php echo base_url();?>agenda">Daftar Agenda</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -84,10 +81,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Mente<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/mente/">Daftar Mente</a>
+                                    <a href="<?php echo base_url();?>mente/">Daftar Mente</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/mente/addmente">Tambah Mente</a>
+                                    <a href="<?php echo base_url();?>mente/addmente">Tambah Mente</a>
                                 </li>
 
 
@@ -99,10 +96,16 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Mentor<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/mentor/">Daftar Mentor</a>
+                                    <a href="<?php echo base_url();?>mentor/">Daftar Mentor</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/mentor/addmentor">Tambah Mentor</a>
+                                    <a href="<?php echo base_url();?>mentor/addmentor">Tambah Mentor</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>mentor1516/">Sipenmaru Mentor</a>
+                                </li>
+                                 <li>
+                                    <a href="<?php echo base_url();?>mentor1516/applicant">Daftar Sipenmaru Mentor</a>
                                 </li>
                             </ul>
                         </li>
@@ -111,10 +114,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Koordinator Jurusan<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/kj/">Daftar Koordinator Jurusan</a>
+                                    <a href="<?php echo base_url();?>kj/">Daftar Koordinator Jurusan</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/kj/addkj">Tambah Koordinator Jurusan</a>
+                                    <a href="<?php echo base_url();?>kj/addkj">Tambah Koordinator Jurusan</a>
                                 </li>
                             </ul>
                         </li>
@@ -123,10 +126,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Dosen<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/dosen/">Daftar Dosen</a>
+                                    <a href="<?php echo base_url();?>dosen/">Daftar Dosen</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>index.php/dosen/addDosen">Tambah Dosen</a>
+                                    <a href="<?php echo base_url();?>dosen/addDosen">Tambah Dosen</a>
                                 </li>
                             </ul>
                         </li>

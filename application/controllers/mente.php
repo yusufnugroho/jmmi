@@ -12,6 +12,12 @@ class Mente extends CI_Controller {
 
 	public function index()
 	{
+                /*
+                 * Check Session*/ 
+                $session_check = $this->session->userdata('akses');
+		echo $session_check;
+		if (empty($session_check)) redirect('welcome/logout');
+                
 		$data['mente'] = $this->m_mente->getDataMente();
                 $this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');

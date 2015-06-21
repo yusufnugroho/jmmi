@@ -13,14 +13,20 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-		$session_check = $this->session->userdata('akses');
+		/*
+                 * Check Session*/ 
+                $session_check = $this->session->userdata('akses');
 		echo $session_check;
 		if (empty($session_check)) redirect('welcome/logout');
+                
 
 		$this->load->view('dashboard/header');
                 $this->load->view('dashboard/navbar');
 		$this->load->view('dashboard/footer');
 	}
+        public function logout() {
+            redirect('welcome/logout');
+        }
 
 }
 
