@@ -7,7 +7,7 @@ class Welcome extends CI_Controller {
         $this->load->model('m_mentor');
 		$this->load->model('m_mente');
 		$this->load->model('m_dosen');
-                $this->load->model('m_apply');
+		$this->load->model('m_apply');
 	}
 	public function index()
 	{
@@ -40,7 +40,8 @@ class Welcome extends CI_Controller {
 			echo $this->session->userdata('id');
 		}
 		else {
-			$this->load->view('login');
+			redirect('pages/beranda');
+			//$this->load->view('login');
 		}
 	}
 	public function req_login()
