@@ -16,7 +16,6 @@ class Dosen extends CI_Controller {
                  /*
                  * Check Session*/ 
                 $session_check = $this->session->userdata('akses');
-		echo $session_check;
 		if (empty($session_check)) redirect('welcome/logout');
                 
 		$data['dosen'] = $this->m_dosen->getDataDosen();

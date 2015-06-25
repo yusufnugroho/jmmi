@@ -10,14 +10,13 @@ class Materi extends CI_Controller {
 	{
                 /*
                  * Check Session*/ 
-                $session_check = $this->session->userdata('akses');
-		echo $session_check;
+		$session_check = $this->session->userdata('akses');
 		if (empty($session_check)) redirect('welcome/logout');
                 
 		$this->load->model("m_materi");
 		$data['materi'] = $this->m_materi->gettable('materi');
 		$data['file'] = $this->m_materi->gettable('file');
-                $this->load->view('dashboard/header');
+        $this->load->view('dashboard/header');
 		$this->load->view('dashboard/navbar');
 		$this->load->view('materi/indexmateri',$data);
 		$this->load->view('dashboard/footer');
@@ -25,13 +24,20 @@ class Materi extends CI_Controller {
 
 	function create()
 	{
+		$target_Path = NULL;
+		print_r($_FILES);
+		if ($_FILES['userFile']['name'] != NULL)
+		{
+			$target_Path = "File/";
+			$string = basename( $_FILES['userFile']['name'] );
+			$string = str_replace(" ","-", $string);
+			$target_Path = $target_Path.$string;
+		}
 		$this->load->model("m_materi");
 		$get_materi_id = $this->m_materi->getID('materi');
 		$materi_id = 0;
 		foreach ($get_materi_id as $key) {
-			$materi_id = $key['ID_MATERI'];
-			echo $artikel_id;
-		}
+			$materi_id = $key['ID_MATERI'];		}
 		$materi_id++;
 		$judul_materi =$this->input->post('title');
 		$isi_materi = htmlspecialchars($this->input->post('articlebody'));
@@ -44,17 +50,27 @@ class Materi extends CI_Controller {
 			'ISI_MATERI' => $isi_materi,
 			'TANGGAL_MATERI' => $tanggal_materi,
 			'PENULIS_MATERI' => $penulis_materi,
-			'TAG_MATERI' => $tag_materi
+			'TAG_MATERI' => $tag_materi,
+			'THUMBNAIL_MATERI' => $target_Path,
 		);
-		$res=$this->m_materi->insert('materi',$data_materi);
-		
-		if ($res>=1){
-			redirect('materi');
+		if($this->m_materi->insert('materi', $data_materi))
+		{
+			if ($target_Path != NULL) {
+				move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path );
+			}
+			  echo '<script language="javascript">';
+			  echo 'alert("File berhasil ditambahkan");';
+			  echo '</script>';
 		}
-		else {
-			echo "Something error, try again later";
+		else
+		{
+			  echo '<script language="javascript">';
+			  echo 'alert("Gagal menyimpan file");';
+			  echo '</script>';
 		}
+		redirect('materi');
 	}
+
 	public function doUpload()
 	{
 		$target_Path = NULL;
@@ -73,7 +89,8 @@ class Materi extends CI_Controller {
 		    'JUDUL' => $_POST['judul'],
 		    'path' => $target_Path,
 			'TAG' => $_POST['tag'],
-			'TANGGAL_MATERI' => $tanggal_materi
+			'TANGGAL_MATERI' => $tanggal_materi,
+			'PENULIS_MATERI' => $penulis_materi,
 		);
 		if($this->m_materi->insertFile($data))
 		{
@@ -110,7 +127,7 @@ class Materi extends CI_Controller {
 		$this->load->view('materi/buatmateri', $data);
 		$this->load->view('dashboard/footer');
 	}
-	public function showMateri($id)
+	public function showFile($id)
 	{
 		$this->load->model("m_materi");
 		$where = array('ID' => $id);
@@ -120,11 +137,18 @@ class Materi extends CI_Controller {
 		$this->load->view('materi/lihat', $data);
 		$this->load->view('dashboard/footer');
 	}
-	public function hapus($id)
+	public function hapusfile($id)
 	{
 		$this->load->model("m_materi");
 		$where = array('ID' => $id);
 		$data['file'] = $this->m_materi->delete('file',$where);
+		$this->index();
+	}
+	public function hapustulisan($id)
+	{
+		$this->load->model("m_materi");
+		$where = array('ID_MATERI' => $id);
+		$data['tulisan'] = $this->m_materi->delete('materi',$where);
 		$this->index();
 	}
 }

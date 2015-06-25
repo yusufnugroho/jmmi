@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand" href="index.html">JMMI MENTORING</a>
+                <a class="navbar-brand" href="<?php echo base_url();?>"><img src="<?php echo base_url();?>assets/userfile/logo.png"></a>
             </div>
             <!-- /.navbar-header -->
 

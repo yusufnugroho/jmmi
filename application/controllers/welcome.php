@@ -11,6 +11,7 @@ class Welcome extends CI_Controller {
 	}
 	public function index()
 	{
+		redirect('pages/beranda');
 		$session_check = $this->session->userdata('akses');
 		if (!empty($session_check)){
 			if ($session_check == 'dosen'){
@@ -40,7 +41,6 @@ class Welcome extends CI_Controller {
 			echo $this->session->userdata('id');
 		}
 		else {
-			redirect('pages/beranda');
 			//$this->load->view('login');
 		}
 	}
@@ -78,6 +78,7 @@ class Welcome extends CI_Controller {
 				);
 			$this->session->set_userdata($session_data);
 			$session_id = $this->session->userdata('session_id');
+			redirect('dashboard');
 			redirect('welcome');
 		}
 		else {
@@ -96,6 +97,7 @@ class Welcome extends CI_Controller {
 					);
 				$this->session->set_userdata($session_data);
 				$session_id = $this->session->userdata('session_id');
+				redirect('dashboard');
 				redirect('welcome');
 			}
 			else{
@@ -115,6 +117,7 @@ class Welcome extends CI_Controller {
 					);
 				$this->session->set_userdata($session_data);
 				$session_id = $this->session->userdata('session_id');
+				redirect('dashboard');
 				redirect('welcome');
 				}
 				else{
@@ -133,30 +136,32 @@ class Welcome extends CI_Controller {
 							);
 						$this->session->set_userdata($session_data);
 						$session_id = $this->session->userdata('session_id');
+						redirect('dashboard');
 						redirect('welcome');
 					}
 					else{
-                                                $this->load->model("m_apply");
-                                                $login_unregistered_mentor = array(
-                                                    'nrp'=>$id,
-                                                    'password'=>$password,
-                                                );
-                                                $result_unregistered_mentor = $this->m_apply->select_where('apply_mentor',$login_unregistered_mentor);
-                                                if(!empty($result_unregistered_mentor)){
-                                                    $session_data = array(
-                                                        'akses' => "mentor",
-                                                        'id' => $result_unregistered_mentor[0]['nrp'],
-                                                        'nama_depan' => $result_unregistered_mentor[0]['nama_depan'],
-                                                        'nama_belakang' => $result_unregistered_mentor[0]['nama_belakang'],
-                                                    );
-                                                    $this->session->set_userdata($session_data);
-                                                    $session_id = $this->session->userdata('session_id');
-                                                    redirect('welcome');
-                                                }
-                                                else    {
-                                                    //if doesn't match any table
-                                                    redirect('welcome');
-                                                }
+                        $this->load->model("m_apply");
+                        $login_unregistered_mentor = array(
+                            'nrp'=>$id,
+                            'password'=>$password,
+                        );
+                        $result_unregistered_mentor = $this->m_apply->select_where('apply_mentor',$login_unregistered_mentor);
+                        if(!empty($result_unregistered_mentor)){
+                            $session_data = array(
+                                'akses' => "mentor",
+                                'id' => $result_unregistered_mentor[0]['nrp'],
+                                'nama_depan' => $result_unregistered_mentor[0]['nama_depan'],
+                                'nama_belakang' => $result_unregistered_mentor[0]['nama_belakang'],
+                            );
+                            $this->session->set_userdata($session_data);
+                            $session_id = $this->session->userdata('session_id');
+                            redirect('dashboard');
+                            redirect('welcome');
+                        }
+                        else    {
+                            //if doesn't match any table
+                            redirect('welcome');
+                        }
 					}
 				}
 

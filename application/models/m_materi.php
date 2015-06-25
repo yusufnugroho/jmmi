@@ -17,7 +17,7 @@ class m_materi extends CI_Model {
 	public function select_where($tablename, $where)
 	{
 		$data = $this->db->get_where($tablename, $where);
-		return $data;
+		return $data->result_array();
 	}
 	public function insertFile($data)
 	{

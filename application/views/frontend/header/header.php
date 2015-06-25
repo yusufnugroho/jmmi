@@ -51,11 +51,17 @@ $assets_location = base_url()."assets/basica/";
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="beranda">Beranda</a></li>
-                    <li><a href="profil">Profil</a></li>
-                    <li><a href="faq">FAQ</a></li>
-                    <li><a href="artikel">Artikel</a></li>
-                    <li><a href="materi">Materi</a></li>
+                    <li><a href="<?php echo base_url();?>pages/beranda">Beranda</a></li>
+                    <li><a href="<?php echo base_url();?>pages/profil">Profil</a></li>
+                    <li><a href="<?php echo base_url();?>pages/faq">FAQ</a></li>
+                    <li><a href="<?php echo base_url();?>pages/artikel">Artikel</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Materi <i class="icon-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url();?>pages/materi/tulisan">Materi tertulis</a></li>
+                            <li><a href="<?php echo base_url();?>pages/materi/file">File Materi</a></li>
+                        </ul>
+                    </li>
                     <li><a href="kontak">Kontak</a></li>
                     <li><a href="sipenmaru">Sipenmaru</a></li>
                     <li><a href="" type="button" data-toggle="modal" data-target="#register">Register</a></li> 
@@ -125,28 +131,31 @@ $assets_location = base_url()."assets/basica/";
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Login</h4>
         </div>
-        <form action="<?php echo base_url();?>welcome/login" method="POST">
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="<?php echo base_url();?>assets/userfile/icon.png?>" width="100%">
-                </div>
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <label for="id">ID/Username</label>
-                        <input type="text" class="form-control" id="id" placeholder="ID/Username">
+        <form role="form" action='<?php echo base_url();?>index.php/welcome/login' method='post'>
+            <fieldset>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="<?php echo base_url();?>assets/userfile/icon.png?>" width="100%">
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="ID" name="id" type="text" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                            </div>
+                            <div class="checkbox">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="password">
-                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <input type="submit" class="btn btn-default" value="login">
-        </div>
+                <!-- Change this to a button or input when using this as a form -->
+                <div class="modal-footer">
+                    <button class="btn btn-success">Login</button>
+                </div>
+            </fieldset>
         </form>
+      
     </div>
   </div>
 </div>

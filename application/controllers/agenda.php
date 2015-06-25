@@ -23,7 +23,6 @@ class agenda extends CI_Controller {
 		$agenda_id = 0;
 		foreach ($get_agenda_id as $key) {
 			$agenda_id = $key['ID_AGENDA'];
-			echo $agenda_id;
 		}
 		$agenda_id++;
 		$isi_agenda = $this->input->post('isiagenda');

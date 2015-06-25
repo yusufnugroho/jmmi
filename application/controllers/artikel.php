@@ -11,7 +11,6 @@ class artikel extends CI_Controller {
                 /*
                  * Check Session*/ 
                 $session_check = $this->session->userdata('akses');
-		echo $session_check;
 		if (empty($session_check)) redirect('welcome/logout');
                 
 		$this->load->model("m_artikel");
@@ -29,7 +28,6 @@ class artikel extends CI_Controller {
 		$artikel_id = 0;
 		foreach ($get_artikel_id as $key) {
 			$artikel_id = $key['ID_ARTIKEL'];
-			echo $artikel_id;
 		}
 		$artikel_id++;
 		$judul_artikel =$this->input->post('title');

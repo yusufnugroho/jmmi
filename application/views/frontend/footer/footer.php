@@ -3,23 +3,25 @@ $assets_location = base_url()."assets/basica/";
 ?>
 
 	    <!-- Footer -->
-	    <div class="footer">
+	    <div class="footer" style="margin: 0">
 	    	<div class="container">
 			
 		    	<div class="row">
 				
 		    		<div class="col-footer col-md-4 col-xs-6">
-		    			<h3>Contact Us</h3>
-		    			<p class="contact-us-details">
-	        				<b>Address:</b> 123 Downtown Avenue, Manhattan, New York, United States of America<br/>
-	        				<b>Phone:</b> +1 123 45678910<br/>
-	        				<b>Fax:</b> +1 123 45678910<br/>
-	        				<b>Email:</b> <a href="mailto:info@yourcompanydomain.com">info@yourcompanydomain.com</a>
-	        			</p>
+		    			<h3>Hubungi Kami</h3>
+		    			<p>Alamat Sekretariat :
+	    				Sisi Barat Masjid Manarul Ilmi ITS (Sebelah Tempat Parkir Motor)<br>
+	    				Nomor Sekretariat :
+	    				031-5931221 (Sekretariat)<br>
+	    				Contact Person :
+	    				Rifqi Aulia (085654050005)<br>
+	    				Email :
+	    				mail.jmmi.its@gmail.com<br>
 		    		</div>				
 		    		<div class="col-footer col-md-4 col-xs-6">
-		    			<h3>Our Social Networks</h3>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>
+		    			<h3>Tentang BMP</h3>
+	    				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
 		    			<div>
 		    				<img src="<?php echo $assets_location;?>img/icons/facebook.png" width="32" alt="Facebook">
 		    				<img src="<?php echo $assets_location;?>img/icons/twitter.png" width="32" alt="Twitter">
@@ -28,14 +30,14 @@ $assets_location = base_url()."assets/basica/";
 						</div>
 		    		</div>
 		    		<div class="col-footer col-md-4 col-xs-6">
-		    			<h3>About Our Company</h3>
-		    				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci.</p>
+		    			<h3>Enjoy Mentoring!</h3>
+						<p>Mentoring adalah gerbang awal pembinaan kepribadian muslim. Ya! Dari mentoring, segala macam pintu kebaikan akan terbuka. Bersama mentoring, siap cetak SDM muslim yang bermoral. Bersama mentoring kita bangun Indonesia madani</p>
 		    		</div>
 
 		    	</div>
 		    	<div class="row">
 		    		<div class="col-md-12">
-		    			<div class="footer-copyright">&copy; 2014 <a href="http://www.vactualart.com/portfolio-item/basica-a-free-html5-template/">Basica</a> Bootstrap HTML Template. By <a href="http://www.vactualart.com">Vactual Art</a>.</div>
+		    			<div class="footer-copyright">2015 &copy; On work of perfection by Yusuf and Friends feat <a href="http://www.vactualart.com/portfolio-item/basica-a-free-html5-template/">Basica</a></div>
 		    		</div>
 		    	</div>
 		    </div>

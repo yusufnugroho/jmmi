@@ -15,8 +15,7 @@ class Dashboard extends CI_Controller {
 	{
 		/*
                  * Check Session*/ 
-                $session_check = $this->session->userdata('akses');
-		echo $session_check;
+		$session_check = $this->session->userdata('akses');
 		if (empty($session_check)) redirect('welcome/logout');
                 
 
