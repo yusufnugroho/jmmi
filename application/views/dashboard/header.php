@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-<title>Mentoring JMMI</title>
+<title>Dashboard Mentoring JMMI</title>
+<link rel="icon" href="<?php echo base_url();?>assets/userfile/icon.png" type="image/png">
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">

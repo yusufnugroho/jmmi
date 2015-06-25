@@ -47,7 +47,7 @@ $assets_location = base_url()."assets/basica/";
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="<?php echo base_url();?>assets/userfile/logo.png" alt="Basica"></a>
+                <a class="navbar-brand" href="beranda"><img src="<?php echo base_url();?>assets/userfile/logo.png" alt="Basica"></a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -78,7 +78,11 @@ $assets_location = base_url()."assets/basica/";
           <div class="modal-body">
             <div class="row">
                 <div class="col-md-4">
-                    <h4>Icon</h4>
+                    <div style="height: 100%; min-height: 400px; width: 100%; position: relative">
+                        <div style="position: absolute; vertical-align: middle; padding-top: 75%">
+                            <img src="<?php echo base_url();?>assets/userfile/icon.png?>" width="100%">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-8">
                         <div class="form-group">
@@ -125,6 +129,7 @@ $assets_location = base_url()."assets/basica/";
         <div class="modal-body">
             <div class="row">
                 <div class="col-md-4">
+                    <img src="<?php echo base_url();?>assets/userfile/icon.png?>" width="100%">
                 </div>
                 <div class="col-md-8">
                     <div class="form-group">
