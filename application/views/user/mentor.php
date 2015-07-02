@@ -33,18 +33,6 @@
                             </thead>
                             <tbody>                                
                                 <?php
-                                    /*
-
-                                     *1 $session[] = $this->session->userdata('id');
-                                        $session[] = $this->session->userdata('nama_depan');
-                                        $session[] = $this->session->userdata('nama_belakang');
-                                        $session[] = $this->session->userdata('NRP_MENTOR');
-                                        $session[] = $this->session->userdata('NIP_DOSEN');
-                                        $session[] = $this->session->userdata('JK_MENTE');
-                                        $session[] = $this->session->userdata('TELEPON_MENTE');
-                                        $session[] = $this->session->userdata('NILAI_MENTE');
-                                        $session[] = $this->session->userdata('STATUS_MENTE');
-                                    */
                                     $row = $session;
                                     {
                                 ?>

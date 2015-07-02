@@ -28,7 +28,7 @@ class User extends CI_Controller {
             //
             //
             //
-            echo $session[0];
+            //echo $session[0];
             
             //MENTE
             if($session[0]=="mente")
@@ -83,16 +83,6 @@ class User extends CI_Controller {
                 
                 print_r($session);
                 
-                //DEBUG
-                //
-                //$id = $session[1];
-                //$where = array('NRP_MENTE' => $id);
-                //table | Condition Where
-                //$data['mente'] = $this->m_user->select_where("mente",$where);
-                //
-                //
-                //END DEBUG
-                
                 $data['session'] = $session;
                 $this->load->view("user/mente",$data);
             }
@@ -129,27 +119,39 @@ class User extends CI_Controller {
                 $session[] = $teleponKJ;
                 $session[] = $statusKJ;
            
-                //print_r($session);
-                //die();
-                
-                //DEBUG
-                //
-                //$id = $session[1];
-                //$where = array('NRP_MENTE' => $id);
-                //table | Condition Where
-                //$data['mente'] = $this->m_user->select_where("mente",$where);
-                //
-                //
-                //END DEBUG
-                
+               
                 $data['session'] = $session;
                 $this->load->view("user/mentor",$data);
             }
-            
-            
-            
-            
-            
+            //KJ
+            if($session[0]=="kj")
+            {   
+                //print_r($data);
+                //NRP, NAMA, JK, TELEPON, STATUS
+                $session[] = $this->session->userdata('1');
+                $session[] = $this->session->userdata('2');
+                $session[] = $this->session->userdata('3');
+                $session[] = $this->session->userdata('4');
+                $session[] = $this->session->userdata('5');
+
+                //print_r($session);
+                //die();
+                $data['session'] = $session;
+                $this->load->view("user/kj",$data);
+            }
+            if($session[0]=="dosen")
+            {   
+                //NIP_DOSEN, NAMA_DOSEN, TELEPON_DOSEN, STATUS_DOSEN
+                $session[] = $this->session->userdata('1');
+                $session[] = $this->session->userdata('2');
+                $session[] = $this->session->userdata('3');
+                $session[] = $this->session->userdata('4');
+
+                //print_r($session);
+                //die();
+                $data['session'] = $session;
+                $this->load->view("user/dosen",$data);
+            }
             
             $this->load->view('dashboard/footer');
         }

@@ -4,10 +4,12 @@ class Welcome extends CI_Controller {
 
         public function __construct() {
 		parent::__construct();
-        $this->load->model('m_mentor');
+                $this->load->model('m_mentor');
 		$this->load->model('m_mente');
 		$this->load->model('m_dosen');
 		$this->load->model('m_apply');
+		$this->load->model('m_kj');
+		$this->load->model('m_mentor');
 	}
 	public function index()
 	{
@@ -73,9 +75,10 @@ class Welcome extends CI_Controller {
                 {
 			$session_data = array(
 				'akses'=>"dosen",
-				'id'=>$result_dosen[0]['NIP_DOSEN'],
-				'nama_depan'=>$result_dosen[0]['NAMA_DEPAN_DOSEN'],
-				'nama_belakang'=>$result_dosen[0]['NAMA_BELAKANG_DOSEN'],
+				'1'=>$result_dosen[0]['NIP_DOSEN'],
+				'2'=>$result_dosen[0]['NAMA_DEPAN_DOSEN']." ".$result_dosen[0]['NAMA_BELAKANG_DOSEN'],
+				'3'=>$result_dosen[0]['TELEPON_DOSEN'],
+				'4'=>$result_dosen[0]['STATUS_DOSEN'],
 				);
 			$this->session->set_userdata($session_data);
 			$session_id = $this->session->userdata('session_id');
@@ -92,9 +95,11 @@ class Welcome extends CI_Controller {
 			if (!empty($result_kj)){
 				$session_data = array(
                                                         'akses'=>"kj",
-                                                        'id'=>$result_kj[0]['NRP_KJ'],
-                                                        'nama_depan'=>$result_kj[0]['NAMA_DEPAN_KJ'],
-                                                        'nama_belakang'=>$result_kj[0]['NAMA_BELAKANG_KJ'],
+                                                        '1'=>$result_kj[0]['NRP_KJ'],
+                                                        '2'=>$result_kj[0]['NAMA_DEPAN_KJ']." ".$result_kj[0]['NAMA_BELAKANG_KJ'],
+                                                        '3'=>$result_kj[0]['TELEPON_KJ'],
+                                                        '4'=>$result_kj[0]['JK_KJ'],
+                                                        '5'=>$result_kj[0]['STATUS_KJ'],
                                                     );
 				$this->session->set_userdata($session_data);
 				$session_id = $this->session->userdata('session_id');
