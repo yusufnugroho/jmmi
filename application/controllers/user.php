@@ -26,6 +26,10 @@ class User extends CI_Controller {
             //print_r($this->session->userdata);
             //die();
             //
+            //
+            //
+            echo $session[0];
+            
             //MENTE
             if($session[0]=="mente")
             {   
@@ -78,8 +82,6 @@ class User extends CI_Controller {
                 $session[] =$statusDosen;
                 
                 print_r($session);
-                //die();                
-                
                 
                 //DEBUG
                 //
@@ -94,6 +96,61 @@ class User extends CI_Controller {
                 $data['session'] = $session;
                 $this->load->view("user/mente",$data);
             }
+            //Mentor
+            if($session[0]=="mentor")
+            {   
+                
+
+                //print_r($data);
+                //NRP, NAMA, JK, TELEPON, STATUS, NRP_JK,|| NAMA_JK,, TELEPON_JK,STATUS_JK
+                $session[] = $this->session->userdata('1');
+                $session[] = $this->session->userdata('2');
+                $session[] = $this->session->userdata('3');
+                $session[] = $this->session->userdata('4');
+                $session[] = $this->session->userdata('5');
+                $session[] = $this->session->userdata('6');
+
+                
+                //search KJ
+                $tempKj = $this->session->userdata('6');
+                //search mentor
+                $tempMentor = $this->session->userdata('NRP_MENTOR');
+                //(table,where)
+                $where = array('NRP_KJ' => $tempMentor);
+                $dataKJ = $this->m_kj->select_where('kj',$where);
+                
+                $dataKJ = $dataKJ[0];
+                $namaKJ = $dataKJ['NAMA_DEPAN_KJ']." ".$dataKJ['NAMA_BELAKANG_KJ'];
+                $teleponKJ = $dataKJ['TELEPON_KJ'];
+                $statusKJ = $dataKJ['STATUS_KJ'];
+               
+                //echo $namaMentor." ".$nrpMentor." ".$teleponMentor." ".$statusMentor;
+                $session[] = $namaKJ;
+                $session[] = $teleponKJ;
+                $session[] = $statusKJ;
+           
+                //print_r($session);
+                //die();
+                
+                //DEBUG
+                //
+                //$id = $session[1];
+                //$where = array('NRP_MENTE' => $id);
+                //table | Condition Where
+                //$data['mente'] = $this->m_user->select_where("mente",$where);
+                //
+                //
+                //END DEBUG
+                
+                $data['session'] = $session;
+                $this->load->view("user/mentor",$data);
+            }
+            
+            
+            
+            
+            
+            
             $this->load->view('dashboard/footer');
         }
         

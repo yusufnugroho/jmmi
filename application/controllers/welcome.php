@@ -69,7 +69,8 @@ class Welcome extends CI_Controller {
 			);
 		$result_dosen = $this->m_dosen->select_where('dosen', $login_dosen);
 
-		if (!empty($result_dosen)) {
+		if (!empty($result_dosen)) 
+                {
 			$session_data = array(
 				'akses'=>"dosen",
 				'id'=>$result_dosen[0]['NIP_DOSEN'],
@@ -137,10 +138,13 @@ class Welcome extends CI_Controller {
 					if (!empty($result_mentor))
                                             {
 						$session_data = array(
-                                                                        'akses'=>"kj",
-                                                                        'id'=>$result_mentor[0]['NRP_MENTOR'],
-                                                                        'nama_depan'=>$result_mentor[0]['NAMA_DEPAN_MENTOR'],
-                                                                        'nama_belakang'=>$result_mentor[0]['NAMA_BELAKANG_MENTOR'],
+                                                                        'akses'=>"mentor",
+                                                                        '1'=>$result_mentor[0]['NRP_MENTOR'],
+                                                                        '2'=>$result_mentor[0]['NAMA_DEPAN_MENTOR']." ".$result_mentor[0]['NAMA_BELAKANG_MENTOR'],
+                                                                        '3'=>$result_mentor[0]['jk_mentor'],
+                                                                        '4'=>$result_mentor[0]['TELEPON_MENTOR'],
+                                                                        '5'=>$result_mentor[0]['STATUS_MENTOR'],
+                                                                        '6'=>$result_mentor[0]['NRP_KJ'],
 							);
 						$this->session->set_userdata($session_data);
 						$session_id = $this->session->userdata('session_id');
@@ -167,9 +171,11 @@ class Welcome extends CI_Controller {
                             redirect('dashboard');
                             redirect('welcome');
                         }
-                        else    {
+                        else   
+                        {
                             //if doesn't match any table
-                            redirect('welcome');
+                            //echo "wuhu"; die();
+                            redirect('welcome/logout');
                         }
 					}
 				}
