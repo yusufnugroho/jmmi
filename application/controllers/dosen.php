@@ -14,9 +14,16 @@ class Dosen extends CI_Controller {
 	public function index()
 	{
                  /*
-                 * Check Session*/ 
-                $session_check = $this->session->userdata('akses');
-		if (empty($session_check)) redirect('welcome/logout');
+                 * Check Session*/
+                 $session = array();
+                $session[] = $this->session->userdata('akses');
+                $session[] = $this->session->userdata('id');
+                $session[] = $this->session->userdata('nama_depan');
+                $session[] = $this->session->userdata('nama_belakang');
+                //print_r($session);
+                //die();
+                
+		if (empty($session)) redirect('welcome/logout');
                 
 		$data['dosen'] = $this->m_dosen->getDataDosen();
                 $this->load->view('dashboard/header');

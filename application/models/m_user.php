@@ -1,0 +1,47 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class m_user extends CI_Model {
+	public function __construct() {
+		parent::__construct();
+		
+	}
+	public function insert($tablename, $data)
+	{
+		return $this->db->insert($tablename, $data);
+	}
+	/*
+        public function gettable($tablename)
+	{
+            $this->db->select("*");
+            $this->db->where(1);
+            $query = $this->db->get($tablename);
+		return $this->db->query("SELECT * FROM $tablename")->result_array();
+	}
+
+         *          */
+
+	public function select_where($tablename, $where)
+	{
+		$data = $this->db->get_where($tablename, $where);
+		return $data->result_array();
+	}
+	public function insertFile($data)
+	{
+		return $this->db->insert('file', $data);
+	}
+	public function getID($tablename)
+	{
+		return $this->db->query("select * from $tablename where 1 ORDER BY ID_MATERI DESC LIMIT 1")->result_array();
+	}
+	public function getTag()
+	{
+		$this->db->from('tag_materi');
+		$this->db->order_by("tag", "asc");
+		$query = $this->db->get(); 
+		return $query->result_array();
+	}
+	public function delete($where, $id)
+	{
+		$this->db->delete($where, $id); 
+	}
+}

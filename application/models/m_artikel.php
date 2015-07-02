@@ -46,7 +46,7 @@ class m_artikel extends CI_Model {
             $this->db->select('*');
             $query = $this->db->get($table);
             return $query->result_array();
-            //echo $query;
+            
             
         }
         
