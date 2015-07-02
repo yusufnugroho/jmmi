@@ -90,11 +90,11 @@ class Welcome extends CI_Controller {
 			$result_kj = $this->m_kj->select_where('kj', $login_kj);
 			if (!empty($result_kj)){
 				$session_data = array(
-					'akses'=>"kj",
-					'id'=>$result_kj[0]['NRP_KJ'],
-					'nama_depan'=>$result_kj[0]['NAMA_DEPAN_KJ'],
-					'nama_belakang'=>$result_kj[0]['NAMA_BELAKANG_KJ'],
-					);
+                                                        'akses'=>"kj",
+                                                        'id'=>$result_kj[0]['NRP_KJ'],
+                                                        'nama_depan'=>$result_kj[0]['NAMA_DEPAN_KJ'],
+                                                        'nama_belakang'=>$result_kj[0]['NAMA_BELAKANG_KJ'],
+                                                    );
 				$this->session->set_userdata($session_data);
 				$session_id = $this->session->userdata('session_id');
 				redirect('dashboard');
@@ -108,13 +108,20 @@ class Welcome extends CI_Controller {
 				);
 				$result_mente = $this->m_mente->select_where('mente', $login_mente);
 				
-				if (!empty($result_mente)){
+				if (!empty($result_mente))
+                                    {
 					$session_data = array(
-					'akses'=>"mente",
-					'id'=>$result_mente[0]['NRP_MENTE'],
-					'nama_depan'=>$result_mente[0]['NAMA_DEPAN_MENTE'],
-					'nama_belakang'=>$result_mente[0]['NAMA_BELAKANG_MENTE'],
-					);
+                                                                'akses'=>"mente",
+                                                                'id'=>$result_mente[0]['NRP_MENTE'],
+                                                                'nama_depan'=>$result_mente[0]['NAMA_DEPAN_MENTE'],
+                                                                'nama_belakang'=>$result_mente[0]['NAMA_BELAKANG_MENTE'],
+                                                                'NRP_MENTOR'=>$result_mente[0]['NRP_MENTOR'],
+                                                                'NIP_DOSEN'=>$result_mente[0]['NIP_DOSEN'],
+                                                                'JK_MENTE'=>$result_mente[0]['JK_MENTE'],
+                                                                'TELEPON_MENTE'=>$result_mente[0]['TELEPON_MENTE'],
+                                                                'NILAI_MENTE'=>$result_mente[0]['NILAI_MENTE'],
+                                                                'STATUS_MENTE'=>$result_mente[0]['STATUS_MENTE'],
+                                    );
 				$this->session->set_userdata($session_data);
 				$session_id = $this->session->userdata('session_id');
 				redirect('dashboard');
@@ -127,12 +134,13 @@ class Welcome extends CI_Controller {
 						'PASSWORD_MENTOR'=> $password,
 					);
 					$result_mentor = $this->m_mentor->select_where('mentor', $login_mentor);
-					if (!empty($result_mentor)){
+					if (!empty($result_mentor))
+                                            {
 						$session_data = array(
-							'akses'=>"kj",
-							'id'=>$result_mentor[0]['NRP_MENTOR'],
-							'nama_depan'=>$result_mentor[0]['NAMA_DEPAN_MENTOR'],
-							'nama_belakang'=>$result_mentor[0]['NAMA_BELAKANG_MENTOR'],
+                                                                        'akses'=>"kj",
+                                                                        'id'=>$result_mentor[0]['NRP_MENTOR'],
+                                                                        'nama_depan'=>$result_mentor[0]['NAMA_DEPAN_MENTOR'],
+                                                                        'nama_belakang'=>$result_mentor[0]['NAMA_BELAKANG_MENTOR'],
 							);
 						$this->session->set_userdata($session_data);
 						$session_id = $this->session->userdata('session_id');
@@ -146,12 +154,13 @@ class Welcome extends CI_Controller {
                             'password'=>$password,
                         );
                         $result_unregistered_mentor = $this->m_apply->select_where('apply_mentor',$login_unregistered_mentor);
-                        if(!empty($result_unregistered_mentor)){
-                            $session_data = array(
-                                'akses' => "mentor",
-                                'id' => $result_unregistered_mentor[0]['nrp'],
-                                'nama_depan' => $result_unregistered_mentor[0]['nama_depan'],
-                                'nama_belakang' => $result_unregistered_mentor[0]['nama_belakang'],
+                        if(!empty($result_unregistered_mentor))
+                            {
+                                $session_data = array(
+                                                        'akses' => "mentor",
+                                                        'id' => $result_unregistered_mentor[0]['nrp'],
+                                                        'nama_depan' => $result_unregistered_mentor[0]['nama_depan'],
+                                                        'nama_belakang' => $result_unregistered_mentor[0]['nama_belakang'],
                             );
                             $this->session->set_userdata($session_data);
                             $session_id = $this->session->userdata('session_id');
