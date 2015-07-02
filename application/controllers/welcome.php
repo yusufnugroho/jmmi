@@ -37,7 +37,7 @@ class Welcome extends CI_Controller {
 				redirect('dashboard');
 			}
                         
-			echo "<br><a href='".base_url()."index.php/welcome/logout'>LOGOUT</a>";
+			echo "<br><a href='".base_url()."welcome/logout'>LOGOUT</a>";
 			echo $this->session->userdata('id');
 		}
 		else {

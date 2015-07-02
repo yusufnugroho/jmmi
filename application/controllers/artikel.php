@@ -5,6 +5,7 @@ class artikel extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url');     
+        $this->load->model('m_artikel');
     } 
 	public function index()
 	{
@@ -44,7 +45,7 @@ class artikel extends CI_Controller {
 		$res=$this->m_artikel->insert('artikel',$data_artikel);
 		
 		if ($res>=1){
-			redirect('artikel');
+			redirect('artikel/listArtikel');
 		}
 		else {
 			echo "Something error, try again later";
@@ -67,8 +68,32 @@ class artikel extends CI_Controller {
 		$this->load->view('artikel/testArtikel');
 		$this->load->view('dashboard/footer');
 	}
-        //&lt;p&gt;MU&lt;/p&gt;
+        
+        function listArtikel()
+        {
+            $this->load->model('m_artikel');
+            $data['data'] = $this->m_artikel->getTable("artikel");
+            $this->load->view('dashboard/header');
+            $this->load->view('dashboard/navbar');
+            $this->load->view('artikel/listArtikel',$data);
+            $this->load->view('dashboard/footer');
+        }
+        function deleteArtikel($id){
+            $this->load->model('m_artikel');
+            $this->m_artikel->deleteID('artikel',$id);
+            $this->listArtikel();
+            
+        }
+        function showArtikel($id){
+            $this->load->model('m_artikel');
+            $data['data'] = $this->m_artikel->getArtikelByID("artikel",$id);
+            //die();
+            $this->load->view('dashboard/header');
+            $this->load->view('dashboard/navbar');
+            $this->load->view('artikel/showArtikel',$data);
+            $this->load->view('dashboard/footer');
+            
+            
+        }
+        
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

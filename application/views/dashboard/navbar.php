@@ -39,7 +39,7 @@
                                     <a href="<?php echo base_url();?>artikel/buatartikel">Buat Artikel</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>artikel">Daftar Artikel</a>
+                                    <a href="<?php echo base_url();?>artikel/listArtikel">Daftar Artikel</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -16,7 +16,7 @@ class Materi extends CI_Controller {
 		$this->load->model("m_materi");
 		$data['materi'] = $this->m_materi->gettable('materi');
 		$data['file'] = $this->m_materi->gettable('file');
-        $this->load->view('dashboard/header');
+                $this->load->view('dashboard/header');
 		$this->load->view('dashboard/navbar');
 		$this->load->view('materi/indexmateri',$data);
 		$this->load->view('dashboard/footer');
@@ -121,8 +121,8 @@ class Materi extends CI_Controller {
 	function buatmateri()
 	{
 		$this->load->model('m_materi');
-		$data['tag'] = $this->m_materi->getTag('tag_materi');
-        $this->load->view('dashboard/header');
+		$data['tag'] = $this->m_materi->getTag();
+                $this->load->view('dashboard/header');
 		$this->load->view('dashboard/navbar');
 		$this->load->view('materi/buatmateri', $data);
 		$this->load->view('dashboard/footer');
@@ -132,7 +132,7 @@ class Materi extends CI_Controller {
 		$this->load->model("m_materi");
 		$where = array('ID' => $id);
 		$data['file'] = $this->m_materi->select_where('file',$where);
-        $this->load->view('dashboard/header');
+                $this->load->view('dashboard/header');
 		$this->load->view('dashboard/navbar');
 		$this->load->view('materi/lihat', $data);
 		$this->load->view('dashboard/footer');
@@ -142,14 +142,16 @@ class Materi extends CI_Controller {
 		$this->load->model("m_materi");
 		$where = array('ID' => $id);
 		$data['file'] = $this->m_materi->delete('file',$where);
-		$this->index();
+		redirect('materi/');
+                //$this->index();
 	}
 	public function hapustulisan($id)
 	{
 		$this->load->model("m_materi");
 		$where = array('ID_MATERI' => $id);
 		$data['tulisan'] = $this->m_materi->delete('materi',$where);
-		$this->index();
+		redirect('materi/');
+                //$this->index();
 	}
 }
 

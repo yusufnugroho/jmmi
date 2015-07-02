@@ -57,8 +57,8 @@
                                                 <td> <?php echo $row['PENULIS_MATERI'];?></td>
                                                 <td> <?php echo $row['TAG'];?></td>
                                                 <td>
-                                                    <a href="<?php echo base_url();?>index.php/materi/showFile/<?php echo $row['ID'];?>" class="btn btn-info" value="Lihat">Lihat</a>
-                                                    <a href="<?php echo base_url();?>index.php/materi/hapusfile/<?php echo $row['ID'];?>" class="btn btn-danger" value="Hapus">Hapus</a>
+                                                    <a href="<?php echo base_url();?>materi/showFile/<?php echo $row['ID'];?>" class="btn btn-info" value="Lihat">Lihat</a>
+                                                    <a href="<?php echo base_url();?>materi/hapusfile/<?php echo $row['ID'];?>" class="btn btn-danger" value="Hapus" onClick="return confirm('Delete This Artikel?')">Hapus</a>
                                                 </td>   
                                             </tr>
                                             <?php

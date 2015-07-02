@@ -23,4 +23,32 @@ class m_artikel extends CI_Model {
 	{
 		return $this->db->query("select * from $tablename where 1 ORDER BY ID_ARTIKEL DESC LIMIT 1")->result_array();
 	}
+        public function selectAll($table){
+            $query = $this->db->get("$table");
+            return $query->result();
+        }
+        public function deleteId($table,$id){
+            $this->db->where('id', $id);
+            $this->db->delete('$table');
+            
+        }
+        public function getTag()
+	{
+		$this->db->from('tag_materi');
+		$this->db->order_by("tag", "asc");
+		$query = $this->db->get(); 
+		return $query->result_array();
+	}
+        
+        public function getArtikelByID($table,$id){
+            
+            $this->db->where('ID_ARTIKEL', $id); 
+            $this->db->select('*');
+            $query = $this->db->get($table);
+            return $query->result_array();
+            //echo $query;
+            
+        }
+        
 }
+        

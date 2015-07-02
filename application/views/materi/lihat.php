@@ -15,9 +15,11 @@
                             Daftar Artikel
                         </div>
                         <!-- /.panel-heading -->
-                        <?php $file = $file->row();?>
+                        <?php
+                            $test = $file[0];
+                        ?>
                         <div class="panel-body">
-                            <embed src="<?php echo base_url();?><?php echo $file->PATH;?>" width="100%" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+                            <embed src="<?php echo base_url();?><?php echo $test['PATH'];?>" width="100%" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
 
                             <!-- /.table-responsive -->
                         </div>

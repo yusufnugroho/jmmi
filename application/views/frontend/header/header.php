@@ -80,44 +80,44 @@ $assets_location = base_url()."assets/basica/";
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Register</h4>
       </div>
-        <form action="<?php echo base_url();?>home/register" method="POST">
-          <div class="modal-body">
-            <div class="row">
-                <div class="col-md-4">
-                    <div style="height: 100%; min-height: 400px; width: 100%; position: relative">
-                        <div style="position: absolute; vertical-align: middle; padding-top: 75%">
-                            <img src="<?php echo base_url();?>assets/userfile/icon.png?>" width="100%">
-                        </div>
+    <form action="<?php echo base_url();?>home/register" method="POST">
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div style="height: 100%; min-height: 400px; width: 100%; position: relative">
+                    <div style="position: absolute; vertical-align: middle; padding-top: 75%">
+                        <img src="<?php echo base_url();?>assets/userfile/icon.png?>" width="100%">
                     </div>
                 </div>
-                <div class="col-md-8">
-                        <div class="form-group">
-                            <label for="NRP">NRP</label>
-                            <input type="text" class="form-control" id="NRP" placeholder="NRP">
-                        </div>
-                        <div class="form-group">
-                            <label for="namadepan">Nama Depan</label>
-                            <input type="text" class="form-control" id="namadepan" placeholder="Nama Depan">
-                        </div>
-                        <div class="form-group">
-                            <label for="namabelakang">Nama Belakang</label>
-                            <input type="text" class="form-control" id="namabelakang" placeholder="Nama Belakang">
-                        </div>
-                        <div class="form-group">
-                            <label for="telepon">Nomor Telepon</label>
-                            <input type="text" class="form-control" id="telepon" placeholder="telepon">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="password">
-                        </div>
-                </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <input type="submit" class="btn btn-success" value="Register">
-          </div>
-        </form>
+            <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="NRP">NRP</label>
+                        <input type="text" class="form-control" id="NRP" placeholder="NRP">
+                    </div>
+                    <div class="form-group">
+                        <label for="namadepan">Nama Depan</label>
+                        <input type="text" class="form-control" id="namadepan" placeholder="Nama Depan">
+                    </div>
+                    <div class="form-group">
+                        <label for="namabelakang">Nama Belakang</label>
+                        <input type="text" class="form-control" id="namabelakang" placeholder="Nama Belakang">
+                    </div>
+                    <div class="form-group">
+                        <label for="telepon">Nomor Telepon</label>
+                        <input type="text" class="form-control" id="telepon" placeholder="telepon">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="password">
+                    </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn btn-success" value="Register">
+      </div>
+    </form>
     </div>
   </div>
 </div>
@@ -131,7 +131,7 @@ $assets_location = base_url()."assets/basica/";
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Login</h4>
         </div>
-        <form role="form" action='<?php echo base_url();?>index.php/welcome/login' method='post'>
+        <form role="form" action='<?php echo base_url();?>welcome/login' method='post'>
             <fieldset>
                 <div class="modal-body">
                     <div class="row">
