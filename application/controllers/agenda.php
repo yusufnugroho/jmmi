@@ -47,12 +47,15 @@ class agenda extends CI_Controller {
 	function addagenda()
 	{
 		$this->load->model('m_agenda');
-        $this->load->view('dashboard/header');
+                $this->load->view('dashboard/header');
 		$this->load->view('dashboard/navbar');
 		$this->load->view('agenda/addagenda');
 		$this->load->view('dashboard/footer');
 	}
+         function deleteAgenda($id){
+            $this->load->model('m_agenda');
+            $this->m_agenda->deleteID('agenda',$id);
+            $this->index();
+            
+        }
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

@@ -22,4 +22,9 @@ class m_agenda extends CI_Model {
 	{
 		return $this->db->query("select * from $tablename where 1 ORDER BY ID_AGENDA DESC LIMIT 1")->result_array();
 	}
+        public function deleteId($table,$id){
+            $this->db->where('ID_AGENDA', $id);
+            $this->db->delete($table);
+            
+        }
 }

@@ -39,9 +39,7 @@
                                             <td> <?php echo $row['TANGGAL_AGENDA'];?></td>
                                             <td> <?php echo $row['TEMPAT_AGENDA'];?></td>
                                             <td>
-                                                <a href="<?php echo base_url();?>artikel/showArtikel/<?php echo $row['ID_AGENDA'];?>" class="btn btn-info" value="Lihat">Lihat</a>
-                                                   
-                                                <a href="<?php echo base_url();?>artikel/deleteArtikel/<?php echo $row['ID_AGENDA'];?>"    onClick="return confirm('Delete This Artikel?')" class="btn btn-danger" value="Hapus">Hapus</a>
+                                                <a href="<?php echo base_url();?>agenda/deleteAgenda/<?php echo $row['ID_AGENDA'];?>"    onClick="return confirm('Delete This Artikel?')" class="btn btn-danger" value="Hapus">Hapus</a>
                                             </td>   
                                         </tr>
                                         <?php
