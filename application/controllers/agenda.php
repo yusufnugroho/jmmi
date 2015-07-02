@@ -9,8 +9,8 @@ class agenda extends CI_Controller {
 	public function index()
 	{
 		$this->load->model("m_agenda");
-		$data['agenda'] = $this->m_agenda->gettable('agenda');
-        $this->load->view('dashboard/header');
+		$data['agenda'] = $this->m_agenda->getTable('agenda');
+                $this->load->view('dashboard/header');
 		$this->load->view('dashboard/navbar');
 		$this->load->view('agenda/indexagenda', $data);
 		$this->load->view('dashboard/footer');
