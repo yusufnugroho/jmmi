@@ -31,6 +31,8 @@ class User extends CI_Controller {
             //echo $session[0];
             
             //MENTE
+            if (1==1) $this->load->view("user/profile");
+            else{
             if($session[0]=="mente")
             {   
                 $session[] = $this->session->userdata('id');
@@ -155,5 +157,5 @@ class User extends CI_Controller {
             
             $this->load->view('dashboard/footer');
         }
-        
+        }
 }
