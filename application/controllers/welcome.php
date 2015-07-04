@@ -151,6 +151,7 @@ class Welcome extends CI_Controller {
                                                                         '5'=>$result_mentor[0]['STATUS_MENTOR'],
                                                                         '6'=>$result_mentor[0]['NRP_KJ'],
 							);
+                                                        //print_r($session_data);die();
 						$this->session->set_userdata($session_data);
 						$session_id = $this->session->userdata('session_id');
 						redirect('dashboard');

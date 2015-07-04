@@ -38,18 +38,7 @@
                             </thead>
                             <tbody>                                
                                 <?php
-                                    /*
-
-                                     *1 $session[] = $this->session->userdata('id');
-                                        $session[] = $this->session->userdata('nama_depan');
-                                        $session[] = $this->session->userdata('nama_belakang');
-                                        $session[] = $this->session->userdata('NRP_MENTOR');
-                                        $session[] = $this->session->userdata('NIP_DOSEN');
-                                        $session[] = $this->session->userdata('JK_MENTE');
-                                        $session[] = $this->session->userdata('TELEPON_MENTE');
-                                        $session[] = $this->session->userdata('NILAI_MENTE');
-                                        $session[] = $this->session->userdata('STATUS_MENTE');
-                                    */
+                                  
                                     $row = $session;
                                     {
                                 ?>
@@ -78,6 +67,43 @@
                                     </table>
                                 </div>
                                 <!-- /.table-responsive -->
+                                <h2>// new user profile....................</h2>
+                                
+                                <div class="row">
+                                <div class="col-lg-4">
+                                    <h3> FOTO</h3>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="col-md-3">
+                                        <?php
+                                        $field = array ("NRP","NAMA LENGKAP","JENIS KELAMIN", "TELEPON",'NILAI', "STATUS",'NRP MENTOR','NAMA MENTOR','TELEPON MENTOR','STATUS MENTOR','NIP DOSEN','NAMA DOSEN','TELEPON DOSEN','STATUS DOSEN');
+                                        for($i = 0; $i < count($field) ; $i++ )
+                                        {
+                                            echo $field[$i]."<br>";
+                                            
+                                        }
+                                        ?>
+
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <?php
+                                            //print_r($session);die();
+                                        for($i = 1; $i < count($session) ; $i++ )
+                                        {
+                                            echo $session[$i]."<br>";
+                                            
+                                        }
+                                        
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <h2>//</h2>
+                                
+                                
+                                
+                                
+                                
                             </div>
                             <!-- /.panel-body -->
                         </div>

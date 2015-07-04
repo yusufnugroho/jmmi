@@ -18,6 +18,7 @@ class User extends CI_Controller {
             * Check Session*/
             $session = array();
             $session[] = $this->session->userdata('akses');
+            //print_r($this->session->userdata);die();
             if (empty($session)) redirect('welcome/logout');
             
             $this->load->view("dashboard/header");
@@ -31,8 +32,9 @@ class User extends CI_Controller {
             //echo $session[0];
             
             //MENTE
-            if (1==1) $this->load->view("user/profile");
-            else{
+            //if (1==1) $this->load->view("user/profile");
+            //else
+            
             if($session[0]=="mente")
             {   
                 $session[] = $this->session->userdata('id');
@@ -92,8 +94,8 @@ class User extends CI_Controller {
             if($session[0]=="mentor")
             {   
                 
-
-                //print_r($data);
+                
+                //print_r($session);
                 //NRP, NAMA, JK, TELEPON, STATUS, NRP_JK,|| NAMA_JK,, TELEPON_JK,STATUS_JK
                 $session[] = $this->session->userdata('1');
                 $session[] = $this->session->userdata('2');
@@ -109,9 +111,17 @@ class User extends CI_Controller {
                 $tempMentor = $this->session->userdata('NRP_MENTOR');
                 //(table,where)
                 $where = array('NRP_KJ' => $tempMentor);
+                //echo $where;
+                //die();
                 $dataKJ = $this->m_kj->select_where('kj',$where);
                 
+                
+                                //print_r($session);
+                                //print_r($dataKJ);
+                                //die();
+                                
                 $dataKJ = $dataKJ[0];
+                //prit
                 $namaKJ = $dataKJ['NAMA_DEPAN_KJ']." ".$dataKJ['NAMA_BELAKANG_KJ'];
                 $teleponKJ = $dataKJ['TELEPON_KJ'];
                 $statusKJ = $dataKJ['STATUS_KJ'];
@@ -156,6 +166,6 @@ class User extends CI_Controller {
             }
             
             $this->load->view('dashboard/footer');
-        }
+        
         }
 }

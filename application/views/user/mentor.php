@@ -56,6 +56,44 @@
                                     </table>
                                 </div>
                                 <!-- /.table-responsive -->
+                                
+                                
+                                
+                                <h2>// new user profile....................</h2>
+                                
+                                <div class="row">
+                                <div class="col-lg-4">
+                                    <h3> FOTO</h3>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="col-md-3">
+                                        <?php
+                                        $field = array ("NRP","NAMA LENGKAP","JENIS KELAMIN", "TELEPON", "STATUS",'NRP KOORDINATOR JURUSAN','NAMA KOORDINATOR JURUSAN','TELEPON KOORDINATOR JURUSAN','STATUS KOORDINATOR JURUSAN');
+                                        for($i = 0; $i < count($field) ; $i++ )
+                                        {
+                                            echo $field[$i]."<br>";
+                                            
+                                        }
+                                        ?>
+
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <?php
+                                            //print_r($session);die();
+                                        for($i = 1; $i < count($session) ; $i++ )
+                                        {
+                                            echo $session[$i]."<br>";
+                                            
+                                        }
+                                        
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <h2>//</h2>
+                                
+                                
+                                
                             </div>
                             <!-- /.panel-body -->
                         </div>
