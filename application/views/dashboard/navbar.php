@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand" href="<?php echo base_url();?>"><img src="<?php echo base_url();?>assets/userfile/logo.png"></a>
+                <a class="navbar-brand" target="auto" href="<?php echo base_url();?>"><img src="<?php echo base_url();?>assets/userfile/logo.png"></a>
             </div>
             <ul class="nav navbar-top-links navbar-right">
  
@@ -21,7 +21,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="<?php echo base_url();?>user/"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="<?php echo base_url()."user/settings"?>"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href=<?php echo base_url();?>welcome/logout/><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -118,10 +118,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Mentor<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url();?>mentor/">Daftar Mentor</a>
+                                    <a href="<?php echo base_url();?>mentor/addmentor">Tambah Mentor</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>mentor/addmentor">Tambah Mentor</a>
+                                    <a href="<?php echo base_url();?>mentor/">Daftar Mentor</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url();?>mentor1516/">Sipenmaru Mentor</a>
@@ -136,10 +136,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Koordinator Jurusan<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url();?>kj/">Daftar Koordinator Jurusan</a>
+                                    <a href="<?php echo base_url();?>kj/addkj">Tambah Koordinator Jurusan</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>kj/addkj">Tambah Koordinator Jurusan</a>
+                                    <a href="<?php echo base_url();?>kj/">Daftar Koordinator Jurusan</a>
                                 </li>
                             </ul>
                         </li>

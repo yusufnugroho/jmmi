@@ -1,5 +1,6 @@
 <?php
 $assets_location = base_url()."assets/basica/";
+
 ?>
 
 <!DOCTYPE html>
@@ -62,66 +63,13 @@ $assets_location = base_url()."assets/basica/";
                             <li><a href="<?php echo base_url();?>pages/materi/file">File Materi</a></li>
                         </ul>
                     </li>
-                    <li><a href="kontak">Kontak</a></li>
-                    <li><a href="sipenmaru">Sipenmaru</a></li>
-                    <li><a href="" type="button" data-toggle="modal" data-target="#register">Register</a></li> 
+                    <li><a href="<?php echo base_url();?>pages/kontak">Kontak</a></li>
+                    <li><a href="<?php echo base_url();?>pages/sipenmaru">Sipenmaru</a></li>
                     <li><a href="" data-toggle="modal" data-target="#login">Login</a></li>
                 </ul>
             </div>
         </div>
     </header>
-    
-<div id="register" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Register</h4>
-      </div>
-    <form action="<?php echo base_url();?>home/register" method="POST">
-      <div class="modal-body">
-        <div class="row">
-            <div class="col-md-4">
-                <div style="height: 100%; min-height: 400px; width: 100%; position: relative">
-                    <div style="position: absolute; vertical-align: middle; padding-top: 75%">
-                        <img src="<?php echo base_url();?>assets/userfile/icon.png?>" width="100%">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
-                    <div class="form-group">
-                        <label for="NRP">NRP</label>
-                        <input type="text" class="form-control" id="NRP" placeholder="NRP">
-                    </div>
-                    <div class="form-group">
-                        <label for="namadepan">Nama Depan</label>
-                        <input type="text" class="form-control" id="namadepan" placeholder="Nama Depan">
-                    </div>
-                    <div class="form-group">
-                        <label for="namabelakang">Nama Belakang</label>
-                        <input type="text" class="form-control" id="namabelakang" placeholder="Nama Belakang">
-                    </div>
-                    <div class="form-group">
-                        <label for="telepon">Nomor Telepon</label>
-                        <input type="text" class="form-control" id="telepon" placeholder="telepon">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="password">
-                    </div>
-            </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <input type="submit" class="btn btn-success" value="Register">
-      </div>
-    </form>
-    </div>
-  </div>
-</div>
-
 <div id="login" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -139,12 +87,26 @@ $assets_location = base_url()."assets/basica/";
                             <img src="<?php echo base_url();?>assets/userfile/icon.png?>" width="100%">
                         </div>
                         <div class="col-lg-8">
-                            <div class="form-group">
-                                <input class="form-control" placeholder="ID" name="id" type="text" autofocus>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                            </div>
+                            <?php
+                            if ($isLogin == 'no'){
+                                ?>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="ID" name="id" type="text" autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    </div>
+                                <?php
+                            }
+                            else if ($isLogin == 'yes'){
+                                ?>
+                                <h3>
+                                    Anda sudah masuk sebagai <a href = "<?php echo base_url();?>dashboard"><b><?php echo $session_data['Nama']?></b></a>. 
+                                </h3>
+                                    Bukan Anda? <a href = "<?php echo base_url();?>welcome/logout">Logout </a> lalu Login lagi
+                                <?php
+                            }
+                            ?>
                             <div class="checkbox">
                         </div>
                     </div>
@@ -155,7 +117,6 @@ $assets_location = base_url()."assets/basica/";
                 </div>
             </fieldset>
         </form>
-      
     </div>
   </div>
 </div>

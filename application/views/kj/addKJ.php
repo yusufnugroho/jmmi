@@ -22,7 +22,7 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Masukkan data mentor
+                            Masukkan Data Koordinator Jurusan
                         </div>
                         <div class="panel-body">
                             <div class="row">
