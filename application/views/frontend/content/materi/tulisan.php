@@ -29,7 +29,7 @@ $assets_location = base_url()."assets/basica/";
 									if (!empty($value['THUMBNAIL_MATERI'])){
 
 										?>
-										<img src="<?php echo base_url().$value['THUMBNAIL_MATERI'];?>" style="width: 100%; ">
+										<img src="<?php echo base_url().$value['THUMBNAIL_MATERI'];?>" style="width: auto; height:auto; ">
 										<?php
 									}
 									else {

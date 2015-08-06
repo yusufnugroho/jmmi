@@ -13,16 +13,16 @@ class Kj extends CI_Controller {
 
 	public function index()
 	{
-                /*
-                 * Check Session*/ 
-                $session_check = $this->session->userdata('akses');
+        /*
+         * Check Session*/ 
+        $session_check = $this->session->userdata('akses');
 		if (empty($session_check)) redirect('welcome/logout');
                 
 		$data['kj'] = $this->m_kj->getDataKJ();
-                $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar');
 		$this->load->view('kj/indexKJ',$data);
-                $this->load->view('dashboard/footer');
+        $this->load->view('dashboard/footer');
 	}
 	public function addkj()
 	{		
