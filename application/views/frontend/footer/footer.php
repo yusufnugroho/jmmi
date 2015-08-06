@@ -20,7 +20,7 @@ $assets_location = base_url()."assets/basica/";
 	    				mail.jmmi.its@gmail.com<br>
 		    		</div>				
 		    		<div class="col-footer col-md-4 col-xs-6">
-		    			<h3>Tentang BMP</h3>
+		    			<h3>Tentang BPM</h3>
 	    				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
 		    			<div>
 		    				<img src="<?php echo $assets_location;?>img/icons/facebook.png" width="32" alt="Facebook">
