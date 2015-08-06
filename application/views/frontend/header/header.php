@@ -48,7 +48,7 @@ $assets_location = base_url()."assets/basica/";
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url()."beranda";?>"><img src="<?php echo base_url();?>assets/userfile/logo.png" alt="Basica"></a>
+                <a class="navbar-brand" href="<?php echo base_url()."pages/beranda";?>"><img src="<?php echo base_url();?>assets/userfile/logo.png" alt="Basica"></a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
