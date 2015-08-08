@@ -10,8 +10,8 @@ class User extends CI_Controller {
         $session[] = $this->session->userdata('akses');
         //print_r($this->session->userdata);die();
         if (empty($session)) redirect('welcome/logout');
-                $this->load->helper('url');
-                $this->load->model('m_mentor');
+        $this->load->helper('url');
+        $this->load->model('m_mentor');
         $this->load->model('m_mente');
         $this->load->model('universal');
         $this->load->model('m_dosen');
@@ -24,10 +24,7 @@ class User extends CI_Controller {
         $session = array();
         $session[] = $this->session->userdata('akses');
         if (empty($session)) redirect('welcome/logout');
-        $session = array();
-        $session[] = $this->session->userdata('akses');
         $this->load->view("dashboard/header");
-        $this->load->view("dashboard/navbar");
         
         if($session[0]=="mente")
         {   
@@ -76,6 +73,7 @@ class User extends CI_Controller {
             $data['foto'] = $foto;
             $data['field'] = $field;
             $data['session'] = $session;
+            $this->load->view("dashboard/mente/navbar");
             $this->load->view("user/index",$data);
         }
         //Mentor
@@ -111,6 +109,7 @@ class User extends CI_Controller {
             $data['foto'] = $foto;
             $data['field'] = $field;
             $data['session'] = $session;
+            $this->load->view("dashboard/mentor/navbar");
             $this->load->view("user/index",$data);
         }
         //KJ
@@ -126,6 +125,7 @@ class User extends CI_Controller {
             $data['foto'] = $foto;
             $data['field'] = $field;
             $data['session'] = $session;
+            $this->load->view("dashboard/kj/navbar");
             $this->load->view("user/index",$data);
         }
         if($session[0]=="dosen")
@@ -139,6 +139,7 @@ class User extends CI_Controller {
             $data['foto'] = $foto;
             $data['field'] = $field;
             $data['session'] = $session;
+            $this->load->view("dashboard/dosen/navbar");
             $this->load->view("user/index",$data);
         }
         $this->load->view('dashboard/footer');

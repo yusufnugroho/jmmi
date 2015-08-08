@@ -97,7 +97,6 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <!--Agenda-->
                         <!--Mente-->
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Mente<span class="fa arrow"></span></a>
@@ -108,36 +107,13 @@
                                 <li>
                                     <a href="<?php echo base_url();?>mente/addmente">Tambah Mente</a>
                                 </li>
-
-
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
-                        <!--Mentor-->
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Mentor<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url();?>mentor/addmentor">Tambah Mentor</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url();?>mentor/">Daftar Mentor</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url();?>mentor1516/">Sipenmaru Mentor</a>
-                                </li>
-                                 <li>
-                                    <a href="<?php echo base_url();?>mentor1516/applicant">Daftar Sipenmaru Mentor</a>
-                                </li>
-                            </ul>
                         </li>
                         <!--Koordinator Jurusan-->
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Koordinator Jurusan<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url();?>kj/addkj">Tambah Koordinator Jurusan</a>
-                                </li>
                                 <li>
                                     <a href="<?php echo base_url();?>kj/">Daftar Koordinator Jurusan</a>
                                 </li>
@@ -149,9 +125,6 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo base_url();?>dosen/">Daftar Dosen</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url();?>dosen/addDosen">Tambah Dosen</a>
                                 </li>
                             </ul>
                         </li>

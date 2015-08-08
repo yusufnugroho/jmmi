@@ -8,18 +8,40 @@ class Materi extends CI_Controller {
     } 
 	public function index()
 	{
-                /*
-                 * Check Session*/ 
-		$session_check = $this->session->userdata('akses');
-		if (empty($session_check)) redirect('welcome/logout');
+        /*
+         * Check Session*/ 
+        $session = array();
+		$session[] = $this->session->userdata('akses');
+		if (empty($session)) redirect('welcome/logout');
                 
 		$this->load->model("m_materi");
 		$data['materi'] = $this->m_materi->gettable('materi');
 		$data['file'] = $this->m_materi->gettable('file');
-                $this->load->view('dashboard/header');
-		$this->load->view('dashboard/navbar');
-		$this->load->view('materi/indexmateri',$data);
-		$this->load->view('dashboard/footer');
+        $this->load->view('dashboard/header');
+
+        if($session[0]=="mente")
+        {   
+            $this->load->view("dashboard/mente/navbar");
+        	$this->load->view('materi/mente/indexmateri',$data);
+        }
+        //Mentor
+        if($session[0]=="mentor")
+        {   
+            $this->load->view("dashboard/mentor/navbar");
+            $this->load->view("materi/indexmateri",$data);
+        }
+        //KJ
+        if($session[0]=="kj")
+        {
+            $this->load->view("dashboard/kj/navbar");
+            $this->load->view("materi/mente/indexmateri",$data);
+        }
+        if($session[0]=="dosen")
+        {
+            $this->load->view("dashboard/dosen/navbar");
+            $this->load->view("materi/mente/indexmateri",$data);
+        }
+        $this->load->view('dashboard/footer');
 	}
 
 	function create()

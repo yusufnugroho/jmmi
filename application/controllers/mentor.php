@@ -11,24 +11,24 @@ class Mentor extends CI_Controller {
 
 	public function index()
 	{                
-                /*
-                 * Check Session*/ 
-                $session_check = $this->session->userdata('akses');
+        /*
+         * Check Session*/ 
+        $session_check = $this->session->userdata('akses');
 		if (empty($session_check)) redirect('welcome/logout');
                 
 		$data['mentor'] = $this->m_mentor->getDataMentor();
 		$this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
-                $this->load->view('mentor/indexMentor',$data);
-                $this->load->view('dashboard/footer');
+        $this->load->view('dashboard/navbar');
+        $this->load->view('mentor/indexMentor',$data);
+        $this->load->view('dashboard/footer');
 	}
 	public function addmentor()
 	{		
-                $data['kj'] = $this->m_kj->getDataKJActive();
-                $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
+        $data['kj'] = $this->m_kj->getDataKJActive();
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar');
 		$this->load->view('mentor/addMentor',$data);
-                $this->load->view('dashboard/footer');
+        $this->load->view('dashboard/footer');
 	}
 	public function update($NRP)
 	{

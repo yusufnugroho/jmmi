@@ -55,7 +55,7 @@ class artikel extends CI_Controller {
 	function buatartikel()
 	{
 		$this->load->model('m_artikel');
-                $this->load->view('dashboard/header');
+        $this->load->view('dashboard/header');
 		$this->load->view('dashboard/navbar');
 		$this->load->view('artikel/buatartikel');
 		$this->load->view('dashboard/footer');
@@ -63,37 +63,61 @@ class artikel extends CI_Controller {
         function testArtikel()
 	{
 		$this->load->model('m_artikel');
-                $this->load->view('dashboard/header');
+        $this->load->view('dashboard/header');
 		$this->load->view('dashboard/navbar');
 		$this->load->view('artikel/testArtikel');
 		$this->load->view('dashboard/footer');
 	}
-        
-        function listArtikel()
+    
+    function listArtikel()
+    {
+        $session = array();
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+
+        $this->load->model('m_artikel');
+        $data['data'] = $this->m_artikel->getTable("artikel");
+        $this->load->view('dashboard/header');
+        if($session[0]=="mente")
+        {   
+            $this->load->view("dashboard/mente/navbar");
+        	$this->load->view('artikel/mente/listArtikel',$data);
+        }
+        //Mentor
+        if($session[0]=="mentor")
+        {   
+            $this->load->view("dashboard/mentor/navbar");
+            $this->load->view("artikel/listArtikel",$data);
+        }
+        //KJ
+        if($session[0]=="kj")
         {
-            $this->load->model('m_artikel');
-            $data['data'] = $this->m_artikel->getTable("artikel");
-            $this->load->view('dashboard/header');
-            $this->load->view('dashboard/navbar');
-            $this->load->view('artikel/listArtikel',$data);
-            $this->load->view('dashboard/footer');
+            $this->load->view("dashboard/kj/navbar");
+            $this->load->view("user/mente/listArtikel",$data);
         }
-        function deleteArtikel($id){
-            $this->load->model('m_artikel');
-            $this->m_artikel->deleteID('artikel',$id);
-            $this->listArtikel();
-            
+        if($session[0]=="dosen")
+        {
+            $this->load->view("dashboard/dosen/navbar");
+            $this->load->view("user/mente/listArtikel",$data);
         }
-        function showArtikel($id){
-            $this->load->model('m_artikel');
-            $data['data'] = $this->m_artikel->getArtikelByID("artikel",$id);
-            //die();
-            $this->load->view('dashboard/header');
-            $this->load->view('dashboard/navbar');
-            $this->load->view('artikel/showArtikel',$data);
-            $this->load->view('dashboard/footer');
-            
-            
-        }
+        $this->load->view('dashboard/footer');
+    }
+    
+    function deleteArtikel($id){
+        $this->load->model('m_artikel');
+        $this->m_artikel->deleteID('artikel',$id);
+        $this->listArtikel();
+        
+    }
+
+    function showArtikel($id){
+        $this->load->model('m_artikel');
+        $data['data'] = $this->m_artikel->getArtikelByID("artikel",$id);
+        //die();
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar');
+        $this->load->view('artikel/showArtikel',$data);
+        $this->load->view('dashboard/footer');
+    }
         
 }
