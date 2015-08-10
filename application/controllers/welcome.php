@@ -1,16 +1,18 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends CI_Controller 
+{
 
-        public function __construct() {
-		parent::__construct();
-                $this->load->model('m_mentor');
-		$this->load->model('m_mente');
-		$this->load->model('m_dosen');
-		$this->load->model('m_apply');
-		$this->load->model('m_kj');
-		$this->load->model('m_mentor');
-	}
+        public function __construct() 
+        {
+			parent::__construct();
+	        $this->load->model('m_mentor');
+			$this->load->model('m_mente');
+			$this->load->model('m_dosen');
+			$this->load->model('m_apply');
+			$this->load->model('m_kj');
+			$this->load->model('m_mentor');
+		}
 	public function index()
 	{
 		redirect('pages/beranda');
@@ -19,7 +21,6 @@ class Welcome extends CI_Controller {
 			if ($session_check == 'dosen'){
 				redirect('dashboard');
 				echo "LOGIN BERHASIL : DOSEN";
-
 			}
 			elseif ($session_check == 'kj') {
 				echo "LOGIN BERHASIL : KJ";

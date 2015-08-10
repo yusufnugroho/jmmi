@@ -6,6 +6,7 @@ Class Mentor1516 eXtends CI_Controller{
 		# code...
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->model('m_apply');
 	}
 
 	public function index()
@@ -13,14 +14,13 @@ Class Mentor1516 eXtends CI_Controller{
 		# code...
                 /*
                  * Check Session*/ 
-                $session_check = $this->session->userdata('akses');
+        $session_check = $this->session->userdata('akses');
 		//echo $session_check;
-		if (empty($session_check)) redirect('welcome/logout');
-                
-                $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
-                $this->load->view('applymentor/formDaftarMentor');
-                $this->load->view('dashboard/footer');
+		if (empty($session_check)) redirect('welcome/logout');            
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar');
+        $this->load->view('applymentor/formDaftarMentor');
+        $this->load->view('dashboard/footer');
 	}
 	public function doapply()
 	{
@@ -38,7 +38,7 @@ Class Mentor1516 eXtends CI_Controller{
                 }
 		$data = array(
 			'nrp' => $this->input->post('nrp'),
-                        'password' => $this->input->post('password'),
+            'password' => $this->input->post('password'),
 			'nama_depan' => $this->input->post('nama_depan'),
 			'nama_belakang' => $this->input->post('nama_belakang'),
 			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
@@ -83,10 +83,23 @@ Class Mentor1516 eXtends CI_Controller{
 		# code...
 		$this->load->model('m_apply');
 		$data['applicant'] = $this->m_apply->getall('apply_mentor');
-               // $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar'); 
+       // $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar'); 
 		$this->load->view('applymentor/list',$data);
-                //$this->load->view('dashboard/footer');
+    	//$this->load->view('dashboard/footer');
+	}
+	public function detailMentorSipenmaru($id){
+		
+		$table = "apply_mentor";
+		$where = array('id_apply_mentor' => $id, );
+		$data['data_apply_mentor'] = $this->m_apply->select_where($table,$where);
+		//print_r($data);
+		//die();
+		$this->load->view('dashboard/header');
+		$this->load->view('dashboard/navbar');
+		$this->load->view('applymentor/detail2',$data);	
+		$this->load->view('dashboard/footer');
+
 	}
 }
 ?>

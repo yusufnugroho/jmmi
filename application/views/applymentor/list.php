@@ -59,7 +59,12 @@
                                         <td> <?php echo $row->nama_depan." ".$row->nama_belakang;?></td>
                                         <td> <?php echo $row->ipk;?></td>
                                         <td>
-                                            <a href="#" class="btn btn-info" value="Lihat">Lihat</a>
+                                            <a href="#" class="btn btn-primary" value="Lihat">Terima Mentor</a>
+                                            <?php
+                                            echo '
+                                            <a href='. base_url()."mentor1516/detailMentorSipenmaru/".$row->id_apply_mentor.' class="btn btn-info"> Detail</a>
+                                            ';?>
+                                            
                                         </td>   
                                     </tr>
                                     <?php ;}
