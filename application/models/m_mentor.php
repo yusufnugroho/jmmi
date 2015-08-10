@@ -13,9 +13,9 @@ class M_mentor extends CI_Model {
 	{
 		return $this->db->query("select * from mentor where STATUS_MENTOR ='Aktif'");
 	}
-	public function insert($nrpmentor,$nrpkj,$depanmentor,$belakangmentor,$jkmentor,$hpmentor)
+	public function insert($nrpmentor,$nrpkj,$depanmentor,$belakangmentor,$jkmentor,$hpmentor,$pathmentor)
 	{
-		$this->db->query("insert into mentor values('$nrpmentor','$nrpkj','$depanmentor','$belakangmentor','$jkmentor','$hpmentor','$nrpmentor','Aktif')");
+		$this->db->query("insert into mentor values('$nrpmentor','$nrpkj','$depanmentor','$belakangmentor','$jkmentor','$hpmentor','$nrpmentor','Aktif', '$pathmentor')");
 	}
 	public function update($nrpmentor,$nrpkj,$depanmentor,$belakangmentor,$jkmentor,$hpmentor)
 	{

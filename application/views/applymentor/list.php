@@ -50,8 +50,9 @@
                             </thead>
                             <tbody>                                
                                 <?php
-                                $no = 1;
+                                $no = 0;
                                 foreach ($applicant as $row) {
+                                    $no++;
                                     ?>
                                     <tr>
                                         <td> <?php echo $no;?>
@@ -59,10 +60,10 @@
                                         <td> <?php echo $row->nama_depan." ".$row->nama_belakang;?></td>
                                         <td> <?php echo $row->ipk;?></td>
                                         <td>
-                                            <a href="#" class="btn btn-primary" value="Lihat">Terima Mentor</a>
+                                            <a href="<?php echo base_url()?>mentor/terimaMentor/<?php echo $row->nrp?>" class="btn btn-primary" value="Lihat">Terima Mentor</a>
                                             <?php
                                             echo '
-                                            <a href='. base_url()."mentor1516/detailMentorSipenmaru/".$row->id_apply_mentor.' class="btn btn-info"> Detail</a>
+                                            <a href='. base_url()."mentor/detailMentorSipenmaru/".$row->nrp.' class="btn btn-info"> Detail</a>
                                             ';?>
                                             
                                         </td>   

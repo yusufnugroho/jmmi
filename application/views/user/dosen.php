@@ -6,7 +6,6 @@
                     <?php
                     echo $session[2];
                     ?>
-                    
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
