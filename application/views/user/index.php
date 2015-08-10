@@ -24,6 +24,17 @@
                             <div class="col-lg-4">
                                 <center>
                                     <img src="<?php echo $foto?>" style="width: 100%">
+                                    <?php
+                                    if ($session[0] == 'mentor'){
+                                        ?>
+                                        <hr>
+                                        <button class="btn btn-primary" data-toggle="modal" data-target="#change_pp">
+                                            Ganti Foto Profil
+                                        </button>
+                                        <?php
+                                    }
+                                    ?>
+
                                 </center>
                             </div>
                             <div class="col-lg-8">
@@ -72,4 +83,35 @@
 
 </div>
 <!-- /#wrapper -->
-<!--Footer-->
+<div class="modal fade" id="change_pp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form role="form" action='<?php echo base_url();?>user/GantiPP/<?php echo $session[1]; ?>' method='post' id="form_select_kj">
+                <div class="modal-header">
+                    Ganti Foto
+                </div>
+                <div class="modal-body">
+                        <div class="col-lg-12">
+                            Klik Tombol "Pilih File" untuk mengupload foto, lalu Tekan Tombol "Ganti Foto"
+                        </div>
+                        <hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4"> 
+                            <div class="form-group">
+                                <input name="userFile" type="file" tabindex="1" value="NULL" /> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Ganti Foto</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

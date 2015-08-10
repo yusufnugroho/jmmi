@@ -41,4 +41,7 @@ class M_dosen extends CI_Model {
 		$data = $this->db->get_where($tablename, $where);
 		return $data->result_array();
 	}
+	public function update_db($table, $update_val, $where){
+		return $this->db->update($table, $update_val, $where);
+	}
 }

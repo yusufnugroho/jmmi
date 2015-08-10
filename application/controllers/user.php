@@ -294,4 +294,22 @@ class User extends CI_Controller {
         print_r($this->session->userdata['2']);
         redirect(base_url()."dashboard");
     }
+
+    public function GantiPP($id)
+    {
+        $target_Path = NULL;
+        if ($_FILES['userFile']['name'] != NULL)
+        {
+            $target_Path = "File/";
+            $string = basename( $_FILES['userFile']['name'] );
+            $string = str_replace(" ","-", $string);
+            $target_Path = $target_Path.$string;
+        }
+        $this->load->model('m_mentor');
+        if ($target_Path != NULL) {
+            if (move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path )){
+                $this->m_mentor->update_db('mentor', array('path' => $target_Path), array('NRP_MENTOR' => $id));
+            }
+        }
+    }
 }

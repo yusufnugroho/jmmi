@@ -21,6 +21,7 @@ class M_mentor extends CI_Model {
 	{
 		$this->db->query("update mentor set NRP_KJ = '$nrpkj', NAMA_DEPAN_MENTOR = '$depanmentor', NAMA_BELAKANG_MENTOR = '$belakangmentor',JK_MENTOR ='$jkmentor', TELEPON_MENTOR = '$hpmentor' where NRP_MENTOR = '$nrpmentor'");
 	}
+
 	public function updateData($NRP)
 	{
 		
@@ -47,5 +48,8 @@ class M_mentor extends CI_Model {
 	{
 		$data = $this->db->get_where($tablename, $where);
 		return $data->result_array();
+	}
+	public function update_db($table, $update_val, $where){
+		return $this->db->update($table, $update_val, $where);
 	}
 }

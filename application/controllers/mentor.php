@@ -114,7 +114,7 @@ class Mentor extends CI_Controller {
 			$hpmentor = $value->hp;
 			$path = "haha";
 			$this->m_mentor->insert($nrpmentor,$nrpkj,$depanmentor,$belakangmentor,$jkmentor,$hpmentor, $path);
-			redirect(base_url()."/mentor/applicant");
 		}
+			redirect(base_url()."mentor/applicant");
 	}
 }

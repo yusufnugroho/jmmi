@@ -104,7 +104,7 @@
                                     <a href="<?php echo base_url();?>mentor/">Daftar Mentor</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>mentor1516/applicant">Daftar Sipenmaru Mentor</a>
+                                    <a href="<?php echo base_url();?>mentor/applicant">Daftar Sipenmaru Mentor</a>
                                 </li>
                             </ul>
                         </li>
