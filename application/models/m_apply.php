@@ -19,4 +19,11 @@ class M_apply extends CI_Model {
 		$data = $this->db->get_where($tablename, $where);
 		return $data->result();
 	}
+
+	public function hapusMentor($table, $nrp)
+	{
+		$this->db->where($nrp);
+		$this->db->delete($table);
+		//$this->db->query("DELETE FROM `mentor` WHERE `NRP_MENTOR` =`$nrp`");
+	}
 }

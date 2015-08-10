@@ -6,6 +6,7 @@
                     <?php
                     foreach ($data_apply_mentor as $key => $value) {
                         echo $value->nama_depan;
+                        echo " ";
                         echo $value->nama_belakang;
                     }
                     ?>

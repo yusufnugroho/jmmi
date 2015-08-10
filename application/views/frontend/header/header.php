@@ -113,7 +113,9 @@ $assets_location = base_url()."assets/basica/";
                 </div>
                 <!-- Change this to a button or input when using this as a form -->
                 <div class="modal-footer">
+                    <?php if ($isLogin == 'no'){?>
                     <button class="btn btn-success">Login</button>
+                    <?php }?>
                 </div>
             </fieldset>
         </form>

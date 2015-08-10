@@ -165,14 +165,18 @@ class Welcome extends CI_Controller
                             'password'=>$password,
                         );
                         $result_unregistered_mentor = $this->m_apply->select_where('apply_mentor',$login_unregistered_mentor);
+                        print_r($result_unregistered_mentor);
                         if(!empty($result_unregistered_mentor))
-                            {
-                                $session_data = array(
-                                                        'akses' => "mentor",
-                                                        'id' => $result_unregistered_mentor[0]['nrp'],
-                                                        'nama_depan' => $result_unregistered_mentor[0]['nama_depan'],
-                                                        'nama_belakang' => $result_unregistered_mentor[0]['nama_belakang'],
-                            );
+                            {	
+                            	$session_data = array();
+                            	foreach ($result_mentor as $key => $value) {
+                            		$session_data = array(
+		                                                        'akses' => "mentor",
+		                                                        'id' => $value->nrp,
+		                                                        'nama_depan' => $value->nama_depan,
+		                                                        'nama_belakang' => $value->nama_belakang,
+		                            );
+                            	}
                             $this->session->set_userdata($session_data);
                             $session_id = $this->session->userdata('session_id');
                             redirect('dashboard');

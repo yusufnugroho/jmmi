@@ -84,7 +84,8 @@ class Mentor extends CI_Controller {
 	{
 		$this->load->model('m_apply');
 		$data['applicant'] = $this->m_apply->getall('apply_mentor');
-        $this->load->view('dashboard/navbar'); 
+		$data['kj'] = $this->m_apply->getall('kj');
+        $this->load->view('dashboard/navbar');
 		$this->load->view('applymentor/list',$data);
 	}
 	public function detailMentorSipenmaru($id){
@@ -103,16 +104,17 @@ class Mentor extends CI_Controller {
 		$where = array('nrp' => $id, );
 		$this->load->model('m_apply');
 		$data['data_apply_mentor'] = $this->m_apply->select_where("apply_mentor", $where);
+		$this->m_apply->hapusMentor("apply_mentor", array("nrp" => $id));
 		foreach ($data['data_apply_mentor'] as $key => $value) {
 			$nrpmentor = $value->nrp;
-			$nrpkj = 0;
+			$nrpkj = $this->input->get_post('kj');
 			$depanmentor = $value->nama_depan;
 			$belakangmentor = $value->nama_belakang;
 			$jkmentor = $value->jenis_kelamin;
 			$hpmentor = $value->hp;
 			$path = "haha";
 			$this->m_mentor->insert($nrpmentor,$nrpkj,$depanmentor,$belakangmentor,$jkmentor,$hpmentor, $path);
-			$this->index();
+			redirect(base_url()."/mentor/applicant");
 		}
 	}
 }

@@ -60,7 +60,10 @@
                                         <td> <?php echo $row->nama_depan." ".$row->nama_belakang;?></td>
                                         <td> <?php echo $row->ipk;?></td>
                                         <td>
-                                            <a href="<?php echo base_url()?>mentor/terimaMentor/<?php echo $row->nrp?>" class="btn btn-primary" value="Lihat">Terima Mentor</a>
+                                            
+                                            <button class="btn btn-primary" data-toggle="modal" data-target="#select_kj" onclick="change_kj(this)" id="<?php echo $row->nrp?>">
+                                                Terima Mentor
+                                            </button>
                                             <?php
                                             echo '
                                             <a href='. base_url()."mentor/detailMentorSipenmaru/".$row->nrp.' class="btn btn-info"> Detail</a>
@@ -87,7 +90,49 @@
 </div>
         <!-- /#wrapper -->
 <!--Footer-->
-
+<div class="modal fade" id="select_kj" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form role="form" action='<?php echo base_url();?>pages/sipenmaru/terimaMentor/' method='post' id="form_select_kj">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h4 class="modal-title" id="myModalLabel">Koordinator Jurusan</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p>Pilih Koordinator Jurusan Untuk Calon Mentor :</p>
+                            <p id="nama_mentor">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4"> Koordinator Jurusan </div>
+                        <div class="col-lg-8"> 
+                            <div class="form-group">
+                                <select multiple="" class="form-control" name="kj">
+                                    <?php
+                                    foreach ($kj as $key => $value) {
+                                        ?>
+                                        <option value="<?php echo $value->NRP_KJ?>"><?php echo $value->NAMA_DEPAN_KJ." ".$value->NAMA_BELAKANG_KJ;?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Terima Mentor</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
     <!-- jQuery -->
     <script src="<?php echo base_url();?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -106,13 +151,16 @@
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
+    var target = "<?php echo base_url().'mentor/terimaMentor/';?>";
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
                 responsive: true
         });
     });
+    function change_kj(var2){
+        $("#form_select_kj").attr("action", target+var2.id);
+    }
     </script>
-
 </body>
 
 </html>
