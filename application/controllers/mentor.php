@@ -13,29 +13,40 @@ class Mentor extends CI_Controller {
 	{                
         /*
          * Check Session*/ 
-        $session_check = $this->session->userdata('akses');
-		if (empty($session_check)) redirect('welcome/logout');
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
                 
 		$data['mentor'] = $this->m_mentor->getDataMentor();
 		$this->load->view('dashboard/header');
-        $this->load->view('dashboard/navbar');
+        $this->load->view('dashboard/navbar', $data);
         $this->load->view('mentor/indexMentor',$data);
         $this->load->view('dashboard/footer');
 	}
 	public function addmentor()
 	{		
+        /*
+         * Check Session*/ 
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
         $data['kj'] = $this->m_kj->getDataKJActive();
         $this->load->view('dashboard/header');
-        $this->load->view('dashboard/navbar');
+        $this->load->view('dashboard/navbar', $data);
 		$this->load->view('mentor/addMentor',$data);
         $this->load->view('dashboard/footer');
 	}
 	public function update($NRP)
 	{
+        /*
+         * Check Session*/ 
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
 		$data['all'] = $this->m_mentor->getData($NRP);
         $data['kj'] = $this->m_kj->getDataKJActive();
 		$this->load->view('./dashboard/header');
-        $this->load->view('./dashboard/navbar');
+        $this->load->view('./dashboard/navbar', $data);
         $this->load->view('mentor/updateMentor',$data);
         $this->load->view('./dashboard/footer');
 	}
@@ -82,20 +93,30 @@ class Mentor extends CI_Controller {
 	}
 	public function applicant()
 	{
+        /*
+         * Check Session*/ 
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
 		$this->load->model('m_apply');
 		$data['applicant'] = $this->m_apply->getall('apply_mentor');
 		$data['kj'] = $this->m_apply->getall('kj');
-        $this->load->view('dashboard/navbar');
+        $this->load->view('dashboard/navbar', $data);
 		$this->load->view('applymentor/list',$data);
 	}
-	public function detailMentorSipenmaru($id){
-		
+	public function detailMentorSipenmaru($id)
+	{
+	    /*
+         * Check Session*/ 
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
 		$table = "apply_mentor";
 		$where = array('nrp' => $id, );
 		$this->load->model('m_apply');
 		$data['data_apply_mentor'] = $this->m_apply->select_where($table,$where);
 		$this->load->view('dashboard/header');
-		$this->load->view('dashboard/navbar');
+		$this->load->view('dashboard/navbar', $data);
 		$this->load->view('applymentor/detail_apply',$data);
 		$this->load->view('dashboard/footer');
 	}

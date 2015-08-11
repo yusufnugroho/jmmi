@@ -12,89 +12,104 @@ class Mente extends CI_Controller {
 
 	public function index()
 	{
-                /*
-                 * Check Session*/ 
-                $session_check = $this->session->userdata('akses');
-		if (empty($session_check)) redirect('welcome/logout');
-                
-		$data['mente'] = $this->m_mente->getDataMente();
-                $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
-		$this->load->view('mente/indexMente',$data);
-                $this->load->view('dashboard/footer');
-	}
-	public function addmente()
-	{		
-		$data['mentor'] = $this->m_mentor->getDataMentorActive();
-		$data['dosen'] = $this->m_dosen->getDataDosen();
-                $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
-		$this->load->view('mente/addMente',$data);
-                $this->load->view('dashboard/footer');
-        }
-	public function update($NRP)
-	{
-		$data['all'] = $this->m_mente->getData($NRP);
-		$data['mentor'] = $this->m_mentor->getDataMentorActive();
-		$data['dosen'] = $this->m_dosen->getDataDosenActive();
-                $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
-		$this->load->view('mente/updateMente',$data);
-                $this->load->view('dashboard/footer');
-	}
-        public function updateNilai($nrp)
-        {
-                $data['mente'] = $this->m_mente->getData($nrp);
-                $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
-		$this->load->view('mente/updateNilai',$data);
-                $this->load->view('dashboard/footer');
-        }
-        public function active($nrp)
-	{
-		$this->m_mente->active($nrp);
-		$this->index();
-	}
-        public function deactive($nrp)
-	{
-		$this->m_mente->deactive($nrp);
-		$this->index();
-	}
-	public function Hapus($nrp)
-	{
-		$this->m_mente->hapusMente($nrp);
-		$this->index();
-	}
+        /*
+         * Check Session*/ 
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
+        $data['mente'] = $this->m_mente->getDataMente();
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar',$data);
+        $this->load->view('mente/indexMente',$data);
+        $this->load->view('dashboard/footer');
+    }
+    public function addmente()
+    {		
+        /*
+         * Check Session*/ 
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
+    	$data['mentor'] = $this->m_mentor->getDataMentorActive();
+    	$data['dosen'] = $this->m_dosen->getDataDosen();
+    	$this->load->view('dashboard/header');
+    	$this->load->view('dashboard/navbar', $data);
+    	$this->load->view('mente/addMente',$data);
+    	$this->load->view('dashboard/footer');
+    }
+    public function update($NRP)
+    {
+        /*
+         * Check Session*/ 
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
+    	$data['all'] = $this->m_mente->getData($NRP);
+    	$data['mentor'] = $this->m_mentor->getDataMentorActive();
+    	$data['dosen'] = $this->m_dosen->getDataDosenActive();
+    	$this->load->view('dashboard/header');
+    	$this->load->view('dashboard/navbar', $data);
+    	$this->load->view('mente/updateMente',$data);
+    	$this->load->view('dashboard/footer');
+    }
+    public function updateNilai($nrp)
+    {
+        /*
+         * Check Session*/ 
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
+    	$data['mente'] = $this->m_mente->getData($nrp);
+    	$this->load->view('dashboard/header');
+    	$this->load->view('dashboard/navbar', $data);
+    	$this->load->view('mente/updateNilai',$data);
+    	$this->load->view('dashboard/footer');
+    }
+    public function active($nrp)
+    {
+    	$this->m_mente->active($nrp);
+    	$this->index();
+    }
+    public function deactive($nrp)
+    {
+    	$this->m_mente->deactive($nrp);
+    	$this->index();
+    }
+    public function Hapus($nrp)
+    {
+    	$this->m_mente->hapusMente($nrp);
+    	$this->index();
+    }
 
-	public function insertmente()
-	{
-		$nrpmente = $this->input->post('nrpmente');
-		$nrpmentor = $this->input->post('nrpmentor');
-		$nipdosen = $this->input->post('nipdosen');
-		$depanmente = $this->input->post('frontname');
-		$belakangmente = $this->input->post('endname');
-		$jkmente = $this->input->post('jkmente');
-		$hpmente = $this->input->post('hpmente');
-		$this->m_mente->insert($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$jkmente,$hpmente);
-		$this->index();
-	}
-	public function updatemente($nrpmente)
-	{
-		$nrpmentor = $this->input->post('nrpmentor');
-		$nipdosen = $this->input->post('nipdosen');
-		$depanmente = $this->input->post('frontname');
-		$belakangmente = $this->input->post('endname');
-		$hpmente = $this->input->post('hpmente');
-                $jkmente = $this->input->post('jkmente');
-		$this->m_mente->update($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$hpmente,$jkmente);
-		$this->index();
-	}
-	public function updateNilaiReady($nrpmente)
-	{
-		$nilai = $this->input->post('nilai');
-           	$this->m_mente->updateNilai($nrpmente,$nilai);
-		$this->index();
-	}
-        
+    public function insertmente()
+    {
+    	$nrpmente = $this->input->post('nrpmente');
+    	$nrpmentor = $this->input->post('nrpmentor');
+    	$nipdosen = $this->input->post('nipdosen');
+    	$depanmente = $this->input->post('frontname');
+    	$belakangmente = $this->input->post('endname');
+    	$jkmente = $this->input->post('jkmente');
+    	$hpmente = $this->input->post('hpmente');
+    	$this->m_mente->insert($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$jkmente,$hpmente);
+    	$this->index();
+    }
+    public function updatemente($nrpmente)
+    {
+    	$nrpmentor = $this->input->post('nrpmentor');
+    	$nipdosen = $this->input->post('nipdosen');
+    	$depanmente = $this->input->post('frontname');
+    	$belakangmente = $this->input->post('endname');
+    	$hpmente = $this->input->post('hpmente');
+    	$jkmente = $this->input->post('jkmente');
+    	$this->m_mente->update($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$hpmente,$jkmente);
+    	$this->index();
+    }
+    public function updateNilaiReady($nrpmente)
+    {
+    	$nilai = $this->input->post('nilai');
+    	$this->m_mente->updateNilai($nrpmente,$nilai);
+    	$this->index();
+    }
+
 }
 

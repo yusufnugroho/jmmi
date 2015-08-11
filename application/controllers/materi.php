@@ -17,30 +17,10 @@ class Materi extends CI_Controller {
 		$this->load->model("m_materi");
 		$data['materi'] = $this->m_materi->gettable('materi');
 		$data['file'] = $this->m_materi->gettable('file');
+		$data['session'] = $session[0];
         $this->load->view('dashboard/header');
-
-        if($session[0]=="mente")
-        {   
-            $this->load->view("dashboard/mente/navbar");
-        	$this->load->view('materi/mente/indexmateri',$data);
-        }
-        //Mentor
-        if($session[0]=="mentor")
-        {   
-            $this->load->view("dashboard/mentor/navbar");
-            $this->load->view("materi/indexmateri",$data);
-        }
-        //KJ
-        if($session[0]=="kj")
-        {
-            $this->load->view("dashboard/kj/navbar");
-            $this->load->view("materi/mente/indexmateri",$data);
-        }
-        if($session[0]=="dosen")
-        {
-            $this->load->view("dashboard/dosen/navbar");
-            $this->load->view("materi/mente/indexmateri",$data);
-        }
+        $this->load->view('dashboard/navbar', $data);
+        $this->load->view('materi/indexmateri', $data);
         $this->load->view('dashboard/footer');
 	}
 
@@ -133,29 +113,44 @@ class Materi extends CI_Controller {
 	}
 	public function unggahmateri()
 	{
+        /*
+         * Check Session*/ 
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
 		$this->load->model('m_materi');
 		$data['tag'] = $this->m_materi->getTag('tag_materi');
-                $this->load->view('dashboard/header');
-		$this->load->view('dashboard/navbar');
+        $this->load->view('dashboard/header');
+		$this->load->view('dashboard/navbar', $data);
 		$this->load->view('materi/unggahmateri', $data);
 		$this->load->view('dashboard/footer');
 	}
 	function buatmateri()
 	{
+        /*
+         * Check Session*/ 
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
 		$this->load->model('m_materi');
 		$data['tag'] = $this->m_materi->getTag();
-                $this->load->view('dashboard/header');
-		$this->load->view('dashboard/navbar');
+        $this->load->view('dashboard/header');
+		$this->load->view('dashboard/navbar', $data);
 		$this->load->view('materi/buatmateri', $data);
 		$this->load->view('dashboard/footer');
 	}
 	public function showFile($id)
 	{
+        /*
+         * Check Session*/ 
+        $session[] = $this->session->userdata('akses');
+        if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
 		$this->load->model("m_materi");
 		$where = array('ID' => $id);
 		$data['file'] = $this->m_materi->select_where('file',$where);
-                $this->load->view('dashboard/header');
-		$this->load->view('dashboard/navbar');
+        $this->load->view('dashboard/header');
+		$this->load->view('dashboard/navbar', $data);
 		$this->load->view('materi/lihat', $data);
 		$this->load->view('dashboard/footer');
 	}

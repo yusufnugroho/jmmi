@@ -44,13 +44,16 @@
                                             {
                                                 echo '<a href='. base_url()."index.php/mentor/deactive/".$row->NRP_MENTOR.' class="btn btn-success">Activated</a>';
                                             }
-                                             elseif($status == "Tidak Aktif")
-                                             {
-                                                 echo '<a href='. base_url()."index.php/mentor/active/".$row->NRP_MENTOR.' class="btn btn-danger">Deactivated</a>';
-                                             };
-                                             echo '</td><td>';
-                                               echo '<a href='. base_url()."index.php/mentor/update/".$row->NRP_MENTOR.' class="btn btn-warning"> Edit</a>
-                                            <a href='. base_url()."index.php/mentor/hapus/".$row->NRP_MENTOR.' class="btn btn-danger"> Hapus </a> </td></tr>';
+                                            elseif($status == "Tidak Aktif")
+                                            {
+                                                echo '<a href='. base_url()."index.php/mentor/active/".$row->NRP_MENTOR.' class="btn btn-danger">Deactivated</a>';
+                                            };
+                                            echo '</td>';
+                                            if($session =='mentor')
+                                                echo '<td> 
+                                                <a href='. base_url()."index.php/mentor/update/".$row->NRP_MENTOR.' class="btn btn-warning"> Edit</a>
+                                                <a href='. base_url()."index.php/mentor/hapus/".$row->NRP_MENTOR.' class="btn btn-danger"> Hapus </a> </td></tr>';
+                                            else echo '<td> </td>';
                                     }       
                                     ?>
                                     </tbody>

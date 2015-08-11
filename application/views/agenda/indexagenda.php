@@ -38,11 +38,15 @@
                                             <td> <?php echo $row['ISI_AGENDA'];?></td>
                                             <td> <?php echo $row['TANGGAL_AGENDA'];?></td>
                                             <td> <?php echo $row['TEMPAT_AGENDA'];?></td>
+                                            <?php if($session == 'admin'){?>
                                             <td>
                                                 <a href="<?php echo base_url();?>agenda/deleteAgenda/<?php echo $row['ID_AGENDA'];?>"    onClick="return confirm('Delete This Artikel?')" class="btn btn-danger" value="Hapus">Hapus</a>
                                             </td>   
+                                            <?php ;}
+                                            else {?>
+                                            <td> </td>
                                         </tr>
-                                        <?php
+                                        <?php ;}
                                         $no++;
                                     }
                                     ?>
