@@ -47,9 +47,10 @@
                                             <td> <?php echo $row['PENULIS_ARTIKEL'];?></td>
                                             <td> <?php echo $row['TAG_ARTIKEL'];?></td>
                                             <td>
-                                                <a href="<?php echo base_url();?>artikel/showArtikel/<?php echo $row['ID_ARTIKEL'];?>" class="btn btn-info" value="Lihat">Lihat</a>
-                                                   
+                                                <a href="<?php echo base_url();?>artikel/showArtikel/<?php echo $row['ID_ARTIKEL'];?>" class="btn btn-info" value="Lihat">Lihat</a>   
+                                                <?php if($session == 'mentor') {?>
                                                 <a href="<?php echo base_url();?>artikel/deleteArtikel/<?php echo $row['ID_ARTIKEL'];?>"    onClick="return confirm('Delete This Artikel?')" class="btn btn-danger" value="Hapus">Hapus</a>
+                                                <?php ;} ?>
                                             </td>   
                                         </tr>
                                         <?php

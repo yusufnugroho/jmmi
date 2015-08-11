@@ -15,29 +15,35 @@ class Kj extends CI_Controller {
 	{
         /*
          * Check Session*/ 
-        $session_check = $this->session->userdata('akses');
-		if (empty($session_check)) redirect('welcome/logout');
-                
+        $sesision[] = $this->session->userdata('akses');
+		if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
 		$data['kj'] = $this->m_kj->getDataKJ();
         $this->load->view('dashboard/header');
-        $this->load->view('dashboard/navbar');
+        $this->load->view('dashboard/navbar', $data);
 		$this->load->view('kj/indexKJ',$data);
         $this->load->view('dashboard/footer');
 	}
 	public function addkj()
 	{		
+        $sesision[] = $this->session->userdata('akses');
+		if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
 		$data['mentor'] = $this->m_mentor->getDataMentor();
 		$data['dosen'] = $this->m_dosen->getDataDosen();
-                $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
-		$this->load->view('kj/addkj');
-                $this->load->view('dashboard/footer');
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar', $data);
+		$this->load->view('kj/addkj', $data);
+        $this->load->view('dashboard/footer');
         }
 	public function update($NRP)
 	{
+        $sesision[] = $this->session->userdata('akses');
+		if (empty($session)) redirect('welcome/logout');
+        $data['session'] = $session[0];
         $data['kj'] = $this->m_kj->getData($NRP);
         $this->load->view('dashboard/header');
-        $this->load->view('dashboard/navbar');
+        $this->load->view('dashboard/navbar', $data);
 		$this->load->view('kj/updateKJ',$data);
         $this->load->view('dashboard/footer');
 	}

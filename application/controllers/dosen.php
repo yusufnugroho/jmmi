@@ -13,46 +13,56 @@ class Dosen extends CI_Controller {
 
 	public function index()
 	{
-                 /*
-                 * Check Session*/
-                 $session = array();
-                $session[] = $this->session->userdata('akses');
-                $session[] = $this->session->userdata('id');
-                $session[] = $this->session->userdata('nama_depan');
-                $session[] = $this->session->userdata('nama_belakang');
-                //print_r($session);
-                //die();
+         /*
+         * Check Session*/
+     	$session = array();
+        $session[] = $this->session->userdata('akses');
+        $session[] = $this->session->userdata('id');
+        $session[] = $this->session->userdata('nama_depan');
+        $session[] = $this->session->userdata('nama_belakang');
+        //print_r($session);
+        //die();
                 
 		if (empty($session)) redirect('welcome/logout');
-                
+		$data['session'] = $session[0];
 		$data['dosen'] = $this->m_dosen->getDataDosen();
-                $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar', $data);
 		$this->load->view('dosen/indexDosen',$data);
-                $this->load->view('dashboard/footer');
+        $this->load->view('dashboard/footer');
 	}
 	public function addDosen()
 	{	
-                $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
+        $session = array();
+        $session[] = $this->session->userdata('akses');
+		if (empty($session)) redirect('welcome/logout'); 
+		$data['session'] = $session[0];
+
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar', $data);
 		#$this->load->view('kj/addkj',$data);
-                $this->load->view('dosen/addDosen');
-                $this->load->view('dashboard/footer');
+        $this->load->view('dosen/addDosen', $data);
+        $this->load->view('dashboard/footer');
         }
 	public function update($nip)
 	{
+        $session = array();
+        $session[] = $this->session->userdata('akses');
+		if (empty($session)) redirect('welcome/logout'); 
+		$data['session'] = $session[0];
+
 		$data['dosen'] = $this->m_dosen->getData($nip);
-                $this->load->view('dashboard/header');
-                $this->load->view('dashboard/navbar');
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar', $data);
 		$this->load->view('dosen/updateDosen',$data);
-                $this->load->view('dashboard/footer');
+        $this->load->view('dashboard/footer');
 	}
-        public function active($nip)
+    public function active($nip)
 	{
 		$this->m_dosen->active($nip);
 		$this->index();
 	}
-        public function deactive($nip)
+    public function deactive($nip)
 	{
 		$this->m_dosen->deactive($nip);
 		$this->index();
