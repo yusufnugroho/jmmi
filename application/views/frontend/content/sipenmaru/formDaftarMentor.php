@@ -2,19 +2,6 @@
 
     <div id="wrapper">
 
-        <!-- Navigation -->
-                <!--Header-->
-        <div id="page-wrapper">
-            <div class="section section-breadcrumbs">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1>Form Pendaftaran Mentor 2015/2016</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
@@ -33,7 +20,7 @@
 
                                 <div class="form-group">
                                     <label>NRP</label>
-                                    <input type='text' name='nrp'class="form-control" required>
+                                    <input type='text' name='nrp'class="form-control" value="<?php if (isset($data['nrp'])) echo $data['nrp']?>" required >
                                 </div>       
                                 <div class="form-group">
                                     <label>Password</label>
@@ -45,35 +32,35 @@
                                 </div>       
                                 <div class="form-group">
                                     <label>Nama Depan</label>
-                                    <input type='text' name='nama_depan'class="form-control" required>
+                                    <input type='text' name='nama_depan'class="form-control" value="<?php if (isset($data['nama_depan']))  echo $data['nama_depan']?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Belakang</label>
-                                    <input type='text' name='nama_belakang'class="form-control" required>
+                                    <input type='text' name='nama_belakang'class="form-control" value="<?php if (isset($data['nama_belakang']))  echo $data['nama_belakang']?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="jenis_kelamin" id="L" value="L">Ikhwan
+                                            <input type="radio" name="jenis_kelamin" id="L" value="L" <?php if(isset($data['jenis_kelamin']) && $data['jenis_kelamin'] == "L") echo "checked"?>>Ikhwan
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="jenis_kelamin" id="P" value="P">Akhwat
+                                            <input type="radio" name="jenis_kelamin" id="P" value="P" <?php if(isset($data['jenis_kelamin']) && $data['jenis_kelamin'] == "P") echo "checked"?>>Akhwat
                                         </label>
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type='email' name='email'class="form-control" required>
+                                    <input type='email' name='email'class="form-control" value="<?php if (isset($data['email'])) echo $data['email']?>" required>
                                 </div> 
                                 <div class="form-group">
                                     <label>No Telepon</label>
-                                    <input type='text' name='hp'class="form-control" required>
+                                    <input type='text' name='hp'class="form-control" value="<?php if (isset($data['hp'])) echo $data['hp']?>" required>
                                 </div> 
                                 <div class="form-group">
                                     <label>IPK</label>&nbsp &nbsp<snall>(dipisahkan dengan tanda titik)</snall>
-                                    <input type='number'step="any" name='ipk'class="form-control" required>
+                                    <input type='number'step="any" name='ipk'class="form-control" value="<?php if (isset($data['ipk'])) echo $data['ipk']?>" required>
                                 </div> 
                                 
                                 <hr>
@@ -83,7 +70,7 @@
                                 
                                 <div class="form-group">
                                     <label>Mentor Saat Ini</label>
-                                    <input type='text' name='mentor_sekarang'class="form-control" required>
+                                    <input type='text' name='mentor_sekarang'class="form-control" value="<?php if (isset($data['mentor_sekarang'])) echo $data['mentor_sekarang']?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Kondisi Mentoring</label>
@@ -98,27 +85,27 @@
                                 </center>
                                 <div class="form-group">
                                     <label>Shalat Wajib Berjamaah di Awal Waktu</label>
-                                    <input type='number' name='wajib'class="form-control col-md-1" required>
+                                    <input type='number' name='wajib'class="form-control col-md-1" value="<?php if (isset($data['wajib'])) echo $data['wajib']?>" required>
                                 </div> 
                                 <div class="form-group">
                                     <label>Tilawatil Quran</label>
-                                    <input type='number' name='tilawatil'class="form-control col-md-1" required>
+                                    <input type='number' name='tilawatil'class="form-control col-md-1" value="<?php if (isset($data['tilawatil'])) echo $data['tilawatil']?>" required>
                                 </div> 
                                 <div class="form-group">
                                     <label>Wirid Alma'tsurat</label>
-                                    <input type='number' name='wirid'class="form-control col-md-1" required>
+                                    <input type='number' name='wirid'class="form-control col-md-1" value="<?php if (isset($data['wirid'])) echo $data['wirid']?>" required>
                                 </div> 
                                 <div class="form-group">
                                     <label>Shalat Dhuha</label>
-                                    <input type='number' name='dhuha'class="form-control col-md-1" required>
+                                    <input type='number' name='dhuha'class="form-control col-md-1" value="<?php if (isset($data['dhuha'])) echo $data['dhuha']?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Shalat Malam</label>
-                                    <input type='number' name='malam'class="form-control col-md-1" required>
+                                    <input type='number' name='malam'class="form-control col-md-1" value="<?php if (isset($data['malam'])) echo $data['malam']?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Bacaan Favorit</label>
-                                    <textarea style="height:90px"class="form-control col-lg-12" name='bacaan' required></textarea>
+                                    <textarea style="height:90px"class="form-control col-lg-12" name='bacaan' required><?php if (isset($data['bacaan'])) echo $data['bacaan']?></textarea>
                                 </div>
                                 <br>
                                 <br>
@@ -130,11 +117,11 @@
                                 </center>
                                 <div class="form-group">
                                     <label>Motivasi Menjadi Mentor</label>
-                                    <textarea style="height:90px"class="form-control col-lg-12"name='motivasi' required></textarea>
+                                    <textarea style="height:90px"class="form-control col-lg-12"name='motivasi'  required><?php if (isset($data['motivasi'])) echo $data['motivasi']?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Saran Untuk Pelaksanaan Mentoring Wajib atau Badan Pelaksana Mentoring</label>
-                                    <textarea style="height:90px"class="form-control col-lg-12"name='saran' required></textarea>
+                                    <textarea style="height:90px"class="form-control col-lg-12"name='saran' required><?php if (isset($data['saran'])) echo $data['saran']?> </textarea>
                                 </div>
                                 <br>
                                 <br>
@@ -150,7 +137,7 @@
                                     Komitmen Saya (ditulis ulang) *</label>
                                     <label>
 “Saya menyatakan bahwa data yang telah saya isi di atas adalah benar dan dapat dipertanggung jawabkan, dan saya berkomitmen akan mengikuti segala bentuk pembinaan dari BPM JMMI ITS jika diterima menjadi mentor, serta siap menerima sangsi jika melanggar aturan yang telah dibuat.”</label>
-                                    <textarea style="height:90px"class="col-lg-12"name='komitmen' required></textarea>
+                                    <textarea style="height:90px"class="col-lg-12"name='komitmen' required><?php if (isset($data['komitmen'])) echo $data['komitmen']?></textarea>
                                     
                                 </div>
                                 <br>
@@ -159,8 +146,7 @@
                                 <br>
                                 <hr>
                                 <div>
-                                    <button type="submit" class="btn btn-default">Submit Button</button>
-                                    <button type="reset" class="btn btn-default">Reset Button</button>
+                                    <button type="submit" class="btn btn-default">Kirim </button>
                                 </div>
                             </form>
                         </div>

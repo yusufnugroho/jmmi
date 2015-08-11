@@ -1,8 +1,8 @@
 Frontend 	: Hardcode content
 Solved	: ???			: Sipenmaru
 Solved	: Frontend	 	: Controller form login belum sempurna
-Frontend 	: Sorting view Artikel
-Frontend	: Sidebar saat view artikel/materi kosong -> tampilan kurang bagus
+Solved	: Frontend	 	: Sorting view Artikel
+Frontend: Sidebar saat view artikel/materi kosong -> tampilan kurang bagus
 Solved	: Backend		: Ganti Password belum
 Solved	: Backend		: Delete Artikel tidak bisa
 Backend		: Thumbnail Artikel tidak ada formnya(?)
