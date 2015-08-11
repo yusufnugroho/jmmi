@@ -176,7 +176,7 @@ class User extends CI_Controller {
             $kj_value = $this->m_kj->select_where('kj', array("NRP_KJ" =>$this->session->userdata('1')));
             $kj_value = $kj_value[0];
             $form_name = array("NAMA_DEPAN_KJ", "NAMA_BELAKANG_KJ", "JK_KJ", "TELEPON_KJ", "PASSWORD_KJ");
-            $form_type = array("text", "text", "text", "text", "password");
+            $form_type = array("text", "text", "radio", "text", "password");
             $form_label = array('Nama Depan', 'Nama Belakang', 'Jenis Kelamin', 'No. Telp', 'Password');
             $form_value = array($kj_value['NAMA_DEPAN_KJ'], $kj_value['NAMA_BELAKANG_KJ'], $kj_value['JK_KJ'], $kj_value['TELEPON_KJ'], '');
             $session[1] = $kj_value['NRP_KJ'];
@@ -185,7 +185,7 @@ class User extends CI_Controller {
             $mentor_value = $this->m_mentor->select_where('mentor', array("NRP_MENTOR" =>$this->session->userdata('1')));
             $mentor_value = $mentor_value[0];
             $form_name = array("NAMA_DEPAN_MENTOR", "NAMA_BELAKANG_MENTOR", "jk_mentor", "TELEPON_MENTOR", "PASSWORD_MENTOR");
-            $form_type = array("text", "text", "text", "text", "password");
+            $form_type = array("text", "text", "radio", "text", "password");
             $form_label = array('Nama Depan', 'Nama Belakang', 'Jenis Kelamin', 'No. Telp', 'Password');
             $form_value = array($mentor_value['NAMA_DEPAN_MENTOR'], $mentor_value['NAMA_BELAKANG_MENTOR'], $mentor_value['jk_mentor'], $mentor_value['TELEPON_MENTOR'], '');
             $session[1] = $mentor_value['NRP_MENTOR'];
@@ -195,7 +195,7 @@ class User extends CI_Controller {
 
             $mente_value = $mente_value[0];
             $form_name = array("NAMA_DEPAN_MENTE", "NAMA_BELAKANG_MENTE", "JK_MENTE", "TELEPON_MENTE", "PASS_MENTE");
-            $form_type = array("text", "text", "text", "text", "password");
+            $form_type = array("text", "text", "radio", "text", "password");
             $form_label = array('Nama Depan', 'Nama Belakang', 'Jenis Kelamin', 'No. Telp', 'Password');
             $form_value = array($mente_value['NAMA_DEPAN_MENTE'], $mente_value['NAMA_BELAKANG_MENTE'], $mente_value['JK_MENTE'], $mente_value['TELEPON_MENTE'], '');
             $session[1] = $mente_value['NRP_MENTE'];

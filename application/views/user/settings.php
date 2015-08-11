@@ -32,26 +32,46 @@
             <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Profil Dosen
+                        Setting
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                             <form role="form" action='<?php echo base_url();?>user/update/<?php echo "$session[0]"?>' method='post'>
                                 <?php
                                 for ($i=0; $i < count($form_name) ; $i++) { 
+                                    if ($form_type[$i] != "radio"){
                                 ?>
-                                    <div class="form-group">
-                                        <label><?php echo $form_label[$i]?></label>
-                                        <input type='<?php echo $form_type[$i]?>' name='<?php echo $form_name[$i]?>' class="form-control" value = "<?php echo $form_value[$i]?>">
-                                        <?php
-                                        if ($form_type[$i] =='password'){
-                                            ?>
-                                                <p class="help-block">* Masukkan Password Anda untuk Mengubah Data</p>
+                                        <div class="form-group">
+                                            <label><?php echo $form_label[$i]?></label>
+                                            <input type='<?php echo $form_type[$i]?>' name='<?php echo $form_name[$i]?>' class="form-control" value = "<?php echo $form_value[$i]?>">
                                             <?php
-                                        }
-                                        ?>
-                                    </div>
+                                            if ($form_type[$i] =='password'){
+                                                ?>
+                                                    <p class="help-block">* Masukkan Password Anda untuk Mengubah Data</p>
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
                                 <?php
+                                    }
+                                    else if ($form_label[$i] == "Jenis Kelamin") {
+
+                                        ?>
+                                        <div class="form-group">
+                                            <label>Jenis Kelamin</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="jkmentor" id="L" value="L" <?php if(isset($form_value[$i]) && $form_value[$i] == "L") echo "checked"?>>Ikhwan
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="jkmentor" id="P" value="P" <?php if(isset($form_value[$i]) && $form_value[$i] == "P") echo "checked"?>>Akhwat
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
                                 }
                                 ?>
                                 <div>

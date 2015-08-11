@@ -3,7 +3,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Tables</h1>
+                    <h1 class="page-header">Update Mente</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Masukkan data mentor
+                            Masukkan data Mente
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -31,7 +31,7 @@
                                 <div class="col-lg-8 col-md-offset-2">
                                     <form role="form" action='<?php echo base_url();?>index.php/mente/updatemente/<?php echo $mente->NRP_MENTE;?>' method='post'>
                                         <div class="form-group">
-                                            <label>NRP Mentor</label>
+                                            <label>NRP Mente</label>
                                             <input type='text' name='nrpmente'class="form-control" value="<?php echo $mente->NRP_MENTE;?>" disabled>
                                         </div>       
                                         <div class="form-group">
@@ -50,12 +50,12 @@
                                             <label>Jenis Kelamin</label>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="jkmente" id="L" value="L">Ikhwan
+                                                    <input type="radio" name="jkmente" id="L" value="L" <?php if(isset($mente->JK_MENTE) && $mente->JK_MENTE == "L") echo "checked"?>>Ikhwan
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="jkmente" id="P" value="P">Akhwat
+                                                    <input type="radio" name="jkmente" id="P" value="P" <?php if(isset($mente->JK_MENTE) && $mente->JK_MENTE == "P") echo "checked"?>>Akhwat
                                                 </label>
                                         </div>
                                         <div class="form-group">
@@ -65,7 +65,11 @@
                                             <?php
                                                 foreach ($mentor->result() as $row)
                                                 {
-                                                    echo '<option value='.$row->NRP_MENTOR.'>';
+                                                    echo '<option value='.$row->NRP_MENTOR;   
+                                                    if ($row->NRP_MENTOR == $mente->NRP_MENTOR){
+                                                        echo " selected";
+                                                    }
+                                                    echo '>';
                                                     echo $row->NRP_MENTOR." - ";
                                                     echo $row->NAMA_DEPAN_MENTOR." ";
                                                     echo $row->NAMA_BELAKANG_MENTOR;
@@ -81,7 +85,11 @@
                                             <?php
                                                 foreach ($dosen->result() as $row)
                                                 {
-                                                    echo '<option value='.$row->NIP_DOSEN.'>';
+                                                    echo '<option value='.$row->NIP_DOSEN;
+                                                    if ($row->NIP_DOSEN == $mente->NIP_DOSEN){
+                                                        echo " selected";
+                                                    }
+                                                    echo '>';
                                                     echo $row->NIP_DOSEN." - ";
                                                     echo $row->NAMA_DEPAN_DOSEN." ";
                                                     echo $row->NAMA_BELAKANG_DOSEN;
@@ -92,7 +100,6 @@
                                         </div>                        
                                         <div>
                                             <button type="submit" class="btn btn-default">Update</button>
-                                            <button type="reset" class="btn btn-default">Reset</button>
                                         </div>
                                     </form>
                                 </div>

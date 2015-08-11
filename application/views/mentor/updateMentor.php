@@ -40,12 +40,12 @@
                                             <label>Jenis Kelamin</label>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="jkmentor" id="L" value="L">Ikhwan
+                                                    <input type="radio" name="jkmentor" id="L" value="L" <?php if(isset($mentor->jk_mentor) && $mentor->jk_mentor == "L") echo "checked"?>>Ikhwan
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="jkmentor" id="P" value="P">Akhwat
+                                                    <input type="radio" name="jkmentor" id="P" value="P" <?php if(isset($mentor->jk_mentor) && $mentor->jk_mentor == "P") echo "checked"?>>Akhwat
                                                 </label>
                                         </div>
                                         <div class="form-group">
@@ -54,7 +54,11 @@
                                             <?php
                                                 foreach ($kj->result() as $row)
                                                 {
-                                                    echo '<option value='.$row->NRP_KJ.'>';
+                                                    echo '<option value='.$row->NRP_KJ;
+                                                    if ($row->NRP_KJ == $mentor->NRP_KJ){
+                                                        echo " selected";
+                                                    }
+                                                    echo '>';
                                                     echo $row->NRP_KJ." - ";
                                                     echo $row->NAMA_DEPAN_KJ." ";
                                                     echo $row->NAMA_BELAKANG_KJ;
@@ -65,7 +69,6 @@
                                         </div>                     
                                         <div>
                                             <button type="submit" class="btn btn-default">Update</button>
-                                            <button type="reset" class="btn btn-default">Reset</button>
                                         </div>
                                     </form>
                                 </div>
