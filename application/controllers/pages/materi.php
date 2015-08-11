@@ -69,6 +69,9 @@ class materi extends CI_Controller {
 	}
 
 	public function baca($id){
+		$this->load->model("m_artikel");
+		$this->load->model("m_materi");
+		$this->load->model("m_agenda");
 		$session_check = $this->session->userdata('akses');
 		$isLogin = "no";
 		$session_data = array();
@@ -86,6 +89,9 @@ class materi extends CI_Controller {
 			'ID_MATERI' => $id,
 			);
 		$data['materi'] = $this->m_materi->select_where('materi', $where);
+		$data['artikel_terbaru'] = $this->m_artikel->gettable_sort_limit('artikel', "ID_ARTIKEL", 5);
+		$data['materi_tertulis_terbaru'] = $this->m_materi->gettable_sort_limit('materi', "ID_MATERI", 5);
+		$data['agenda_terbaru'] = $this->m_agenda->gettable_sort_limit('agenda', "ID_AGENDA", 5);
 		$this->load->view('frontend/content/materi/baca', $data);
 		$this->load->view('frontend/footer/footer');
 	}

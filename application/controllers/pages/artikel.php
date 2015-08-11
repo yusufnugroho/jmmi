@@ -38,6 +38,8 @@ class artikel extends CI_Controller {
 	}
 	public function baca($id){
 		$this->load->model("m_artikel");
+		$this->load->model("m_materi");
+		$this->load->model("m_agenda");
 		$where = array(
 			'ID_ARTIKEL' => $id,
 			);
@@ -54,6 +56,9 @@ class artikel extends CI_Controller {
 		$data['session_data'] = $session_data;
 		$this->load->view('frontend/header/header', $data);
 		$data['artikel'] = $this->m_artikel->select_where('artikel', $where);
+		$data['artikel_terbaru'] = $this->m_artikel->gettable_sort_limit('artikel', "ID_ARTIKEL", 5);
+		$data['materi_tertulis_terbaru'] = $this->m_materi->gettable_sort_limit('materi', "ID_MATERI", 5);
+		$data['agenda_terbaru'] = $this->m_agenda->gettable_sort_limit('agenda', "ID_AGENDA", 5);
 		$this->load->view('frontend/content/artikel/baca', $data);
 		$this->load->view('frontend/footer/footer');
 	}

@@ -13,6 +13,9 @@ class m_agenda extends CI_Model {
 	{
 		return $this->db->query("SELECT * FROM $tablename")->result_array();
 	}
+	public function gettable_sort_limit($tablename, $order_by, $limit){
+		return $this->db->query("SELECT * FROM $tablename ORDER BY $order_by DESC LIMIT $limit")->result_array();
+	}
 	public function select_where($tablename, $where)
 	{
 		$data = $this->db->get_where($tablename, $where);
@@ -22,9 +25,9 @@ class m_agenda extends CI_Model {
 	{
 		return $this->db->query("select * from $tablename where 1 ORDER BY ID_AGENDA DESC LIMIT 1")->result_array();
 	}
-        public function deleteId($table,$id){
-            $this->db->where('ID_AGENDA', $id);
-            $this->db->delete($table);
-            
-        }
+	public function deleteId($table,$id){
+        $this->db->where('ID_AGENDA', $id);
+        $this->db->delete($table);
+        
+    }
 }

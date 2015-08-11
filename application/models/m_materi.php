@@ -13,6 +13,10 @@ class m_materi extends CI_Model {
 		
 		return $this->db->query("SELECT * FROM $tablename ORDER BY $order_by DESC")->result_array();
 	}
+	
+	public function gettable_sort_limit($tablename, $order_by, $limit){
+		return $this->db->query("SELECT * FROM $tablename ORDER BY $order_by DESC LIMIT $limit")->result_array();
+	}
 	public function gettable($tablename)
 	{
 		return $this->db->query("SELECT * FROM $tablename")->result_array();

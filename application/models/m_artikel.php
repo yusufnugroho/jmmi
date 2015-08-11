@@ -13,6 +13,11 @@ class m_artikel extends CI_Model {
 	public function gettable_sort($tablename, $order_by){
 		return $this->db->query("SELECT * FROM $tablename ORDER BY $order_by DESC")->result_array();
 	}
+	
+	public function gettable_sort_limit($tablename, $order_by, $limit){
+		return $this->db->query("SELECT * FROM $tablename ORDER BY $order_by DESC LIMIT $limit")->result_array();
+	}
+	
 	public function gettable($tablename)
 	{
 		return $this->db->query("SELECT * FROM $tablename")->result_array();
