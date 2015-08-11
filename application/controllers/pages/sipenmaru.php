@@ -85,6 +85,7 @@ Class sipenmaru eXtends CI_Controller{
 		    if($p == $cp){
 		    	// INPUT THE DATABASE
 		        $this->m_apply->insert('apply_mentor', $data['data']);
+		        $data['data'] = null;
 		        $data['notification'] = "success";
 		    }
 		    else {

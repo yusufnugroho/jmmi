@@ -25,19 +25,31 @@ class User extends CI_Controller {
         $session[] = $this->session->userdata('akses');
         if (empty($session)) redirect('welcome/logout');
         $this->load->view("dashboard/header");
+        $data = null;
         $this->load->view('dashboard/navbar', $data);
         if($session[0]=="mente")
         {   
-            $session[] = $this->session->userdata('id');
-            $session[] = $this->session->userdata('nama_depan')." ".$this->session->userdata('nama_belakang');
-            $session[] = $this->session->userdata('JK_MENTE');
-            $session[] = $this->session->userdata('TELEPON_MENTE');
-            $session[] = $this->session->userdata('NILAI_MENTE');
-            $session[] = $this->session->userdata('STATUS_MENTE');
+            /*
+            'akses'=>"mente",
+            '1'=>$result_mente[0]['NRP_MENTE'],
+            '2'=>$result_mente[0]['NAMA_DEPAN_MENTE']." ".$result_mente[0]['NAMA_BELAKANG_MENTE'],
+            '3'=>$result_mente[0]['NRP_MENTOR'],
+            '4'=>$result_mente[0]['NIP_DOSEN'],
+            '5'=>$result_mente[0]['JK_MENTE'],
+            '6'=>$result_mente[0]['TELEPON_MENTE'],
+            '7'=>$result_mente[0]['NILAI_MENTE'],
+            '8'=>$result_mente[0]['STATUS_MENTE'],
+            */
+            $session[] = $this->session->userdata('1');
+            $session[] = $this->session->userdata('2');
+            $session[] = $this->session->userdata('6');
+            $session[] = $this->session->userdata('5');
+            $session[] = $this->session->userdata('7');
+            $session[] = $this->session->userdata('8');
 
-            $session[] = $this->session->userdata('NRP_MENTOR');
+            $session[] = $this->session->userdata('3');
             //search mentor
-            $tempMentor = $this->session->userdata('NRP_MENTOR');
+            $tempMentor = $this->session->userdata('3');
             //(table,where)
             $where = array('NRP_MENTOR' => $tempMentor);
             $dataMentor = $this->m_mentor->select_where('mentor',$where);
@@ -53,9 +65,9 @@ class User extends CI_Controller {
             $session[] = $teleponMentor;
             $session[] = $statusMentor;
                                     
-            $session[] = $this->session->userdata('NIP_DOSEN');
+            $session[] = $this->session->userdata('4');
             //search dosen
-            $tempDosen = $this->session->userdata('NIP_DOSEN');
+            $tempDosen = $this->session->userdata('4');
             //(table.where)
             $where = array('NIP_DOSEN' => $tempDosen);
             $dataDosen = $this->m_dosen->select_where('dosen',$where);
@@ -68,6 +80,7 @@ class User extends CI_Controller {
             $session[] =$namaDosen;
             $session[] =$teleponDosen;
             $session[] =$statusDosen;
+            
             $field = array('NRP', 'Nama Lengkap', 'No. Telp', 'Jenis Kelamin', 'Nilai', 'Status','NRP Mentor', 'Nama Mentor', 'NRP KJ', 'Status Mentor', 'NIP Dosen', 'Nama Dosen', 'Telp. Dosen', 'Status Dosen');
             $foto = base_url()."assets/userfile/icon.png";
             $data['foto'] = $foto;
@@ -92,6 +105,7 @@ class User extends CI_Controller {
 
             $nrpMentor = $session[1];
             $dataMentor = $this->m_mentor->select_where('mentor', array('NRP_MENTOR' => $nrpMentor));
+            
             $fotoMentor = $dataMentor[0]['path'];
             //print
             $namaKJ = $dataKJ['NAMA_DEPAN_KJ']." ".$dataKJ['NAMA_BELAKANG_KJ'];
@@ -113,6 +127,7 @@ class User extends CI_Controller {
         //KJ
         if($session[0]=="kj")
         {
+
             $session[] = $this->session->userdata('1');
             $session[] = $this->session->userdata('2');
             $session[] = $this->session->userdata('3');
@@ -177,11 +192,12 @@ class User extends CI_Controller {
         }
         else if ($session[0] == 'mente'){
             $mente_value = $this->m_mente->select_where('mente', array("NRP_MENTE" =>$this->session->userdata('1')));
+
             $mente_value = $mente_value[0];
-            $form_name = array("NAMA_DEPAN_MENTE", "NAMA_BELAKANG_MENTE", "JK_MENTE", "TELEPON_MENTOR", "PASS_MENTE");
+            $form_name = array("NAMA_DEPAN_MENTE", "NAMA_BELAKANG_MENTE", "JK_MENTE", "TELEPON_MENTE", "PASS_MENTE");
             $form_type = array("text", "text", "text", "text", "password");
             $form_label = array('Nama Depan', 'Nama Belakang', 'Jenis Kelamin', 'No. Telp', 'Password');
-            $form_value = array($mente_value['NAMA_DEPAN_MENTE'], $mente_value['NAMA_BELAKANG_MENTE'], $mente_value['JK_MENTE'], $mente_value['TELEPON_MENTOR'], '');
+            $form_value = array($mente_value['NAMA_DEPAN_MENTE'], $mente_value['NAMA_BELAKANG_MENTE'], $mente_value['JK_MENTE'], $mente_value['TELEPON_MENTE'], '');
             $session[1] = $mente_value['NRP_MENTE'];
         }
         $data['form_name'] = $form_name;

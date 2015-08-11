@@ -119,15 +119,14 @@ class Welcome extends CI_Controller
                                     {
 					$session_data = array(
                                                                 'akses'=>"mente",
-                                                                'id'=>$result_mente[0]['NRP_MENTE'],
-                                                                'nama_depan'=>$result_mente[0]['NAMA_DEPAN_MENTE'],
-                                                                'nama_belakang'=>$result_mente[0]['NAMA_BELAKANG_MENTE'],
-                                                                'NRP_MENTOR'=>$result_mente[0]['NRP_MENTOR'],
-                                                                'NIP_DOSEN'=>$result_mente[0]['NIP_DOSEN'],
-                                                                'JK_MENTE'=>$result_mente[0]['JK_MENTE'],
-                                                                'TELEPON_MENTE'=>$result_mente[0]['TELEPON_MENTE'],
-                                                                'NILAI_MENTE'=>$result_mente[0]['NILAI_MENTE'],
-                                                                'STATUS_MENTE'=>$result_mente[0]['STATUS_MENTE'],
+                                                                '1'=>$result_mente[0]['NRP_MENTE'],
+                                                                '2'=>$result_mente[0]['NAMA_DEPAN_MENTE']." ".$result_mente[0]['NAMA_BELAKANG_MENTE'],
+                                                                '3'=>$result_mente[0]['NRP_MENTOR'],
+                                                                '4'=>$result_mente[0]['NIP_DOSEN'],
+                                                                '5'=>$result_mente[0]['JK_MENTE'],
+                                                                '6'=>$result_mente[0]['TELEPON_MENTE'],
+                                                                '7'=>$result_mente[0]['NILAI_MENTE'],
+                                                                '8'=>$result_mente[0]['STATUS_MENTE'],
                                     );
 				$this->session->set_userdata($session_data);
 				$session_id = $this->session->userdata('session_id');

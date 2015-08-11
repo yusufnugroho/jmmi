@@ -16,3 +16,10 @@ Backend		: "Submit Button / Reset Button" penggunaan nama yang kurang manusiawi
 Backend		: "Search" tidak berfungsi
 Backend		: User Leveling belum
 Solved 	: Backend		: Ganti foto mentor belum
+
+========================================================================
+
+As Mentor :
+	Setiap klik "Daftar Koordinator Jurusan" selalu kembali ke Beranda
+	User Profile and Settings gak bisa
+	Parsing Session belum sempurna
