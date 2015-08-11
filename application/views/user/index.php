@@ -3,9 +3,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <?php
-                    echo $session[2];
-                    ?>
+                    <p class="fa fa-user">
+                        <?php
+                        echo $session[2];
+                        ?>
+                    </p>
                     <a href='<?php echo base_url()."user/settings"?>' class="btn btn-warning"> Settings</a>
                 </h1>
             </div>

@@ -5,7 +5,7 @@ Solved	: Frontend	 	: Sorting view Artikel
 Frontend: Sidebar saat view artikel/materi kosong -> tampilan kurang bagus
 Solved	: Backend		: Ganti Password belum
 Solved	: Backend		: Delete Artikel tidak bisa
-Backend		: Thumbnail Artikel tidak ada formnya(?)
+Solved	: Backend		: Thumbnail Artikel tidak ada formnya(?)
 Backend		: Tag view Artikel tidak ada formnya(?)
 NoNeed	: Backend		: Kurang Html Special Character Decode pada lihat isi artikel
 Solved	: Backend		: Label "thumbnail" pada buat materi
