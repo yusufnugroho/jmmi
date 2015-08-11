@@ -26,6 +26,7 @@ class User extends CI_Controller {
         if (empty($session)) redirect('welcome/logout');
         $this->load->view("dashboard/header");
         $data = null;
+        $data['session'] =  $session[0];
         $this->load->view('dashboard/navbar', $data);
         if($session[0]=="mente")
         {   
@@ -159,6 +160,7 @@ class User extends CI_Controller {
         /*SELECT USER ACCESS AND REQUIRED FORM INPUTS, THEN  DISPLAY*/
         $session = array();
         $session[] = $this->session->userdata('akses');
+        $data['session'] = $session[0];
         $form_name = array();
         $form_type = array();
         $form_label = array();
@@ -207,7 +209,7 @@ class User extends CI_Controller {
         $data['session'] = $session;
         $data['valid'] = $valid;
         $this->load->view("dashboard/header");
-        $this->load->view("dashboard/navbar");
+        $this->load->view("dashboard/navbar", $data);
         $this->load->view("user/settings",$data);
         $this->load->view('dashboard/footer');
     }

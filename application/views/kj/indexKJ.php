@@ -38,17 +38,33 @@
                                             <td>'. $row->TELEPON_KJ .'</td>
                                             <td>'; 
                                             $status=$row->STATUS_KJ;
-                                            if($status == "Aktif")
-                                            {
-                                                echo '<a href='. base_url()."index.php/kj/deactive/".$row->NRP_KJ.' class="btn btn-success">Activated</a>';
+                                            if($session == 'mentor'){
+                                                if($status == "Aktif")
+                                                {
+                                                    echo '<a href='. base_url()."index.php/kj/deactive/".$row->NRP_KJ.' class="btn btn-success">Activated</a>';
+                                                }
+                                                 elseif($status == "Tidak Aktif")
+                                                {
+                                                    echo '<a href='. base_url()."index.php/kj/active/".$row->NRP_KJ.' class="btn btn-danger">Deactivated</a>';
+                                                };}
+
+                                            else {
+                                                if($status == "Aktif")
+                                                {
+                                                    echo "<a href='#' class='btn btn-success'>Activated</a>";
+                                                }
+                                                elseif($status == "Tidak Aktif")
+                                                {
+                                                   echo "<a href='#' class='btn btn-danger'>Deactivated</a>";
+                                               };
                                             }
-                                             elseif($status == "Tidak Aktif")
-                                             {
-                                                 echo '<a href='. base_url()."index.php/kj/active/".$row->NRP_KJ.' class="btn btn-danger">Deactivated</a>';
-                                             };echo '</ td>';
-                                             
+                                            
+                                             echo '</ td>';
+                                            
+                                            if($session == 'mentor')
                                             echo '<td> <a href='. base_url()."index.php/kj/update/".$row->NRP_KJ.' class="btn btn-primary"> Edit</a>
                                             </td></tr>';
+                                            else echo '<td> </td>';
                                     }       
                                     ?>
                                     </tbody>

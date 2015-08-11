@@ -15,7 +15,7 @@ class Kj extends CI_Controller {
 	{
         /*
          * Check Session*/ 
-        $sesision[] = $this->session->userdata('akses');
+        $session[] = $this->session->userdata('akses');
 		if (empty($session)) redirect('welcome/logout');
         $data['session'] = $session[0];
 		$data['kj'] = $this->m_kj->getDataKJ();

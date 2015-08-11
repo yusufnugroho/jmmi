@@ -40,14 +40,26 @@
                                             <td> 
                                             ';
                                             $status=$row->STATUS_MENTOR;
-                                            if($status == "Aktif")
-                                            {
-                                                echo '<a href='. base_url()."index.php/mentor/deactive/".$row->NRP_MENTOR.' class="btn btn-success">Activated</a>';
-                                            }
-                                            elseif($status == "Tidak Aktif")
-                                            {
-                                                echo '<a href='. base_url()."index.php/mentor/active/".$row->NRP_MENTOR.' class="btn btn-danger">Deactivated</a>';
-                                            };
+                                                if($session == 'mentor'){  
+                                                    if($status == "Aktif")
+                                                    {
+                                                        echo '<a href='. base_url()."index.php/mentor/deactive/".$row->NRP_MENTOR.' class="btn btn-success">Activated</a>';
+                                                    }
+                                                    elseif($status == "Tidak Aktif")
+                                                    {
+                                                        echo '<a href='. base_url()."index.php/mentor/active/".$row->NRP_MENTOR.' class="btn btn-danger">Deactivated</a>';
+                                                    };
+                                                }
+                                                else {
+                                                    if($status == "Aktif")
+                                                    {
+                                                        echo "<a href='#' class='btn btn-success'>Activated</a>";
+                                                    }
+                                                    elseif($status == "Tidak Aktif")
+                                                    {
+                                                       echo "<a href='#' class='btn btn-danger'>Deactivated</a>";
+                                                   };
+                                                }
                                             echo '</td>';
                                             if($session =='mentor')
                                                 echo '<td> 

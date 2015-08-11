@@ -38,14 +38,27 @@
                                             <td>'. $row->TELEPON_DOSEN .'</td>
                                             <td>'; 
                                             $status=$row->STATUS_DOSEN;
-                                            if($status == "Aktif")
-                                            {
-                                                echo '<a href='. base_url()."index.php/dosen/deactive/".$row->NIP_DOSEN.' class="btn btn-success">Activated</a>';
+                                            if($session == 'mentor'){
+                                                if($status == "Aktif")
+                                                {
+                                                    echo '<a href='. base_url()."index.php/dosen/deactive/".$row->NIP_DOSEN.' class="btn btn-success">Activated</a>';
+                                                }
+                                                elseif($status == "Tidak Aktif")
+                                                {
+                                                    echo '<a href='. base_url()."index.php/dosen/active/".$row->NIP_DOSEN.' class="btn btn-danger">Deactivated</a>';
+                                                };
                                             }
-                                            elseif($status == "Tidak Aktif")
-                                            {
-                                                echo '<a href='. base_url()."index.php/dosen/active/".$row->NIP_DOSEN.' class="btn btn-danger">Deactivated</a>';
-                                            };
+                                            
+                                            else {
+                                                if($status == "Aktif")
+                                                {
+                                                    echo "<a href='#' class='btn btn-success'>Activated</a>";
+                                                }
+                                                elseif($status == "Tidak Aktif")
+                                                {
+                                                   echo "<a href='#' class='btn btn-danger'>Deactivated</a>";
+                                               };
+                                            }
                                             echo '</ td>';
                                             if($session == 'mentor')
                                             echo '<td> <a href='. base_url()."index.php/dosen/update/".$row->NIP_DOSEN.' class="btn btn-primary"> Edit</a>

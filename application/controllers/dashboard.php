@@ -15,9 +15,9 @@ class Dashboard extends CI_Controller {
         //$session_data = $this->sesssion->all_userdata();
 		if (empty($session_check)) redirect('welcome/logout');
 		else redirect('user');
-
+		$data['session'] = $session_check;
 		$this->load->view('dashboard/header');
-        $this->load->view('dashboard/navbar');
+        $this->load->view('dashboard/navbar', $data);
 		$this->load->view('dashboard/footer');
 	}
         public function logout() {
