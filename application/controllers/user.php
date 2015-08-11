@@ -105,7 +105,7 @@ class User extends CI_Controller {
             
             $field = array('NRP', 'Nama Lengkap', 'Jenis Kelamin', 'No. Telp', 'Status Mentor', 'hr', 'NRP KJ', 'Nama KJ', 'Telp. KJ', 'Status KJ');
             $foto = base_url()."assets/userfile/icon.png";
-            if (!empty($fotoMentor)) $foto = base_url()."assets/userfile/".$fotoMentor;
+            if (!empty($fotoMentor)) $foto = base_url().$fotoMentor;
             $data['foto'] = $foto;
             $data['field'] = $field;
             $data['session'] = $session;
@@ -159,6 +159,7 @@ class User extends CI_Controller {
             $form_type = array("text", "text", "text", "password");
             $form_label = array("Nama Depan", "Nama Belakang", "No. Telp", "Password");
             $form_value = array($dosen_value['NAMA_DEPAN_DOSEN'], $dosen_value['NAMA_BELAKANG_DOSEN'], $dosen_value['TELEPON_DOSEN'], '');
+            $session[1] = $dosen_value['NIP_DOSEN'];
         }
         else if ($session[0] == 'kj'){
             $kj_value = $this->m_kj->select_where('kj', array("NRP_KJ" =>$this->session->userdata('1')));
@@ -167,6 +168,7 @@ class User extends CI_Controller {
             $form_type = array("text", "text", "text", "text", "password");
             $form_label = array('Nama Depan', 'Nama Belakang', 'Jenis Kelamin', 'No. Telp', 'Password');
             $form_value = array($kj_value['NAMA_DEPAN_KJ'], $kj_value['NAMA_BELAKANG_KJ'], $kj_value['JK_KJ'], $kj_value['TELEPON_KJ'], '');
+            $session[1] = $kj_value['NRP_KJ'];
         }
         else if ($session[0] == 'mentor'){
             $mentor_value = $this->m_mentor->select_where('mentor', array("NRP_MENTOR" =>$this->session->userdata('1')));
@@ -175,6 +177,7 @@ class User extends CI_Controller {
             $form_type = array("text", "text", "text", "text", "password");
             $form_label = array('Nama Depan', 'Nama Belakang', 'Jenis Kelamin', 'No. Telp', 'Password');
             $form_value = array($mentor_value['NAMA_DEPAN_MENTOR'], $mentor_value['NAMA_BELAKANG_MENTOR'], $mentor_value['jk_mentor'], $mentor_value['TELEPON_MENTOR'], '');
+            $session[1] = $mentor_value['NRP_MENTOR'];
         }
         else if ($session[0] == 'mente'){
             $mente_value = $this->m_mente->select_where('mente', array("NRP_MENTE" =>$this->session->userdata('1')));
@@ -183,6 +186,7 @@ class User extends CI_Controller {
             $form_type = array("text", "text", "text", "text", "password");
             $form_label = array('Nama Depan', 'Nama Belakang', 'Jenis Kelamin', 'No. Telp', 'Password');
             $form_value = array($mente_value['NAMA_DEPAN_MENTE'], $mente_value['NAMA_BELAKANG_MENTE'], $mente_value['JK_MENTE'], $mente_value['TELEPON_MENTOR'], '');
+            $session[1] = $mente_value['NRP_MENTE'];
         }
         $data['form_name'] = $form_name;
         $data['form_type'] = $form_type;
@@ -311,5 +315,51 @@ class User extends CI_Controller {
                 $this->m_mentor->update_db('mentor', array('path' => $target_Path), array('NRP_MENTOR' => $id));
             }
         }
+        redirect(base_url()."user");
+    }
+    public function gantiPassword($id){
+        $pw_lama1 = $this->input->get_post('pw_lama1');
+        $pw_lama2 = $this->input->get_post('pw_lama2');
+        $pw_baru1 = $this->input->get_post('pw_baru1');
+        $pw_baru2 = $this->input->get_post('pw_baru2');
+
+        if ($pw_lama2 == $pw_lama1 && $pw_baru1 == $pw_baru2){
+            $type = $this->input->get_post('akses');
+            $this->load->model('m_mentor');
+            $found = 0;
+            if ($type == 'dosen'){
+                $res = $this->m_mentor->select_where('dosen', array('NIP_DOSEN' => $id, 'PASSWORD_DOSEN' =>$pw_lama2));
+                if (!empty($res)){
+                    $res = $this->m_mentor->update_db('dosen', array('PASSWORD_DOSEN' => $pw_baru2), array('NIP_DOSEN' => $id));
+                    $found++;
+                }
+            }
+            else if ($type == 'kj'){
+                $res = $this->m_mentor->select_where('kj', array('NRP_KJ' => $id, 'PASSWORD_KJ' =>$pw_lama2));
+                if (!empty($res)){
+                    $res = $this->m_mentor->update_db('kj', array('PASSWORD_KJ' => $pw_baru2), array('NRP_KJ' => $id));
+                    $found++;
+                }
+            }
+            else if ($type == 'mentor'){
+                $res = $this->m_mentor->select_where('mentor', array('NRP_MENTOR' => $id, 'PASSWORD_MENTOR' =>$pw_lama2));
+                if (!empty($res)){
+                    $res = $this->m_mentor->update_db('mentor', array('PASSWORD_MENTOR' => $pw_baru2), array('NRP_MENTOR' => $id));
+                    $found++;
+                }
+            }
+            else if ($type == 'mente'){
+                $res = $this->m_mentor->select_where('mente',array('NRP_MENTE' => $id, 'PASS_MENTE' =>$pw_lama2));
+                if (!empty($res)){
+                    $res = $this->m_mentor->update_db('mente', array('PASS_MENTE' => $pw_baru2), array('NRP_MENTE' => $id));
+                    $found++;
+                }
+            }
+            if ($found == 0){
+                redirect(base_url()."user/settings/match");
+            }
+            else redirect(base_url()."user");
+        }
+        redirect(base_url()."user/settings/match");
     }
 }

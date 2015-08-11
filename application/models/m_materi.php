@@ -9,6 +9,10 @@ class m_materi extends CI_Model {
 	{
 		return $this->db->insert($tablename, $data);
 	}
+	public function gettable_sort($tablename, $order_by){
+		
+		return $this->db->query("SELECT * FROM $tablename ORDER BY $order_by DESC")->result_array();
+	}
 	public function gettable($tablename)
 	{
 		return $this->db->query("SELECT * FROM $tablename")->result_array();

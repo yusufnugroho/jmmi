@@ -10,6 +10,9 @@ class m_artikel extends CI_Model {
 		return $this->db->insert($tablename, $where);
 		//$this->db->query("INSERT INTO `dosen`(`NIP_DOSEN`, `NAMA_DEPAN_DOSEN`, `NAMA_BELAKANG_DOSEN`, `TELEPON_DOSEN`, `PASSWORD_DOSEN`, `STATUS_DOSEN`) VALUES ('$nipdosen','$depanDosen','$belakangDosen','$hpDosen','$nipdosen','Aktif')");
 	}
+	public function gettable_sort($tablename, $order_by){
+		return $this->db->query("SELECT * FROM $tablename ORDER BY $order_by DESC")->result_array();
+	}
 	public function gettable($tablename)
 	{
 		return $this->db->query("SELECT * FROM $tablename")->result_array();
@@ -28,8 +31,8 @@ class m_artikel extends CI_Model {
             return $query->result();
         }
         public function deleteId($table,$id){
-            $this->db->where('id', $id);
-            $this->db->delete('$table');
+            $this->db->where('ID_ARTIKEL', $id);
+            $this->db->delete("$table");
             
         }
         public function getTag()

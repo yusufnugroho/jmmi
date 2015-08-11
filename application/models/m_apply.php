@@ -14,7 +14,7 @@ class M_apply extends CI_Model {
 		# code...
 		return $this->db->get($table)->result();
 	}
-        public function select_where($tablename, $where)
+	public function select_where($tablename, $where)
 	{
 		$data = $this->db->get_where($tablename, $where);
 		return $data->result();

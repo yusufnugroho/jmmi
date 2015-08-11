@@ -86,7 +86,7 @@
 <div class="modal fade" id="change_pp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form role="form" action='<?php echo base_url();?>user/GantiPP/<?php echo $session[1]; ?>' method='post' id="form_select_kj">
+            <form role="form" action='<?php echo base_url();?>user/GantiPP/<?php echo $session[1]; ?>' method='post' id="form_select_kj" enctype="multipart/form-data">
                 <div class="modal-header">
                     Ganti Foto
                 </div>
@@ -99,9 +99,7 @@
                         <div class="col-md-4">
                         </div>
                         <div class="col-md-4"> 
-                            <div class="form-group">
-                                <input name="userFile" type="file" tabindex="1" value="NULL" /> 
-                            </div>
+                            <input name="userFile" type="file" tabindex="1" value="NULL" /> 
                         </div>
                     </div>
                 </div>

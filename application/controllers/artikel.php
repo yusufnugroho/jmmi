@@ -93,12 +93,12 @@ class artikel extends CI_Controller {
         if($session[0]=="kj")
         {
             $this->load->view("dashboard/kj/navbar");
-            $this->load->view("user/mente/listArtikel",$data);
+            $this->load->view("artikel/listArtikel",$data);
         }
         if($session[0]=="dosen")
         {
             $this->load->view("dashboard/dosen/navbar");
-            $this->load->view("user/mente/listArtikel",$data);
+            $this->load->view("artikel/listArtikel",$data);
         }
         $this->load->view('dashboard/footer');
     }

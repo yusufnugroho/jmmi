@@ -25,8 +25,8 @@ class materi extends CI_Controller {
 		$data['session_data'] = $session_data;
 		$this->load->view('frontend/header/header', $data);
 		$this->load->model("m_materi");
-		$data['materi'] = $this->m_materi->gettable('materi');
-		$data['file'] = $this->m_materi->gettable('file');
+		$data['materi'] = $this->m_materi->gettable_sort('materi', 'ID_MATERI');
+		$data['file'] = $this->m_materi->gettable_sort('file', 'ID');
 		$this->load->view('frontend/content/materi', $data);
 		$this->load->view('frontend/footer/footer');
 	}
@@ -45,7 +45,7 @@ class materi extends CI_Controller {
 		$data['session_data'] = $session_data;
 		$this->load->view('frontend/header/header', $data);
 		$this->load->model("m_materi");
-		$data['file'] = $this->m_materi->gettable('materi');
+		$data['file'] = $this->m_materi->gettable_sort('materi', 'ID_MATERI');
 		$this->load->view('frontend/content/materi/tulisan', $data);
 		$this->load->view('frontend/footer/footer');
 	}
@@ -63,7 +63,7 @@ class materi extends CI_Controller {
 		$data['session_data'] = $session_data;
 		$this->load->view('frontend/header/header', $data);
 		$this->load->model("m_materi");
-		$data['file'] = $this->m_materi->gettable('file');
+		$data['file'] = $this->m_materi->gettable_sort('file', 'ID');
 		$this->load->view('frontend/content/materi/file', $data);
 		$this->load->view('frontend/footer/footer');
 	}

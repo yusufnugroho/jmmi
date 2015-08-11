@@ -25,7 +25,7 @@ class artikel extends CI_Controller {
 		$data['isLogin'] = $isLogin;
 		$data['session_data'] = $session_data;
 		$this->load->view('frontend/header/header', $data);
-		$data['artikel'] = $this->m_artikel->gettable('artikel');
+		$data['artikel'] = $this->m_artikel->gettable_sort('artikel', "ID_ARTIKEL");
 		$this->load->view('frontend/content/artikel/tulisan', $data);
 		$this->load->view('frontend/footer/footer');
 	}

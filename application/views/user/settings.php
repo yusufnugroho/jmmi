@@ -1,3 +1,4 @@
+
     <!--Header-->
     <div id="page-wrapper">
         <div class="row">
@@ -16,6 +17,13 @@
             ?>
             <div class="alert alert-danger">
                 <p>Password yang Anda Masukkan Salah</p>
+            </div>
+            <?php
+        }
+        else if ($valid == 'match'){
+            ?>
+            <div class="alert alert-danger">
+                <p>Password yang Anda Masukkan Tidak Cocok</p>
             </div>
             <?php
         }
@@ -63,22 +71,23 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <form role="form" action='<?php echo base_url();?>user/update/<?php echo "$session[0]"?>' method='post'>
+                        <form role="form" action='<?php echo base_url();?>user/gantiPassword/<?php echo $session[1]?>' method='post'>
+                            <input type='hidden' name='akses' id="akses" class="form-control" value="<?php echo $session[0]?>">
                             <div class="form-group">
                                 <label>Isikan Password Lama</label>
-                                <input type='password' name='pw_lama1' id="pw_lama1" class="form-control">
+                                <input type='password' name='pw_lama1' id="pw_lama1" class="form-control" onfocusout="Validation(this.id)">
                             </div>
                             <div class="form-group">
                                 <label>Isikan Password Lama Lagi</label>
-                                <input type='password' name='pw_lama2' id="pw_lama2" class="form-control">
+                                <input type='password' name='pw_lama2' id="pw_lama2" class="form-control" onfocusout="Validation(this.name)">
                             </div>
                             <div class="form-group">
                                 <label>Isikan Password Baru</label>
-                                <input type='password' name='pw_baru1' id="pw_baru1" class="form-control">
+                                <input type='password' name='pw_baru1' id="pw_baru1" class="form-control" onfocusout="Validation(this.name)">
                             </div>
                             <div class="form-group">
                                 <label>Isikan Password Baru Lagi</label>
-                                <input type='password' name='pw_baru2' id="pw_baru2" class="form-control">
+                                <input type='password' name='pw_baru2' id="pw_baru2" class="form-control" onfocusout="Validation(this.name)">
                             </div>
                             <div>
                                 <button type="submit" class="btn btn-default">Update </button>
@@ -96,3 +105,8 @@
 </div>
 <!-- /#wrapper -->
 <!--Footer-->
+<script type="text/javascript">
+function Validation(myId){
+
+}
+</script>
