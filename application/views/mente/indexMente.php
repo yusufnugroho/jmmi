@@ -47,7 +47,7 @@
                                     <td>'. $row->NILAI_MENTE.'</td>
                                     <td>'; 
                                         $status=$row->STATUS_MENTE;
-                                        if($session == 'mentor'){  
+                                        if($session == 'admin' || $session == 'mentor'){  
                                             if($status == "Aktif")
                                             {
                                                 echo '<a href='. base_url()."index.php/mente/deactive/".$row->NRP_MENTE.' class="btn btn-success">Activated</a>';
@@ -68,7 +68,7 @@
                                            };
                                         }
                                        echo '<td>';
-                                       if($session == 'mentor') echo '
+                                       if($session == 'admin' || $session == 'mentor') echo '
                                        <a href='. base_url()."index.php/mente/updateNilai/".$row->NRP_MENTE.' class="btn btn-info"> Nilai</a>
                                        <a href='. base_url()."index.php/mente/update/".$row->NRP_MENTE.' class="btn btn-warning"> Edit</a>
                                        <a href='. base_url()."index.php/mente/hapus/".$row->NRP_MENTE.' class="btn btn-danger"> Hapus </a> </td></tr>';    

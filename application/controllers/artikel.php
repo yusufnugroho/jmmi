@@ -72,8 +72,8 @@ class artikel extends CI_Controller {
 
 		$this->load->model('m_artikel');
         $this->load->view('dashboard/header');
-		$this->load->view('dashboard/navbar');
-		$this->load->view('artikel/buatartikel');
+		$this->load->view('dashboard/navbar', $data);
+		$this->load->view('artikel/buatartikel', $data);
 		$this->load->view('dashboard/footer');
 	}
 
@@ -88,8 +88,8 @@ class artikel extends CI_Controller {
 
 		$this->load->model('m_artikel');
         $this->load->view('dashboard/header');
-		$this->load->view('dashboard/navbar');
-		$this->load->view('artikel/testArtikel');
+		$this->load->view('dashboard/navbar', $data);
+		$this->load->view('artikel/testArtikel', $data);
 		$this->load->view('dashboard/footer');
 	}
     

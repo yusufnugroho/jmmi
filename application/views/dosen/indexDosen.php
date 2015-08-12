@@ -38,7 +38,7 @@
                                             <td>'. $row->TELEPON_DOSEN .'</td>
                                             <td>'; 
                                             $status=$row->STATUS_DOSEN;
-                                            if($session == 'mentor'){
+                                            if($session == 'admin'){
                                                 if($status == "Aktif")
                                                 {
                                                     echo '<a href='. base_url()."index.php/dosen/deactive/".$row->NIP_DOSEN.' class="btn btn-success">Activated</a>';
@@ -60,7 +60,7 @@
                                                };
                                             }
                                             echo '</ td>';
-                                            if($session == 'mentor')
+                                            if($session == 'admin')
                                             echo '<td> <a href='. base_url()."index.php/dosen/update/".$row->NIP_DOSEN.' class="btn btn-primary"> Edit</a>
                                             </td></tr>';
                                             else echo '<td></td></tr>'; 

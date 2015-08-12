@@ -66,24 +66,22 @@ class Welcome extends CI_Controller
 		$id = $this->input->post('id');
 		$password = $this->input->post('password');
                 
-		$this->load->model("m_dosen");
-		$login_dosen = array(
-			'NIP_DOSEN' => $id, 
-			'PASSWORD_DOSEN'=> $password,
+		$this->load->model("m_admin");
+		$login_admin = array(
+			'admin_nama' => $id, 
+			'admin_password'=> $password,
 			);
-		$result_dosen = $this->m_dosen->select_where('dosen', $login_dosen);
+		$result_admin = $this->m_admin->select_where('admin', $login_admin);
 
-		if (!empty($result_dosen)) 
-                {
+		if (!empty($result_admin)) {
 			$session_data = array(
-				'akses'=>"dosen",
-				'1'=>$result_dosen[0]['NIP_DOSEN'],
-				'2'=>$result_dosen[0]['NAMA_DEPAN_DOSEN']." ".$result_dosen[0]['NAMA_BELAKANG_DOSEN'],
-				'3'=>$result_dosen[0]['TELEPON_DOSEN'],
-				'4'=>$result_dosen[0]['STATUS_DOSEN'],
+				'akses'=>"admin",
+				'1'=>$result_admin[0]['admin_nama'],
+				'2'=>$result_admin[0]['admin_password']
 				);
 			$this->session->set_userdata($session_data);
 			$session_id = $this->session->userdata('session_id');
+			echo "mimin";
 			redirect('dashboard');
 			redirect('welcome');
 		}
@@ -96,13 +94,13 @@ class Welcome extends CI_Controller
 			$result_kj = $this->m_kj->select_where('kj', $login_kj);
 			if (!empty($result_kj)){
 				$session_data = array(
-                                                        'akses'=>"kj",
-                                                        '1'=>$result_kj[0]['NRP_KJ'],
-                                                        '2'=>$result_kj[0]['NAMA_DEPAN_KJ']." ".$result_kj[0]['NAMA_BELAKANG_KJ'],
-                                                        '3'=>$result_kj[0]['TELEPON_KJ'],
-                                                        '4'=>$result_kj[0]['JK_KJ'],
-                                                        '5'=>$result_kj[0]['STATUS_KJ'],
-                                                    );
+                    'akses'=>"kj",
+                    '1'=>$result_kj[0]['NRP_KJ'],
+                    '2'=>$result_kj[0]['NAMA_DEPAN_KJ']." ".$result_kj[0]['NAMA_BELAKANG_KJ'],
+                    '3'=>$result_kj[0]['TELEPON_KJ'],
+                    '4'=>$result_kj[0]['JK_KJ'],
+                    '5'=>$result_kj[0]['STATUS_KJ'],
+                );
 				$this->session->set_userdata($session_data);
 				$session_id = $this->session->userdata('session_id');
 				redirect('dashboard');
@@ -119,16 +117,16 @@ class Welcome extends CI_Controller
 				if (!empty($result_mente))
                                     {
 					$session_data = array(
-                                                                'akses'=>"mente",
-                                                                '1'=>$result_mente[0]['NRP_MENTE'],
-                                                                '2'=>$result_mente[0]['NAMA_DEPAN_MENTE']." ".$result_mente[0]['NAMA_BELAKANG_MENTE'],
-                                                                '3'=>$result_mente[0]['NRP_MENTOR'],
-                                                                '4'=>$result_mente[0]['NIP_DOSEN'],
-                                                                '5'=>$result_mente[0]['JK_MENTE'],
-                                                                '6'=>$result_mente[0]['TELEPON_MENTE'],
-                                                                '7'=>$result_mente[0]['NILAI_MENTE'],
-                                                                '8'=>$result_mente[0]['STATUS_MENTE'],
-                                    );
+	                    'akses'=>"mente",
+	                    '1'=>$result_mente[0]['NRP_MENTE'],
+	                    '2'=>$result_mente[0]['NAMA_DEPAN_MENTE']." ".$result_mente[0]['NAMA_BELAKANG_MENTE'],
+	                    '3'=>$result_mente[0]['NRP_MENTOR'],
+	                    '4'=>$result_mente[0]['NIP_DOSEN'],
+	                    '5'=>$result_mente[0]['JK_MENTE'],
+	                    '6'=>$result_mente[0]['TELEPON_MENTE'],
+	                    '7'=>$result_mente[0]['NILAI_MENTE'],
+	                    '8'=>$result_mente[0]['STATUS_MENTE'],
+                    );
 				$this->session->set_userdata($session_data);
 				$session_id = $this->session->userdata('session_id');
 				redirect('dashboard');
@@ -144,14 +142,14 @@ class Welcome extends CI_Controller
 					if (!empty($result_mentor))
                                             {
 						$session_data = array(
-                                                                        'akses'=>"mentor",
-                                                                        '1'=>$result_mentor[0]['NRP_MENTOR'],
-                                                                        '2'=>$result_mentor[0]['NAMA_DEPAN_MENTOR']." ".$result_mentor[0]['NAMA_BELAKANG_MENTOR'],
-                                                                        '3'=>$result_mentor[0]['jk_mentor'],
-                                                                        '4'=>$result_mentor[0]['TELEPON_MENTOR'],
-                                                                        '5'=>$result_mentor[0]['STATUS_MENTOR'],
-                                                                        '6'=>$result_mentor[0]['NRP_KJ'],
-							);
+                            'akses'=>"mentor",
+                            '1'=>$result_mentor[0]['NRP_MENTOR'],
+                            '2'=>$result_mentor[0]['NAMA_DEPAN_MENTOR']." ".$result_mentor[0]['NAMA_BELAKANG_MENTOR'],
+                            '3'=>$result_mentor[0]['jk_mentor'],
+                            '4'=>$result_mentor[0]['TELEPON_MENTOR'],
+                            '5'=>$result_mentor[0]['STATUS_MENTOR'],
+                            '6'=>$result_mentor[0]['NRP_KJ'],
+						);
                                                         //print_r($session_data);die();
 						$this->session->set_userdata($session_data);
 						$session_id = $this->session->userdata('session_id');
@@ -171,10 +169,10 @@ class Welcome extends CI_Controller
                             	$session_data = array();
                             	foreach ($result_mentor as $key => $value) {
                             		$session_data = array(
-		                                                        'akses' => "mentor",
-		                                                        'id' => $value->nrp,
-		                                                        'nama_depan' => $value->nama_depan,
-		                                                        'nama_belakang' => $value->nama_belakang,
+                                        'akses' => "mentor",
+                                        'id' => $value->nrp,
+                                        'nama_depan' => $value->nama_depan,
+                                        'nama_belakang' => $value->nama_belakang,
 		                            );
                             	}
                             $this->session->set_userdata($session_data);
@@ -186,7 +184,31 @@ class Welcome extends CI_Controller
                         {
                             //if doesn't match any table
                             //echo "wuhu"; die();
-                            redirect('welcome/logout');
+							$this->load->model("m_dosen");
+							$login_dosen = array(
+								'NIP_DOSEN' => $id, 
+								'PASSWORD_DOSEN'=> $password,
+								);
+							$result_dosen = $this->m_dosen->select_where('dosen', $login_dosen);
+
+							if (!empty($result_dosen)) 
+					                {
+								$session_data = array(
+									'akses'=>"dosen",
+									'1'=>$result_dosen[0]['NIP_DOSEN'],
+									'2'=>$result_dosen[0]['NAMA_DEPAN_DOSEN']." ".$result_dosen[0]['NAMA_BELAKANG_DOSEN'],
+									'3'=>$result_dosen[0]['TELEPON_DOSEN'],
+									'4'=>$result_dosen[0]['STATUS_DOSEN'],
+									);
+								$this->session->set_userdata($session_data);
+								$session_id = $this->session->userdata('session_id');
+								redirect('dashboard');
+								redirect('welcome');
+							}
+							else
+							{
+	                            redirect('welcome/logout');
+							}
                         }
 					}
 				}

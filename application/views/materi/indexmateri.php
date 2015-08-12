@@ -39,7 +39,7 @@
                                             <td> <?php echo $row['TANGGAL_MATERI'];?></td>
                                             <td> <?php echo $row['PENULIS_MATERI'];?></td>
                                             <td> <?php echo $row['TAG_MATERI'];?></td>
-                                            <?php if($session == 'mentor') {?>
+                                            <?php if($session == 'admin' || $session == 'mentor') {?>
                                             <td>
                                                 <a href="<?php echo base_url();?>index.php/materi/hapustulisan/<?php echo $row['ID_MATERI'];?>" class="btn btn-danger" value="Hapus">Hapus</a>
                                             </td>
@@ -60,7 +60,7 @@
                                                 <td> <?php echo $row['TAG'];?></td>
                                                 <td>
                                                     <a href="<?php echo base_url();?>materi/showFile/<?php echo $row['ID'];?>" class="btn btn-info" value="Lihat">Lihat</a>
-                                                    <?php if($session == 'mentor') {?>
+                                                    <?php if($session == 'admin' || $session == 'mentor') {?>
                                                     <a href="<?php echo base_url();?>materi/hapusfile/<?php echo $row['ID'];?>" class="btn btn-danger" value="Hapus" onClick="return confirm('Delete This Artikel?')">Hapus</a>
                                                     <?php ;}?>
                                                 </td>   
