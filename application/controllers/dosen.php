@@ -23,7 +23,7 @@ class Dosen extends CI_Controller {
         //print_r($session);
         //die();
                 
-		if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$data['session'] = $session[0];
 		$data['dosen'] = $this->m_dosen->getDataDosen();
         $this->load->view('dashboard/header');
@@ -35,7 +35,7 @@ class Dosen extends CI_Controller {
 	{	
         $session = array();
         $session[] = $this->session->userdata('akses');
-		if (empty($session)) redirect('welcome/logout'); 
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$data['session'] = $session[0];
 
         $this->load->view('dashboard/header');
@@ -48,7 +48,7 @@ class Dosen extends CI_Controller {
 	{
         $session = array();
         $session[] = $this->session->userdata('akses');
-		if (empty($session)) redirect('welcome/logout'); 
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$data['session'] = $session[0];
 
 		$data['dosen'] = $this->m_dosen->getData($nip);

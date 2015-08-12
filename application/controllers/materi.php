@@ -4,7 +4,7 @@ class Materi extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->helper('url');     
+        $this->load->helper('url');  
     } 
 	public function index()
 	{
@@ -12,8 +12,7 @@ class Materi extends CI_Controller {
          * Check Session*/ 
         $session = array();
 		$session[] = $this->session->userdata('akses');
-		if (empty($session)) redirect('welcome/logout');
-                
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$this->load->model("m_materi");
 		$data['materi'] = $this->m_materi->gettable('materi');
 		$data['file'] = $this->m_materi->gettable('file');
@@ -116,7 +115,7 @@ class Materi extends CI_Controller {
         /*
          * Check Session*/ 
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
 		$this->load->model('m_materi');
 		$data['tag'] = $this->m_materi->getTag('tag_materi');
@@ -130,7 +129,7 @@ class Materi extends CI_Controller {
         /*
          * Check Session*/ 
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
 		$this->load->model('m_materi');
 		$data['tag'] = $this->m_materi->getTag();
@@ -144,7 +143,7 @@ class Materi extends CI_Controller {
         /*
          * Check Session*/ 
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
 		$this->load->model("m_materi");
 		$where = array('ID' => $id);

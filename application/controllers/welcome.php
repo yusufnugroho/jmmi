@@ -17,6 +17,7 @@ class Welcome extends CI_Controller
 	{
 		redirect('pages/beranda');
 		$session_check = $this->session->userdata('akses');
+		if (!empty($session_check) && $session_check == "") redirect('welcome/logout');
 		if (!empty($session_check)){
 			if ($session_check == 'dosen'){
 				redirect('dashboard');
@@ -44,7 +45,7 @@ class Welcome extends CI_Controller
 			echo $this->session->userdata('id');
 		}
 		else {
-			//$this->load->view('login');
+			$this->load->view('login');
 		}
 	}
 	public function req_login()

@@ -15,7 +15,7 @@ class Mente extends CI_Controller {
         /*
          * Check Session*/ 
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
         $data['mente'] = $this->m_mente->getDataMente();
         $this->load->view('dashboard/header');
@@ -28,7 +28,7 @@ class Mente extends CI_Controller {
         /*
          * Check Session*/ 
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
     	$data['mentor'] = $this->m_mentor->getDataMentorActive();
     	$data['dosen'] = $this->m_dosen->getDataDosen();
@@ -42,7 +42,7 @@ class Mente extends CI_Controller {
         /*
          * Check Session*/ 
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
     	$data['all'] = $this->m_mente->getData($NRP);
     	$data['mentor'] = $this->m_mentor->getDataMentorActive();
@@ -57,7 +57,7 @@ class Mente extends CI_Controller {
         /*
          * Check Session*/ 
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
     	$data['mente'] = $this->m_mente->getData($nrp);
     	$this->load->view('dashboard/header');

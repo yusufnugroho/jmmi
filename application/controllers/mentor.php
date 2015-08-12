@@ -14,7 +14,7 @@ class Mentor extends CI_Controller {
         /*
          * Check Session*/ 
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
                 
 		$data['mentor'] = $this->m_mentor->getDataMentor();
@@ -28,7 +28,7 @@ class Mentor extends CI_Controller {
         /*
          * Check Session*/ 
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
         $data['kj'] = $this->m_kj->getDataKJActive();
         $this->load->view('dashboard/header');
@@ -41,7 +41,7 @@ class Mentor extends CI_Controller {
         /*
          * Check Session*/ 
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
 		$data['all'] = $this->m_mentor->getData($NRP);
         $data['kj'] = $this->m_kj->getDataKJActive();
@@ -109,7 +109,7 @@ class Mentor extends CI_Controller {
 	    /*
          * Check Session*/ 
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
 		$table = "apply_mentor";
 		$where = array('nrp' => $id, );

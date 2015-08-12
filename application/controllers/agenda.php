@@ -12,7 +12,7 @@ class agenda extends CI_Controller {
          * Check Session*/ 
         $session = array();
 		$session[] = $this->session->userdata('akses');
-		if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$data['session'] = $session[0];
 		$this->load->model("m_agenda");
 		$data['agenda'] = $this->m_agenda->getTable('agenda');
@@ -56,7 +56,7 @@ class agenda extends CI_Controller {
         /*
          * Check Session*/ 
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
 		$this->load->model('m_agenda');
         $this->load->view('dashboard/header');

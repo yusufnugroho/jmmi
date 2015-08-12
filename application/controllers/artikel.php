@@ -13,7 +13,7 @@ class artikel extends CI_Controller {
          * Check Session*/ 
         $session = array();
         $session[] = $this->session->userdata('akses');
-		if (empty($session)) redirect('welcome/logout'); 
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$data['session'] = $session[0];
 
 		$this->load->model("m_artikel");
@@ -30,7 +30,7 @@ class artikel extends CI_Controller {
          * Check Session*/ 
         $session = array();
         $session[] = $this->session->userdata('akses');
-		if (empty($session)) redirect('welcome/logout'); 
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$data['session'] = $session[0];
 
 		$this->load->model("m_artikel");
@@ -67,7 +67,7 @@ class artikel extends CI_Controller {
          * Check Session*/ 
         $session = array();
         $session[] = $this->session->userdata('akses');
-		if (empty($session)) redirect('welcome/logout'); 
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$data['session'] = $session[0];
 
 		$this->load->model('m_artikel');
@@ -83,7 +83,7 @@ class artikel extends CI_Controller {
          * Check Session*/ 
         $session = array();
         $session[] = $this->session->userdata('akses');
-		if (empty($session)) redirect('welcome/logout'); 
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$data['session'] = $session[0];
 
 		$this->load->model('m_artikel');
@@ -97,7 +97,7 @@ class artikel extends CI_Controller {
     {
         $session = array();
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 
         $this->load->model('m_artikel');
         $data['data'] = $this->m_artikel->getTable("artikel");
@@ -120,7 +120,7 @@ class artikel extends CI_Controller {
          * Check Session*/ 
         $session = array();
         $session[] = $this->session->userdata('akses');
-		if (empty($session)) redirect('welcome/logout'); 
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$data['session'] = $session[0];
 
         $this->load->model('m_artikel');

@@ -9,7 +9,7 @@ class User extends CI_Controller {
         $session = array();
         $session[] = $this->session->userdata('akses');
         //print_r($this->session->userdata);die();
-        if (empty($session)) redirect('welcome/logout');
+        if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $this->load->helper('url');
         $this->load->model('m_mentor');
         $this->load->model('m_mente');
@@ -23,7 +23,7 @@ class User extends CI_Controller {
     {
         $session = array();
         $session[] = $this->session->userdata('akses');
-        if (empty($session)) redirect('welcome/logout');
+        if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $this->load->view("dashboard/header");
         $data = null;
         $data['session'] =  $session[0];
@@ -160,6 +160,7 @@ class User extends CI_Controller {
         /*SELECT USER ACCESS AND REQUIRED FORM INPUTS, THEN  DISPLAY*/
         $session = array();
         $session[] = $this->session->userdata('akses');
+        if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
         $form_name = array();
         $form_type = array();
