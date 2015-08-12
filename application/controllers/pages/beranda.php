@@ -12,6 +12,7 @@ class beranda extends CI_Controller {
 	}
 
 	public function index(){
+		$this->load->model("m_agenda");
 		$session_check = $this->session->userdata('akses');
 		$isLogin = "no";
 		$session_data = array();
@@ -23,6 +24,7 @@ class beranda extends CI_Controller {
 		$data = array();
 		$data['isLogin'] = $isLogin;
 		$data['session_data'] = $session_data;
+		$data['agenda_terbaru'] = $this->m_agenda->gettable_sort_limit('agenda', "TANGGAL_AGENDA", 10);
 		$this->load->view('frontend/header/header', $data);
 		$this->load->view('frontend/content/beranda');
 		$this->load->view('frontend/footer/footer');

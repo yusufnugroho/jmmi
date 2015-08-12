@@ -58,3 +58,114 @@
         <i class="icon-angle-right"></i>
     </a>
 </section><!--/#main-slider-->
+<div class="section container">
+    <center>
+        <h1>
+            <i>Jelajahi situs ini</i>
+        </h1>
+        <h4>
+            <i>
+                "Rasakan Pengalaman Yang Belum Pernah Anda Rasakan Sebelumnya"
+            </i>
+        </h4>
+    </center>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <center>
+                    <h2>Baca Artikel</h2>
+                    <img src="<?php echo base_url()?>assets/userfile/artikel.png" class="menu-icon">
+                </center>
+                <a href="artikel">
+                    <div class="panel-footer ">
+                        <h4>Baca Artikel Mentoring</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <center>
+                    <h2>Baca Materi</h2>
+                    <img src="<?php echo base_url()?>assets/userfile/materi.png" class="menu-icon">
+                </center>
+                <a href="materi/tulisan">
+                    <div class="panel-footer ">
+                        <h4>Baca Materi yang ditulis oleh mentor</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <center>
+                    <h2>Download File</h2>
+                    <img src="<?php echo base_url()?>assets/userfile/download.png" class="menu-icon">
+                </center>
+                <a href="materi/file">
+                    <div class="panel-footer ">
+                        <h4>Download File Materi yang diberikan</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default menu" id="menu_1">
+                <center>
+                    <h2>Baca Artikel</h2>
+                    <img src="<?php echo base_url()?>assets/userfile/artikel.png" class="menu-icon">
+                </center>
+                <a href="">
+                    <div class="panel-footer">
+                        <h4>Baca Artikel yang berkaitan dengan Mentoring</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section section-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Agenda Terdekat</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <?php
+            foreach ($agenda_terbaru as $key_agenda => $value_agenda) {
+                ?>
+                    <div class="col-lg-6">
+                        <h3>
+                        <?php 
+                            echo $value_agenda['TANGGAL_AGENDA'];
+                            echo ": ";
+                            echo $value_agenda['ISI_AGENDA'];
+                            echo " di ";
+                            echo $value_agenda['TEMPAT_AGENDA'];
+                        ?>
+                        </h3>
+                    </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.menu{
+    border: 1px solid #DDD;
+    padding: 5%;
+};
+.menu-caption{
+    text-align: center;
+}
+.menu-icon{
+    
+}
+</style>

@@ -2,7 +2,7 @@
 $assets_location = base_url()."assets/basica/";
 ?>
 
-	<div class="section section-breadcrumbs">
+		<div class="section section-breadcrumbs">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">

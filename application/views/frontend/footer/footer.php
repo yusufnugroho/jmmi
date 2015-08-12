@@ -53,4 +53,13 @@ $assets_location = base_url()."assets/basica/";
 		<script src="<?php echo $assets_location;?>js/scrolling-nav.js"></script>		
 
     </body>
+
+    <script>
+    doc_Height = $(".menu").width();
+    $(".menu").height(doc_Height);
+    $(".menu-icon").height(doc_Height*0.4);
+    $(".menu-icon").css({"margin": doc_Height*0.1});
+    
+    $("#menu_1").remove();
+    </script>
 </html>
