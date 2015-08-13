@@ -149,6 +149,18 @@
                                     </li>
                                 </ul>
                             </li>
+                            <!--TAG-->
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Manajemen Tag<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="<?php echo base_url();?>materi/daftarTag">Daftar Tag</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo base_url();?>materi/tambahTag">Tambah Tag</a>
+                                    </li>
+                                </ul>
+                            </li>
                         <?php ;} ?>
                         <!--End Of NavBar-->
                     </ul>

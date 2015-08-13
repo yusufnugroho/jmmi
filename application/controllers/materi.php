@@ -169,6 +169,74 @@ class Materi extends CI_Controller {
 		redirect('materi/');
                 //$this->index();
 	}
+	//Manajemen Tag
+	public	function daftarTag(){
+
+
+		$session = array();
+		$session[] = $this->session->userdata('akses');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
+		$this->load->model("m_materi");
+		$data['session'] = $session[0];
+        
+
+		$table = "tag_materi";
+		$data["tag"] = $this->m_materi->gettable($table);
+
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar', $data);
+        $this->load->view('materi/daftarTag', $data);
+        $this->load->view('dashboard/footer');
+
+	}
+	public	function tambahTag(){
+
+
+		$session = array();
+		$session[] = $this->session->userdata('akses');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
+		$this->load->model("m_materi");
+		$data['session'] = $session[0];
+        
+
+		//$table = "tag_materi";
+		//$data["tag"] = $this->m_materi->gettable($table);
+
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar', $data);
+        $this->load->view('materi/tambahTag');
+        $this->load->view('dashboard/footer');
+
+	}
+	public function insertTag()
+	{
+		$data	 = array('TAG' => $this->input->post('tag'), );
+		$this->load->model("m_materi");
+		$table = "tag_materi";
+		$query = $this->m_materi->insert($table,$data);
+		if($query){
+			echo '<script language="javascript">';
+			echo 'alert("File berhasil ditambahkan");';
+			echo '</script>';
+			redirect("materi/daftarTag");
+		}
+		else{
+			echo '<script language="javascript">';
+			echo 'alert("Gagal menyimpan file");';
+			echo '</script>';	
+		}
+	}
+	public function hapusTag($id)
+	{
+		$session = array();
+		$session[] = $this->session->userdata('akses');
+		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
+		$this->load->model("m_materi");
+		$where = array('ID_TAG' => $id);
+		$table = "tag_materi";
+		$data['tulisan'] = $this->m_materi->delete($table,$where);
+		redirect('materi/daftarTag');
+	}
 }
 
 /* End of file welcome.php */
