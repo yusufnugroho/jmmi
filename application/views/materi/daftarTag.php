@@ -39,7 +39,7 @@
                                             <td>'; 
                                             if($session == 'admin')
                                             {
-                                                    echo '<a href='. base_url()."materi/hapusTag/".$row['ID_TAG'].' class="btn btn-warning"  onclick="return confirm("Are you sure you want to delete this item?");">Hapus</a>';
+                                                    echo '<a href='. base_url()."materi/hapusTag/".$row['ID_TAG'].' class="btn btn-warning"  onclick="return confirm("Are you sure you want to delete this item?");"        >Hapus</a>';
                                             }
                                             else {
                                                    echo "<a href='#' class='btn btn-danger'>Anda Bukan Admin!</a>";

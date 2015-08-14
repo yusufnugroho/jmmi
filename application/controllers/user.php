@@ -156,7 +156,8 @@ class User extends CI_Controller {
         }
         $this->load->view('dashboard/footer');
     }
-    public function settings($valid = 'yes'){
+    public function settings($valid = 'yes')
+    {
         /*SELECT USER ACCESS AND REQUIRED FORM INPUTS, THEN  DISPLAY*/
         $session = array();
         $session[] = $this->session->userdata('akses');
@@ -332,17 +333,21 @@ class User extends CI_Controller {
         }
         redirect(base_url()."user");
     }
-    public function gantiPassword($id){
+    public function gantiPassword($id)
+    {
         $pw_lama1 = $this->input->get_post('pw_lama1');
         $pw_lama2 = $this->input->get_post('pw_lama2');
         $pw_baru1 = $this->input->get_post('pw_baru1');
         $pw_baru2 = $this->input->get_post('pw_baru2');
 
-        if ($pw_lama2 == $pw_lama1 && $pw_baru1 == $pw_baru2){
+        if ($pw_lama2 == $pw_lama1 && $pw_baru1 == $pw_baru2)
+        {
+
             $type = $this->input->get_post('akses');
             $this->load->model('m_mentor');
             $found = 0;
-            if ($type == 'dosen'){
+            if ($type == 'dosen')
+            {
                 $res = $this->m_mentor->select_where('dosen', array('NIP_DOSEN' => $id, 'PASSWORD_DOSEN' =>$pw_lama2));
                 if (!empty($res)){
                     $res = $this->m_mentor->update_db('dosen', array('PASSWORD_DOSEN' => $pw_baru2), array('NIP_DOSEN' => $id));
@@ -367,6 +372,14 @@ class User extends CI_Controller {
                 $res = $this->m_mentor->select_where('mente',array('NRP_MENTE' => $id, 'PASS_MENTE' =>$pw_lama2));
                 if (!empty($res)){
                     $res = $this->m_mentor->update_db('mente', array('PASS_MENTE' => $pw_baru2), array('NRP_MENTE' => $id));
+                    $found++;
+                }
+            }
+            if ($type == 'admin')
+            {
+                $res = $this->m_mentor->select_where('admin', array('admin_id' => $id, 'PASSWORD_DOSEN' =>$pw_lama2));
+                if (!empty($res)){
+                    $res = $this->m_mentor->update_db('dosen', array('PASSWORD_DOSEN' => $pw_baru2), array('NIP_DOSEN' => $id));
                     $found++;
                 }
             }
