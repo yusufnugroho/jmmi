@@ -18,6 +18,7 @@ class User extends CI_Controller {
         $this->load->model('m_mentor');
         $this->load->model('m_kj');
         $this->load->model('m_user');
+        $this->load->model('m_admin');
     }
     public function index()
     {
@@ -154,6 +155,19 @@ class User extends CI_Controller {
             $data['session'] = $session;
             $this->load->view("user/index",$data);
         }
+        if($session[0]=="admin")
+        {
+            $session[] = $this->session->userdata('1');
+            $session[] = $this->session->userdata('2');
+            $session[] = $this->session->userdata('3');
+            $session[] = $this->session->userdata('4');
+            $field = array('ID', 'Nama Lengkap', 'Telepon', 'Status');
+            $foto = base_url()."assets/userfile/icon.png";
+            $data['foto'] = $foto;
+            $data['field'] = array('Admin');
+            $data['session'] = $session;
+            $this->load->view("user/index",$data);
+        }
         $this->load->view('dashboard/footer');
     }
     public function settings($valid = 'yes')
@@ -167,7 +181,16 @@ class User extends CI_Controller {
         $form_type = array();
         $form_label = array();
         $form_value = array();
-        if ($session[0] == 'dosen'){
+        if ($session[0] == 'admin'){
+            $admin_value = $this->m_admin->select_where('admin', array("ID_ADMIN" =>$this->session->userdata('1')));
+            $admin_value = $admin_value[0];
+            $form_name = array("NAMA_DEPAN_ADMIN", "NAMA_BELAKANG_ADMIN", "TELEPON_ADMIN", "PASSWORD_ADMIN");
+            $form_type = array("text", "text", "text", "password");
+            $form_label = array("Nama Depan", "Nama Belakang", "No. Telp", "Password");
+            $form_value = array($admin_value['NAMA_DEPAN_ADMIN'], $admin_value['NAMA_BELAKANG_ADMIN'], $admin_value['TELEPON_ADMIN'], '');
+            $session[1] = $admin_value['ID_ADMIN'];
+        }
+        else if ($session[0] == 'dosen'){
             $dosen_value = $this->m_dosen->select_where('dosen', array("NIP_DOSEN" =>$this->session->userdata('1')));
             $dosen_value = $dosen_value[0];
             $form_name = array("NAMA_DEPAN_DOSEN", "NAMA_BELAKANG_DOSEN", "TELEPON_DOSEN", "PASSWORD_DOSEN");
@@ -224,7 +247,14 @@ class User extends CI_Controller {
         $content = array();
         $where = array();
         $validation_check = array();
-        if ($type == 'dosen'){
+        if ($type == 'admin'){
+            $admin_value = $this->m_admin->select_where('admin', array("ID_ADMIN" =>$this->session->userdata('1')));
+            $where = $admin_value[0];
+            $form_name = array("NAMA_DEPAN_ADMIN", "NAMA_BELAKANG_ADMIN", "TELEPON_ADMIN", "PASSWORD_ADMIN");
+            $form_label = array("Nama Depan", "Nama Belakang", "No. Telp", "Password");
+            $validation_check = $this->m_admin->select_where('admin', array('ID_ADMIN' =>$this->session->userdata('1'), 'PASSWORD_ADMIN' => $_POST['PASSWORD_ADMIN']));
+        }
+        else if ($type == 'dosen'){
             $dosen_value = $this->m_dosen->select_where('dosen', array("NIP_DOSEN" =>$this->session->userdata('1')));
             $where = $dosen_value[0];
             $form_name = array("NAMA_DEPAN_DOSEN", "NAMA_BELAKANG_DOSEN", "TELEPON_DOSEN", "PASSWORD_DOSEN");
