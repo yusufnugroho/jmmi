@@ -68,20 +68,22 @@ class Welcome extends CI_Controller
                 
 		$this->load->model("m_admin");
 		$login_admin = array(
-			'admin_nama' => $id, 
-			'admin_password'=> $password,
+			'ID_ADMIN' => $id, 
+			'PASSWORD_ADMIN'=> $password,
 			);
 		$result_admin = $this->m_admin->select_where('admin', $login_admin);
 
-		if (!empty($result_admin)) {
+		if (!empty($result_admin)) 
+                {
 			$session_data = array(
 				'akses'=>"admin",
-				'1'=>$result_admin[0]['admin_nama'],
-				'2'=>$result_admin[0]['admin_password']
+				'1'=>$result_admin[0]['ID_ADMIN'],
+				'2'=>$result_admin[0]['NAMA_DEPAN_ADMIN']." ".$result_admin[0]['NAMA_BELAKANG_ADMIN'],
+				'3'=>$result_admin[0]['TELEPON_ADMIN'],
+				'4'=>$result_admin[0]['STATUS_ADMIN'],
 				);
 			$this->session->set_userdata($session_data);
 			$session_id = $this->session->userdata('session_id');
-			echo "mimin";
 			redirect('dashboard');
 			redirect('welcome');
 		}

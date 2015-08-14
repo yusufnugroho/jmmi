@@ -26,16 +26,10 @@
                             <div class="col-lg-4">
                                 <center>
                                     <img src="<?php echo $foto?>" style="width: 100%">
-                                    <?php
-                                    if ($session[0] == 'mentor'){
-                                        ?>
                                         <hr>
                                         <button class="btn btn-primary" data-toggle="modal" data-target="#change_pp">
                                             Ganti Foto Profil
                                         </button>
-                                        <?php
-                                    }
-                                    ?>
 
                                 </center>
                             </div>
@@ -55,14 +49,14 @@
                                             <div class="col-md-4">
                                                 <h4>
                                                 <?php
-                                                echo $field[$i];
+                                                    echo $field[$i];
                                                 ?>
                                                 </h4>
                                             </div>
                                             <div class="col-md-8">
                                                 <h4> :
                                                 <?php
-                                                echo $session[$i+$adder];
+                                                    echo $session[$i+$adder];
                                                 ?>
                                                 </h4>
                                             </div>
