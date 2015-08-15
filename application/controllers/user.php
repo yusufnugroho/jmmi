@@ -231,7 +231,6 @@ class User extends CI_Controller {
         $data['form_type'] = $form_type;
         $data['form_value'] = $form_value;
         $data['form_label'] = $form_label;
-        $data['session'] = $session;
         $data['valid'] = $valid;
         $this->load->view("dashboard/header");
         $this->load->view("dashboard/navbar", $data);
