@@ -12,7 +12,7 @@
 if ($notification == "success"){
 	?>
 	<div class="alert alert-success">
-        Pendaftaran Sipenmaru <b><i>Berhasil</i></b>. Silahkan mencoba Login menggunakan <b>Username</b> dan <b>Password</b> Anda.
+        Pendaftaran Sipenmaru <b><i>Berhasil</i></b>. Terimakasih telah melakukan Pendaftaran Mentor Baru. Untuk dapat masuk ke dalam <b>Anda</b> membutuhkan <b><i>persetujuan</i></b> dari <b>Administrator</b> terlebih dahulu.
     </div>
 	<?php
 }

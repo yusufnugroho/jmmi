@@ -30,6 +30,9 @@
         ?>
         <div class="row">
             <div class="col-lg-6">
+                <?php
+                if ($session[0] != 'a'){
+                    ?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Setting
@@ -82,6 +85,16 @@
                     <!-- /.panel-body -->
                 </div>
                 <!-- /.panel -->
+                    <?php
+                }
+                else {
+                    ?>
+                    <div class="alert alert-info">
+                        <p>Anda <b>tidak bisa</b> mengubah <b>pengaturan profil <i>admin</i></b>. Anda hanya diperkenankan mengubah <b>password</b> saja.</p>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
             <!-- /.col-lg-6 -->
             <div class="col-lg-6">
