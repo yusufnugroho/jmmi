@@ -27,9 +27,14 @@
                                 <center>
                                     <img src="<?php echo $foto?>" style="width: 100%">
                                         <hr>
-                                        <button class="btn btn-primary" data-toggle="modal" data-target="#change_pp">
-                                            Ganti Foto Profil
-                                        </button>
+                                        <?php 
+                                        if($session[0]!="admin")
+                                        {    
+                                            echo '<button class="btn btn-primary" data-toggle="modal" data-target="#change_pp">
+                                                Ganti Foto Profil
+                                            </button>';
+                                        }
+                                        ?>
 
                                 </center>
                             </div>

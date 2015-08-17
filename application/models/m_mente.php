@@ -16,7 +16,16 @@ class M_mente extends CI_Model {
 	{
 		$this->db->query("update mente set NRP_MENTOR = '$nrpmentor', NAMA_DEPAN_mente = '$depanmente', NAMA_BELAKANG_mente = '$belakangmente', TELEPON_mente = '$hpmente', JK_MENTE='$jkmente' where NRP_MENTE = '$nrpmente'");
 	}
+	//Update Baru
+	public function updateBaru($set, $where, $table)
+	{
+		$this->db->where($where);
+		$this->db->update($table,$set);
+		return true;
+	}
+
         public function updateNilai($nrp,$nilai)
+	
 	{
 		$this->db->query("UPDATE `mente` SET `NILAI_MENTE`='$nilai' WHERE NRP_MENTE='$nrp'");
 	}
@@ -24,11 +33,18 @@ class M_mente extends CI_Model {
 	{
 		$this->db->query("DELETE FROM `mente` WHERE nrp_mente =$nrp");
 	}
-        public function select_where($tablename, $where)
+    public function select_where($tablename, $where)
 	{
 		$data = $this->db->get_where($tablename, $where);
 		return $data->result_array();
 	}
+    public function select_where_dosen($NIP_DOSEN)
+	{
+		return $this->db->query("select * from mente where NIP_DOSEN = ".$NIP_DOSEN);
+		//$data = $this->db->get_where($tablename, $where);
+		//return $data->result_array();
+	}
+
 	public function getData($nrp)
 	{
 		return $this->db->query("select * from mente where NRP_MENTE='$nrp'");
