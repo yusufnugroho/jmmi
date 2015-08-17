@@ -39,7 +39,7 @@
                                         </div>       
                                         <div class="form-group">
                                             <label>Tanggal Agenda</label>
-                                            <input type='date' name='tanggalagenda'class="form-control datepicker">
+                                            <input type='date' name='tanggalagenda'class="form-control datepicker" required>
                                             <script>
                                                 $(document).ready(function(){
                                                 $('.datepicker').datepicker({
