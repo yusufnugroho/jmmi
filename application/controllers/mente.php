@@ -13,11 +13,23 @@ class Mente extends CI_Controller {
 	public function index()
 	{
         /*
-         * Check Session*/ 
+         * Check Session*/
         $session[] = $this->session->userdata('akses');
-		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
+        if (!empty($session) && $session[0] == "") redirect('welcome/logout');
+        //echo $NIP_DOSEN;
         $data['session'] = $session[0];
-        $data['mente'] = $this->m_mente->getDataMente();
+        
+        //Get Data Mente Where
+        if($data['session']=="dosen"){ 
+            $NIP_DOSEN = $this->session->userdata('1');
+            $table = "mente";
+            $where = array('NIP_DOSEN' => $NIP_DOSEN, );
+            $data['mente'] = $this->m_mente->select_where_dosen($NIP_DOSEN);
+        }
+        else{
+            $data['mente'] = $this->m_mente->getDataMente();
+        }
+        //print_r($data['mente']);
         $this->load->view('dashboard/header');
         $this->load->view('dashboard/navbar',$data);
         $this->load->view('mente/indexMente',$data);
@@ -40,7 +52,11 @@ class Mente extends CI_Controller {
     public function update($NRP)
     {
         /*
-         * Check Session*/ 
+         * Check Session*/
+        $session[] = $this->session->userdata('akses');
+        //print_r($session);
+
+
         $session[] = $this->session->userdata('akses');
 		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
@@ -95,14 +111,42 @@ class Mente extends CI_Controller {
     }
     public function updatemente($nrpmente)
     {
-    	$nrpmentor = $this->input->post('nrpmentor');
-    	$nipdosen = $this->input->post('nipdosen');
-    	$depanmente = $this->input->post('frontname');
-    	$belakangmente = $this->input->post('endname');
-    	$hpmente = $this->input->post('hpmente');
-    	$jkmente = $this->input->post('jkmente');
-    	$this->m_mente->update($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$hpmente,$jkmente);
-    	$this->index();
+        $session[] = $this->session->userdata('akses');
+        if($session[0]=="admin" ||$session[0]=="kj")
+        {
+        	$nrpmentor = $this->input->post('nrpmentor');
+        	$nipdosen = $this->input->post('nipdosen');
+        	$depanmente = $this->input->post('frontname');
+        	$belakangmente = $this->input->post('endname');
+        	$hpmente = $this->input->post('hpmente');
+        	$jkmente = $this->input->post('jkmente');
+            //$this->m_mente->update($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$hpmente,$jkmente);
+    	    //Update
+
+            $set    = array(    'NRP_MENTOR' => $nrpmentor,
+                                'NIP_DOSEN' => $nipdosen,
+                                'NAMA_DEPAN_MENTE' => $depanmente,
+                                'NAMA_BELAKANG_MENTE' => $belakangmente,
+                                'JK_MENTE' => $hpmente,
+                                'TELEPON_MENTE' => $jkmente,
+                                );
+            $where  = array('NRP_MENTE' => $nrpmente, );
+            $table  = "mente";
+            //update data mente menggunakan method baru(set,where,table)
+
+            $query = $this->m_mente->updateBaru($set,$where,$table);
+            if($query)
+            {
+                echo '<script>alert("Data Mente Berhasil di Perbaharui.")</script>';
+                 redirect('mente', 'refresh');
+            }
+            else{
+                echo '<script>alert("Maaf, Data Mente Gagal di Perbaharui.")</script>';
+                 redirect('mente', 'refresh');
+            }
+
+        }
+        $this->index();
     }
     public function updateNilaiReady($nrpmente)
     {
