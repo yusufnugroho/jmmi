@@ -40,16 +40,16 @@
                                             <td> <?php echo $row['JUDUL_ARTIKEL'];?></td>
                                             <td>    <?php 
                                                         $isiFile = $row['ISI_ARTIKEL'];
-                                                        $isiFile = htmlspecialchars($isiFile);
+                                                        $isiFile = substr(htmlspecialchars_decode($isiFile), 0, 50);
                                                         echo $isiFile;
                                                     ?></td>
                                             <td> <?php echo $row['TANGGAL_ARTIKEL'];?></td>
                                             <td> <?php echo $row['PENULIS_ARTIKEL'];?></td>
                                             <td> <?php echo $row['TAG_ARTIKEL'];?></td>
                                             <td>
-                                                <a href="<?php echo base_url();?>artikel/showArtikel/<?php echo $row['ID_ARTIKEL'];?>" class="btn btn-info" value="Lihat">Lihat</a>   
+                                                <a href="<?php echo base_url();?>pages/artikel/baca/<?php echo $row['ID_ARTIKEL'];?>" class="btn btn-info" value="Lihat" target="blank">Lihat</a>
                                                 <?php if($session == 'admin' || $session == 'mentor') {?>
-                                                <a href="<?php echo base_url();?>artikel/deleteArtikel/<?php echo $row['ID_ARTIKEL'];?>"    onClick="return confirm('Delete This Artikel?')" class="btn btn-danger" value="Hapus">Hapus</a>
+                                                <a href="<?php echo base_url();?>artikel/deleteArtikel/<?php echo $row['ID_ARTIKEL'];?>" onClick="return confirm('Delete This Artikel?')" class="btn btn-danger" value="Hapus">Hapus</a>
                                                 <?php ;} ?>
                                             </td>   
                                         </tr>

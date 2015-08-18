@@ -8,6 +8,15 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+            <?php
+                if ($notification == "success"){
+                    ?>
+                    <div class="alert alert-success">
+                        <b><i>Mentor </i> Berhasil Ditambahkan</b>.
+                    </div>
+                    <?php
+                }
+                ?>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">

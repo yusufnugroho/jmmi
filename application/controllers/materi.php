@@ -45,6 +45,10 @@ class Materi extends CI_Controller {
 		$tanggal_materi = date("y-m-d");
 		$penulis_materi = $this->session->userdata('nama_depan')." ".$this->session->userdata('nama_belakang');
 		$tag_materi = $this->input->post('tag');
+		if ($this->session->userdata('akses') == "admin") {
+			$penulis_materi = "admin";
+			echo $penulis_materi;
+		}
 		$data_materi=array(
 			'ID_MATERI' => $materi_id,
 			'JUDUL_MATERI' => $judul_materi,
@@ -86,6 +90,9 @@ class Materi extends CI_Controller {
 
 		$tanggal_materi = date("y-m-d");
 		$penulis_materi = $this->session->userdata('nama_depan')." ".$this->session->userdata('nama_belakang');
+		if ($this->session->userdata('akses') == "admin") {
+			$penulis_materi = "admin";
+		}
 		$data = array(
 		    'JUDUL' => $_POST['judul'],
 		    'path' => $target_Path,
@@ -93,6 +100,7 @@ class Materi extends CI_Controller {
 			'TANGGAL_MATERI' => $tanggal_materi,
 			'PENULIS_MATERI' => $penulis_materi,
 		);
+
 		if($this->m_materi->insertFile($data))
 		{
 			if ($target_Path != NULL) {

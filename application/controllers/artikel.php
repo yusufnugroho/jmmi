@@ -32,7 +32,6 @@ class artikel extends CI_Controller {
         $session[] = $this->session->userdata('akses');
 		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$data['session'] = $session[0];
-
 		$this->load->model("m_artikel");
 		$get_artikel_id = $this->m_artikel->getID('artikel');
 		$artikel_id = 0;
@@ -44,6 +43,10 @@ class artikel extends CI_Controller {
 		$isi_artikel = htmlspecialchars($this->input->post('articlebody'));
 		$tanggal_artikel = date("y-m-d");
 		$penulis_artikel = $this->session->userdata('nama_depan')." ".$this->session->userdata('nama_belakang');
+		if ($this->session->userdata('akses') == "admin") {
+			$penulis_artikel = "admin";
+			echo $penulis_artikel;
+		}
 		$data_artikel=array(
 			'ID_ARTIKEL' => $artikel_id,
 			'JUDUL_ARTIKEL' => $judul_artikel,

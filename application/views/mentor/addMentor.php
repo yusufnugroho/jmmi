@@ -10,6 +10,15 @@
             </div>
             <!-- /.row -->
             <div class="row">
+                <?php
+                if ($notification == "duplicate"){
+                    ?>
+                    <div class="alert alert-danger">
+                        <b><i>NRP Mentor </i> sudah terdaftar</b>. Anda tidak dapat menambahkan <b>Mentor</b> dengan <b><i>NRP Mentor</i></b> yang sama. Lihat <b>Daftar Mentor</b> untuk Melihat Daftar Mentor
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
             <!-- /.row -->
             <div class="row">
