@@ -11,7 +11,7 @@ class Kj extends CI_Controller {
 		$this->load->model('m_kj');
 	}
 
-	public function index()
+	public function index($notification = '')
 	{
         /*
          * Check Session*/ 
@@ -19,18 +19,20 @@ class Kj extends CI_Controller {
 		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
 		$data['kj'] = $this->m_kj->getDataKJ();
+		$data['notification'] = $notification;
         $this->load->view('dashboard/header');
         $this->load->view('dashboard/navbar', $data);
 		$this->load->view('kj/indexKJ',$data);
         $this->load->view('dashboard/footer');
 	}
-	public function addkj()
+	public function addkj($notification = '')
 	{		
         $session[] = $this->session->userdata('akses');
 		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
 		$data['mentor'] = $this->m_mentor->getDataMentor();
 		$data['dosen'] = $this->m_dosen->getDataDosen();
+		$data['notification'] = $notification;
         $this->load->view('dashboard/header');
         $this->load->view('dashboard/navbar', $data);
 		$this->load->view('kj/addkj', $data);
@@ -65,13 +67,17 @@ class Kj extends CI_Controller {
 
 	public function insertkj()
 	{
-		$nrpkj = $this->input->post('nrpkj');
-		$depan = $this->input->post('frontname');
-		$belakang = $this->input->post('endname');
-		$jkkj = $this->input->post('jkkj');
-		$hpkj = $this->input->post('hpkj');
-		$this->m_kj->insert($nrpkj,$depan,$belakang,$jkkj,$hpkj);
-		$this->index();
+		$duplicate_kj = $this->m_kj->select_where('kj', array("NRP_KJ" => $this->input->post('nrpkj')));
+		if (empty($duplicate_kj)){
+			$nrpkj = $this->input->post('nrpkj');
+			$depan = $this->input->post('frontname');
+			$belakang = $this->input->post('endname');
+			$jkkj = $this->input->post('jkkj');
+			$hpkj = $this->input->post('hpkj');
+			$this->m_kj->insert($nrpkj,$depan,$belakang,$jkkj,$hpkj);
+			$this->index('success');
+		}
+		else $this->addkj('duplicate');
 	}
 	public function updatekj($nrpkj)
 	{

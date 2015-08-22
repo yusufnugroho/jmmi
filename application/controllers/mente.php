@@ -10,7 +10,7 @@ class Mente extends CI_Controller {
 		$this->load->model('m_dosen');
 	}
 
-	public function index()
+	public function index($notification = '')
 	{
         /*
          * Check Session*/
@@ -18,7 +18,7 @@ class Mente extends CI_Controller {
         if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         //echo $NIP_DOSEN;
         $data['session'] = $session[0];
-        
+        $data['notification'] = $notification;
         //Get Data Mente Where
         if($data['session']=="dosen"){ 
             $NIP_DOSEN = $this->session->userdata('1');
@@ -35,7 +35,7 @@ class Mente extends CI_Controller {
         $this->load->view('mente/indexMente',$data);
         $this->load->view('dashboard/footer');
     }
-    public function addmente()
+    public function addmente($notification = '')
     {		
         /*
          * Check Session*/ 
@@ -44,6 +44,7 @@ class Mente extends CI_Controller {
         $data['session'] = $session[0];
     	$data['mentor'] = $this->m_mentor->getDataMentorActive();
     	$data['dosen'] = $this->m_dosen->getDataDosen();
+        $data['notification'] = $notification;
     	$this->load->view('dashboard/header');
     	$this->load->view('dashboard/navbar', $data);
     	$this->load->view('mente/addMente',$data);
@@ -99,15 +100,20 @@ class Mente extends CI_Controller {
 
     public function insertmente()
     {
-    	$nrpmente = $this->input->post('nrpmente');
-    	$nrpmentor = $this->input->post('nrpmentor');
-    	$nipdosen = $this->input->post('nipdosen');
-    	$depanmente = $this->input->post('frontname');
-    	$belakangmente = $this->input->post('endname');
-    	$jkmente = $this->input->post('jkmente');
-    	$hpmente = $this->input->post('hpmente');
-    	$this->m_mente->insert($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$jkmente,$hpmente);
-    	$this->index();
+        $duplicate_mente = $this->m_mente->select_where('mente', array("NRP_MENTE" => $this->input->post('nrpmente')));
+        if (empty($duplicate_mente)){
+        	$nrpmente = $this->input->post('nrpmente');
+        	$nrpmentor = $this->input->post('nrpmentor');
+        	$nipdosen = $this->input->post('nipdosen');
+        	$depanmente = $this->input->post('frontname');
+        	$belakangmente = $this->input->post('endname');
+        	$jkmente = $this->input->post('jkmente');
+        	$hpmente = $this->input->post('hpmente');
+        	$this->m_mente->insert($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$jkmente,$hpmente);
+        	$this->index('success');
+        }else {
+            $this->addMente('duplicate');
+        }
     }
     public function updatemente($nrpmente)
     {

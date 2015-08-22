@@ -23,7 +23,7 @@ class Mentor extends CI_Controller {
         $this->load->view('mentor/indexMentor',$data);
         $this->load->view('dashboard/footer');
 	}
-	public function addmentor()
+	public function addmentor($notification = '')
 	{		
         /*
          * Check Session*/ 
@@ -31,7 +31,7 @@ class Mentor extends CI_Controller {
 		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
         $data['kj'] = $this->m_kj->getDataKJActive();
-        $data['notification'] = '';
+        $data['notification'] = $notification;
         $this->load->view('dashboard/header');
         $this->load->view('dashboard/navbar', $data);
 		$this->load->view('mentor/addMentor',$data);
@@ -67,7 +67,7 @@ class Mentor extends CI_Controller {
 			'NRP_MENTOR' => $nrp, 
 		);
 		$this->m_mentor->hapusMentor('mentor', $where);
-		//$this->m_mentor->hapusMentor($nrp);
+		
 		$this->index();
 	}
 	public function insertmentor()
@@ -85,7 +85,8 @@ class Mentor extends CI_Controller {
 			$this->index('success');
 		}
 		else {
-			$this->error_notification('mentor/addMentor' ,"duplicate");
+			//$this->error_notification('mentor/addMentor' ,"duplicate");
+			$this->addMentor("duplicate");
 		}
 	}
 	public function updatementor($nrpmentor)
@@ -145,17 +146,5 @@ class Mentor extends CI_Controller {
 			$this->m_mentor->insert($nrpmentor,$nrpkj,$depanmentor,$belakangmentor,$jkmentor,$hpmentor, $path);
 		}
 			redirect(base_url()."mentor/applicant");
-	}
-
-	public function error_notification($page, $notification){
-		$session[] = $this->session->userdata('akses');
-		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
-        $data['session'] = $session[0];
-        $data['kj'] = $this->m_kj->getDataKJActive();
-        $data['notification'] = $notification;
-        $this->load->view('dashboard/header');
-        $this->load->view('dashboard/navbar', $data);
-		$this->load->view($page ,$data);
-        $this->load->view('dashboard/footer');
 	}
 }

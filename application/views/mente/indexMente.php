@@ -10,6 +10,18 @@
     </div>
     <!-- /.row -->
     <div class="row">
+    <?php
+        if ($notification == "success"){
+            ?>
+            <div class="alert alert-success">
+                <b><i>Mente </i> Berhasil Ditambahkan</b>.
+            </div>
+            <?php
+        }
+        ?>
+    </div>
+    <!-- /.row -->
+    <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">

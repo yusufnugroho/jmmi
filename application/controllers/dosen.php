@@ -5,13 +5,13 @@ class Dosen extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->helper('url');
-		$this->load->model('m_mentor');
+		$this->load->model('m_dosen');
 		$this->load->model('m_mente');
 		$this->load->model('m_dosen');
 		$this->load->model('m_kj');
 	}
 
-	public function index()
+	public function index($notification = '')
 	{
          /*
          * Check Session*/
@@ -26,21 +26,21 @@ class Dosen extends CI_Controller {
 		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$data['session'] = $session[0];
 		$data['dosen'] = $this->m_dosen->getDataDosen();
+		$data['notification'] = $notification;
         $this->load->view('dashboard/header');
         $this->load->view('dashboard/navbar', $data);
 		$this->load->view('dosen/indexDosen',$data);
         $this->load->view('dashboard/footer');
 	}
-	public function addDosen()
+	public function addDosen($notification = '')
 	{	
         $session = array();
         $session[] = $this->session->userdata('akses');
 		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
 		$data['session'] = $session[0];
-
+		$data['notification'] = $notification;
         $this->load->view('dashboard/header');
         $this->load->view('dashboard/navbar', $data);
-		#$this->load->view('kj/addkj',$data);
         $this->load->view('dosen/addDosen', $data);
         $this->load->view('dashboard/footer');
         }
@@ -75,12 +75,19 @@ class Dosen extends CI_Controller {
 
 	public function insertDosen()
 	{
-		$nip = $this->input->post('nip');
-		$depan = $this->input->post('frontname');
-		$belakang = $this->input->post('endname');
-		$hpDosen = $this->input->post('hpdosen');
-		$this->m_dosen->insert($nip,$depan,$belakang,$hpDosen);
-		$this->index();
+
+		$duplicate_dosen = $this->m_dosen->select_where('dosen', array("NIP_DOSEN" => $this->input->post('nip')));
+		if (empty($duplicate_dosen)){
+			$nip = $this->input->post('nip');
+			$depan = $this->input->post('frontname');
+			$belakang = $this->input->post('endname');
+			$hpDosen = $this->input->post('hpdosen');
+			$this->m_dosen->insert($nip,$depan,$belakang,$hpDosen);
+			$this->index('success');
+		}
+		else {
+			$this->addDosen('duplicate');
+		}
 	}
 	public function updateDosen($nrpkj)
 	{

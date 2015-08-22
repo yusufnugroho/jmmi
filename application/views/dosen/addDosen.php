@@ -9,6 +9,15 @@
             </div>
             <!-- /.row -->
             <div class="row">
+                <?php
+                if ($notification == "duplicate"){
+                    ?>
+                    <div class="alert alert-danger">
+                        <b><i>NIP Dosen </i> sudah terdaftar</b>. Anda tidak dapat menambahkan <b>Dosen</b> dengan <b><i>NIP Dosen</i></b> yang sama. Lihat <b>Daftar Dosen</b> untuk Melihat Daftar Dosen
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
             <!-- /.row -->
             <div class="row">

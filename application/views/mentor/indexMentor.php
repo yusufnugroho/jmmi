@@ -8,6 +8,8 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+            <!-- /.row -->
+            <div class="row">
             <?php
                 if ($notification == "success"){
                     ?>
@@ -17,6 +19,7 @@
                     <?php
                 }
                 ?>
+            </div>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">

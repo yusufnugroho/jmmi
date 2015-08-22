@@ -9,6 +9,15 @@
             </div>
             <!-- /.row -->
             <div class="row">
+                <?php
+                if ($notification == "duplicate"){
+                    ?>
+                    <div class="alert alert-danger">
+                        <b><i>NRP Koordinator Jurusan </i> sudah terdaftar</b>. Anda tidak dapat menambahkan <b>Koordinator Jurusan</b> dengan <b><i>NRP Koordinator Jurusan</i></b> yang sama. Lihat <b>Daftar Koordinator Jurusan</b> untuk Melihat Daftar Koordinator Jurusan
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
             <!-- /.row -->
             <div class="row">
