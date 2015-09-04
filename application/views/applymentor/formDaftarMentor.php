@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Jenis Kelamin</label>
-                                            <div class="radio">
+                                            <div class="radio" required>
                                                 <label>
                                                     <input type="radio" name="jenis_kelamin" id="L" value="L">Ikhwan
                                                 </label>
@@ -152,8 +152,8 @@
                                             -->
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-default">Submit Button</button>
-                                            <button type="reset" class="btn btn-default">Reset Button</button>
+                                            <button type="submit" class="btn btn-default">Kirim</button>
+                                            <button type="reset" class="btn btn-default">Bersihkan</button>
                                         </div>
                                     </form>
                                 </div>

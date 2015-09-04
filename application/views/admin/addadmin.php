@@ -30,23 +30,23 @@
                                     <form role="form" action='<?php echo base_url();?>index.php/dosen/insertDosen' method='post'>
                                         <div class="form-group">
                                             <label>Nama Admin</label>
-                                            <input type='text' name='nip'class="form-control">
+                                            <input type='text' name='nip'class="form-control" required>
                                         </div>       
                                         <div class="form-group">
                                             <label>Nama Depan</label>
-                                            <input type='text' name='frontname'class="form-control">
+                                            <input type='text' name='frontname'class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Belakang</label>
-                                            <input type='text' name='endname'class="form-control">
+                                            <input type='text' name='endname'class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>No Telepon</label>
-                                            <input type='text' name='hpdosen'class="form-control">
+                                            <input type='text' name='hpdosen'class="form-control" required>
                                         </div> 
                                         <div>
-                                            <button type="submit" class="btn btn-default">Submit Button</button>
-                                            <button type="reset" class="btn btn-default">Reset Button</button>
+                                            <button type="submit" class="btn btn-default">Tambah</button>
+                                            <button type="reset" class="btn btn-default">Bersihkan</button>
                                         </div>
                                     </form>
                                 </div>

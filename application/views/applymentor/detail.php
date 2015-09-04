@@ -26,19 +26,19 @@
                                         </div>       
                                         <div class="form-group">
                                             <label>Nama Depan</label>
-                                            <input type='text' name='frontname'class="form-control" value="<?php echo $mentor->NAMA_DEPAN_MENTOR;?>" placeholder="<?php echo $mentor->NAMA_DEPAN_MENTOR;?>">
+                                            <input type='text' name='frontname'class="form-control" value="<?php echo $mentor->NAMA_DEPAN_MENTOR;?>" placeholder="<?php echo $mentor->NAMA_DEPAN_MENTOR;?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Belakang</label>
-                                            <input type='text' name='endname'class="form-control" value="<?php echo $mentor->NAMA_BELAKANG_MENTOR;?>">
+                                            <input type='text' name='endname'class="form-control" value="<?php echo $mentor->NAMA_BELAKANG_MENTOR;?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>No Telepon</label>
-                                            <input type='text' name='hpmentor'class="form-control" value="<?php echo $mentor->TELEPON_MENTOR;?>">
+                                            <input type='text' name='hpmentor'class="form-control" value="<?php echo $mentor->TELEPON_MENTOR;?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Jenis Kelamin</label>
-                                            <div class="radio">
+                                            <div class="radio" required>
                                                 <label>
                                                     <input type="radio" name="jkmentor" id="L" value="L">Ikhwan
                                                 </label>
@@ -50,7 +50,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>NRP - Nama Koordinator Jurusan</label>
-                                            <select name='nrpkj' class="form-control">
+                                            <select name='nrpkj' class="form-control" required>
                                             <?php
                                                 foreach ($kj->result() as $row)
                                                 {
@@ -65,7 +65,7 @@
                                         </div>                     
                                         <div>
                                             <button type="submit" class="btn btn-default">Update</button>
-                                            <button type="reset" class="btn btn-default">Reset</button>
+                                            <button type="reset" class="btn btn-default">Bersihkan</button>
                                         </div>
                                     </form>
                                 </div>

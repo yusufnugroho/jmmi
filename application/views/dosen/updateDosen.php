@@ -36,19 +36,19 @@
                                         </div>       
                                         <div class="form-group">
                                             <label>Nama Depan</label>
-                                            <input type='text' name='frontname'class="form-control" value="<?php echo $dosen->NAMA_DEPAN_DOSEN;?>">
+                                            <input type='text' name='frontname'class="form-control" value="<?php echo $dosen->NAMA_DEPAN_DOSEN;?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Belakang</label>
-                                            <input type='text' name='endname'class="form-control" value="<?php echo $dosen->NAMA_BELAKANG_DOSEN;?>">
+                                            <input type='text' name='endname'class="form-control" value="<?php echo $dosen->NAMA_BELAKANG_DOSEN;?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>No Telepon</label>
-                                            <input type='text' name='hpdosen'class="form-control" value="<?php echo $dosen->TELEPON_DOSEN;?>">
+                                            <input type='text' name='hpdosen'class="form-control" value="<?php echo $dosen->TELEPON_DOSEN;?>" required>
                                         </div>                  
                                         <div>
                                             <button type="submit" class="btn btn-default">Update</button>
-                                            <button type="reset" class="btn btn-default">Reset</button>
+                                            <button type="reset" class="btn btn-default">Bersihkan</button>
                                         </div>
                                     </form>
                                 </div>

@@ -36,7 +36,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Nilai</label>
-                                            <input type='number' name='nilai'class="form-control" value="<?php echo $mente->NILAI_MENTE;?>" >
+                                            <input type='number' name='nilai'class="form-control" value="<?php echo $mente->NILAI_MENTE;?>"  required>
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-default">Update</button>

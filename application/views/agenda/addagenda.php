@@ -35,7 +35,7 @@
                                     <form role="form" action='<?php echo base_url();?>index.php/agenda/add' method='post'>
                                         <div class="form-group">
                                             <label>Isi Agenda</label>
-                                            <input type='text' name='isiagenda'class="form-control">
+                                            <input type='text' name='isiagenda'class="form-control" required>
                                         </div>       
                                         <div class="form-group">
                                             <label>Tanggal Agenda</label>
@@ -51,10 +51,10 @@
 
                                         <div class="form-group">
                                             <label>Tempat Agenda</label>
-                                            <input type='text' name='tempatagenda'class="form-control">
+                                            <input type='text' name='tempatagenda'class="form-control" required>
                                         </div>               
                                         <div>
-                                            <button type="submit" class="btn btn-default">Submit Button</button>
+                                            <button type="submit" class="btn btn-default">Tambahkan</button>
                                         </div>
                                     </form>
                                 </div>

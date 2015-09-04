@@ -40,19 +40,19 @@
                                     <form role="form" action='<?php echo base_url();?>index.php/mente/insertmente' method='post'>
                                         <div class="form-group">
                                             <label>NRP Mente</label>
-                                            <input type='text' name='nrpmente'class="form-control">
+                                            <input type='text' name='nrpmente'class="form-control" required>
                                         </div>       
                                         <div class="form-group">
                                             <label>Nama Depan</label>
-                                            <input type='text' name='frontname'class="form-control">
+                                            <input type='text' name='frontname'class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Belakang</label>
-                                            <input type='text' name='endname'class="form-control">
+                                            <input type='text' name='endname'class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Jenis Kelamin</label>
-                                            <div class="radio">
+                                            <div class="radio" required>
                                                 <label>
                                                     <input type="radio" name="jkmente" id="L" value="L">Ikhwan
                                                 </label>
@@ -64,11 +64,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>No Telepon</label>
-                                            <input type='text' name='hpmente'class="form-control">
+                                            <input type='text' name='hpmente'class="form-control" required>
                                         </div> 
                                         <div class="form-group">
                                             <label>NRP - Nama Mentor</label>
-                                            <select name='nrpmentor' class="form-control"required>
+                                            <select name='nrpmentor' class="form-control" required>
                                             <option> </option>
                                             <?php
                                                 foreach ($mentor->result() as $row)
@@ -84,7 +84,7 @@
                                         </div>           
                                         <div class="form-group">
                                             <label>NIP - Nama Dosen</label>
-                                            <select name='nipdosen' class="form-control"required>
+                                            <select name='nipdosen' class="form-control" required>
                                             <option> </option>
                                             <?php
                                                 foreach ($dosen->result() as $row)
@@ -99,8 +99,8 @@
                                             </select>
                                         </div>                   
                                         <div>
-                                            <button type="submit" class="btn btn-default">Submit Button</button>
-                                            <button type="reset" class="btn btn-default">Reset Button</button>
+                                            <button type="submit" class="btn btn-default">Kirim</button>
+                                            <button type="reset" class="btn btn-default">Bersihkan</button>
                                         </div>
                                     </form>
                                 </div>

@@ -36,19 +36,19 @@
                                         </div>       
                                         <div class="form-group">
                                             <label>Nama Depan</label>
-                                            <input type='text' name='frontname'class="form-control" value="<?php echo $mente->NAMA_DEPAN_MENTE;?>">
+                                            <input type='text' name='frontname'class="form-control" value="<?php echo $mente->NAMA_DEPAN_MENTE;?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Belakang</label>
-                                            <input type='text' name='endname'class="form-control" value="<?php echo $mente->NAMA_BELAKANG_MENTE;?>">
+                                            <input type='text' name='endname'class="form-control" value="<?php echo $mente->NAMA_BELAKANG_MENTE;?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>No Telepon</label>
-                                            <input type='text' name='hpmente'class="form-control" value="<?php echo $mente->TELEPON_MENTE;?>">
+                                            <input type='text' name='hpmente'class="form-control" value="<?php echo $mente->TELEPON_MENTE;?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Jenis Kelamin</label>
-                                            <div class="radio">
+                                            <div class="radio" required>
                                                 <label>
                                                     <input type="radio" name="jkmente" id="L" value="L" <?php if(isset($mente->JK_MENTE) && $mente->JK_MENTE == "L") echo "checked"?>>Ikhwan
                                                 </label>

@@ -100,7 +100,7 @@
                         <div class="col-md-4">
                         </div>
                         <div class="col-md-4"> 
-                            <input name="userFile" type="file" tabindex="1" value="NULL" /> 
+                            <input name="userFile" type="file" tabindex="1" value="NULL"  required/> 
                         </div>
                     </div>
                 </div>

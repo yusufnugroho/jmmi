@@ -30,11 +30,11 @@
                                     <form role="form" action='<?php echo base_url();?>materi/insertTag' method='post'>
                                         <div class="form-group">
                                             <label>Tag Materi</label>
-                                            <input type='text' name='tag'class="form-control">
+                                            <input type='text' name='tag'class="form-control" required>
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-default">Submit Button</button>
-                                            <button type="reset" class="btn btn-default">Reset Button</button>
+                                            <button type="submit" class="btn btn-default">Kirim</button>
+                                            <button type="reset" class="btn btn-default">Bersihkan</button>
                                         </div>
                                     </form>
                                 </div>

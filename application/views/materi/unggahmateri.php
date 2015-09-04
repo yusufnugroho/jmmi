@@ -34,10 +34,10 @@
                                             <input type='text' name='judul'class="form-control" required>
                                         </div>      
 
-                                        <input name="userFile" type="file" tabindex="1" value="NULL" /> 
+                                        <input name="userFile" type="file" tabindex="1" value="NULL"  required/> 
                                         <br>
                                         <label>Tag</label>
-                                        <select name='tag'>
+                                        <select name='tag' required>
                                             <?php
                                             foreach($tag as $row)
                                             {

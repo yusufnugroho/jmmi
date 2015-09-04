@@ -36,19 +36,19 @@
                                         </div>       
                                         <div class="form-group">
                                             <label>Nama Depan</label>
-                                            <input type='text' name='frontname'class="form-control" value="<?php echo $kj->NAMA_DEPAN_KJ;?>">
+                                            <input type='text' name='frontname'class="form-control" value="<?php echo $kj->NAMA_DEPAN_KJ;?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Belakang</label>
-                                            <input type='text' name='endname'class="form-control" value="<?php echo $kj->NAMA_BELAKANG_KJ;?>">
+                                            <input type='text' name='endname'class="form-control" value="<?php echo $kj->NAMA_BELAKANG_KJ;?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>No Telepon</label>
-                                            <input type='text' name='hpkj'class="form-control" value="<?php echo $kj->TELEPON_KJ;?>">
+                                            <input type='text' name='hpkj'class="form-control" value="<?php echo $kj->TELEPON_KJ;?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Jenis Kelamin</label>
-                                            <div class="radio">
+                                            <div class="radio" required>
                                                 <label>
                                                     <input type="radio" name="jkkj" id="L" value="L">Ikhwan
                                                 </label>

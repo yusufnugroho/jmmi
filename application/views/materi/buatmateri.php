@@ -21,19 +21,19 @@
                         <form role="form" action="create" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label></label>
-                                <input class="form-control" name="title" placeholder="Judul materi">    
+                                <input class="form-control" name="title" placeholder="Judul materi" required>
                             <div class="form-group">
                                 <label>Thumbnail</label>
                                 <input name="userFile" type="file" tabindex="1" value="NULL" /> 
                             </div>
                             </div>
                                 <label></label>
-                                <textarea name="articlebody" style="height: 200px" class="form-control wysiwyg">
+                                <textarea name="articlebody" style="height: 200px" class="form-control wysiwyg" required>
                                      
                                 </textarea>
 
                                 <label>Tag</label>
-                                <select name='tag'>
+                                <select name='tag' required>
                                     <?php
                                     foreach($tag as $row)
                                     {

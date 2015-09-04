@@ -21,7 +21,7 @@
                         <form role="form" action="create" method="POST">
                             <div class="form-group">
                                 <label></label>
-                                <input class="form-control" name="title" placeholder="Judul Artikel">
+                                <input class="form-control" name="title" placeholder="Judul Artikel" required>
                                 
                             </div>
                                 <label></label>

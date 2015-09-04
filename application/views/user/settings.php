@@ -46,7 +46,7 @@
                                 ?>
                                         <div class="form-group">
                                             <label><?php echo $form_label[$i]?></label>
-                                            <input type='<?php echo $form_type[$i]?>' name='<?php echo $form_name[$i]?>' class="form-control" value = "<?php echo $form_value[$i]?>">
+                                            <input type='<?php echo $form_type[$i]?>' name='<?php echo $form_name[$i]?>' class="form-control" value = "<?php echo $form_value[$i]?>" required>
                                             <?php
                                             if ($form_type[$i] =='password'){
                                                 ?>
@@ -62,7 +62,7 @@
                                         ?>
                                         <div class="form-group">
                                             <label>Jenis Kelamin</label>
-                                            <div class="radio">
+                                            <div class="radio" required>
                                                 <label>
                                                     <input type="radio" name="jkmentor" id="L" value="L" <?php if(isset($form_value[$i]) && $form_value[$i] == "L") echo "checked"?>>Ikhwan
                                                 </label>
@@ -108,19 +108,19 @@
                             <input type='hidden' name='akses' id="akses" class="form-control" value="<?php echo $session[0]?>">
                             <div class="form-group">
                                 <label>Isikan Password Lama</label>
-                                <input type='password' name='pw_lama1' id="pw_lama1" class="form-control" onfocusout="Validation(this.id)">
+                                <input type='password' name='pw_lama1' id="pw_lama1" class="form-control" onfocusout="Validation(this.id)" required>
                             </div>
                             <div class="form-group">
                                 <label>Isikan Password Lama Lagi</label>
-                                <input type='password' name='pw_lama2' id="pw_lama2" class="form-control" onfocusout="Validation(this.name)">
+                                <input type='password' name='pw_lama2' id="pw_lama2" class="form-control" onfocusout="Validation(this.name)" required>
                             </div>
                             <div class="form-group">
                                 <label>Isikan Password Baru</label>
-                                <input type='password' name='pw_baru1' id="pw_baru1" class="form-control" onfocusout="Validation(this.name)">
+                                <input type='password' name='pw_baru1' id="pw_baru1" class="form-control" onfocusout="Validation(this.name)" required>
                             </div>
                             <div class="form-group">
                                 <label>Isikan Password Baru Lagi</label>
-                                <input type='password' name='pw_baru2' id="pw_baru2" class="form-control" onfocusout="Validation(this.name)">
+                                <input type='password' name='pw_baru2' id="pw_baru2" class="form-control" onfocusout="Validation(this.name)" required>
                             </div>
                             <div>
                                 <button type="submit" class="btn btn-default">Update </button>

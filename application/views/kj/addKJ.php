@@ -39,19 +39,19 @@
                                     <form role="form" action='<?php echo base_url();?>index.php/kj/insertkj' method='post'>
                                         <div class="form-group">
                                             <label>NRP Koordinator Jurusan</label>
-                                            <input type='text' name='nrpkj'class="form-control">
+                                            <input type='text' name='nrpkj'class="form-control" required>
                                         </div>       
                                         <div class="form-group">
                                             <label>Nama Depan</label>
-                                            <input type='text' name='frontname'class="form-control">
+                                            <input type='text' name='frontname'class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Belakang</label>
-                                            <input type='text' name='endname'class="form-control">
+                                            <input type='text' name='endname'class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Jenis Kelamin</label>
-                                            <div class="radio">
+                                            <div class="radio" required>
                                                 <label>
                                                     <input type="radio" name="jkkj" id="L" value="L">Ikhwan
                                                 </label>
@@ -63,11 +63,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>No Telepon</label>
-                                            <input type='text' name='hpkj'class="form-control">
+                                            <input type='text' name='hpkj'class="form-control" required>
                                         </div> 
                                         <div>
-                                            <button type="submit" class="btn btn-default">Submit Button</button>
-                                            <button type="reset" class="btn btn-default">Reset Button</button>
+                                            <button type="submit" class="btn btn-default">Kirim</button>
+                                            <button type="reset" class="btn btn-default">Bersihkan</button>
                                         </div>
                                     </form>
                                 </div>
