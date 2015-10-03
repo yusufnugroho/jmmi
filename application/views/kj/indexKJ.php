@@ -73,7 +73,7 @@
                                              echo '</ td>';
                                             if($session == 'admin')
                                             echo '<td> <a href='. base_url()."index.php/kj/update/".$row->NRP_KJ.' class="btn btn-primary"> Edit</a>
-                                            </td></tr>';
+                                            <a href='. base_url()."index.php/kj/hapus/".$row->NRP_KJ.' class="btn btn-danger"> Hapus </a> </td></tr>';
                                             else echo '<td> </td>';
                                     }       
                                     ?>
