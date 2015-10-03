@@ -109,8 +109,8 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                            <?php if($session == 'admin' || $session == 'kj'){?>
                         <!--Mentor-->
-                        <?php if($session == 'admin'){?>
                             <li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Mentor<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
@@ -125,6 +125,8 @@
                                     </li>
                                 </ul>
                             </li>
+                            <?php ;}?>
+                            <?php if($session == 'admin'){?>
                             <!--Koordinator Jurusan-->
                             <li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Koordinator Jurusan<span class="fa arrow"></span></a>
