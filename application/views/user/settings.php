@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <?php
-                if ($session[0] != 'a'){
+                if ($session[0] != 'a' OR 1==1){
                     ?>
                 <div class="panel panel-default">
                     <div class="panel-heading">

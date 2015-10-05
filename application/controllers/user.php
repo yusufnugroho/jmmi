@@ -164,7 +164,7 @@ class User extends CI_Controller {
             $field = array('ID', 'Nama Lengkap', 'Telepon', 'Status');
             $foto = base_url()."assets/userfile/icon.png";
             $data['foto'] = $foto;
-            $data['field'] = array('Admin');
+            $data['field'] = array('Username', 'Nama Lengkap', 'Telepon', 'Status');
             $data['session'] = $session;
             $this->load->view("user/index",$data);
         }
@@ -239,13 +239,16 @@ class User extends CI_Controller {
     }
 
     public function update($type){
-
+        
         /* UPDATE DB*/
         $form_name = array();
         $form_label = array();
         $content = array();
         $where = array();
         $validation_check = array();
+        if ($type == 'a'){
+            $type = 'admin';
+        }
         if ($type == 'admin'){
             $admin_value = $this->m_admin->select_where('admin', array("ID_ADMIN" =>$this->session->userdata('1')));
             $where = $admin_value[0];
@@ -290,7 +293,16 @@ class User extends CI_Controller {
 
         /* UPDATE SESSION*/
         $session_data = array();
-        if ($type == 'dosen'){
+        if ($type == 'admin'){
+            $session_data = array(
+                'akses'=>"admin",
+                '1'=>$admin_value[0]['ID_ADMIN'],
+                '2'=>$admin_value[0]['NAMA_DEPAN_ADMIN']." ".$admin_value[0]['NAMA_BELAKANG_ADMIN'],
+                '3'=>$admin_value[0]['TELEPON_ADMIN'],
+                '4'=>$admin_value[0]['STATUS_ADMIN'],
+                );
+        }
+        else if ($type == 'dosen'){
             $dosen_value = $this->m_dosen->select_where('dosen', array("NIP_DOSEN" =>$this->session->userdata('1')));
             
             $session_data = array(
