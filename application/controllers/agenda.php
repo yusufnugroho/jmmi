@@ -25,6 +25,20 @@ class agenda extends CI_Controller {
 
 	function add()
 	{
+		// START UPLOAD POSTER AGENDA
+		$target_Path = NULL;
+		if ($_FILES['poster']['name'] != NULL)
+		{
+			$target_Path = "File/";
+			$string = basename( $_FILES['poster']['name'] );
+			$string = str_replace(" ","-", $string);
+			$target_Path = $target_Path.$string;
+		}
+		if ($target_Path != NULL) {
+			move_uploaded_file( $_FILES['poster']['tmp_name'], $target_Path );
+		}
+		// END UPLOAD POSTER AGENDA
+		// START INSERT DATA TO DATABASE
 		$this->load->model("m_agenda");
 		$get_agenda_id = $this->m_agenda->getID('agenda');
 		$agenda_id = 0;
@@ -35,14 +49,18 @@ class agenda extends CI_Controller {
 		$isi_agenda = $this->input->post('isiagenda');
 		$tanggal_agenda = $this->input->post('tanggalagenda');
 		$tempat_agenda = $this->input->post('tempatagenda');
+		$deskripsi_agenda = $this->input->post('deskripsiagenda');
 		$data_agenda=array(
 			'ID_AGENDA' => $agenda_id,
 			'ISI_AGENDA' => $isi_agenda,
 			'TANGGAL_AGENDA' => $tanggal_agenda,
 			'TEMPAT_AGENDA' => $tempat_agenda,
+			'PATH_AGENDA' => $target_Path,
+			'DESKRIPSI_AGENDA' => $deskripsi_agenda,
 		);
 		$res=$this->m_agenda->insert('agenda',$data_agenda);
-		
+		//END INSERT DATA TO DATABASE
+
 		if ($res>=1){
 			redirect('agenda');
 		}

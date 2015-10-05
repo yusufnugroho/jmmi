@@ -20,11 +20,13 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th class='text-center'> No</th>
-                                    <th class='text-center'> ISI AGENDA</th>
-                                    <th class='text-center'> TANGGAL AGENDA</th>
-                                    <th class='text-center'> TEMPAT AGENDA</th>
-                                    <th class='text-center' width='14%'>Action</th>
+                                    <th class='text-center' width="5%"> No</th>
+                                    <th class='text-center' style="overflow: hidden; width: 15%"> FOTO AGENDA</th>
+                                    <th class='text-center' width="15%"> JUDUL AGENDA</th>
+                                    <th class='text-center' width="10%"> TANGGAL AGENDA</th>
+                                    <th class='text-center' width="10%"> TEMPAT AGENDA</th>
+                                    <th class='text-center' width="30%"> DESKRIPSI AGENDA</th>
+                                    <th class='text-center' width='15%'>Action</th>
                                 </tr>   
                             </thead>
                             <tbody>                                
@@ -34,10 +36,19 @@
                                     {
                                     ?>
                                     <tr>
-                                            <td> <?php echo $no;?>
+                                            <td> <center>
+                                                <?php echo $no;?>
+                                            </center> </td>
+                                            <td> <?php
+                                                if (!empty($row['PATH_AGENDA'])){
+                                                    echo "<img src='".base_url().$row['PATH_AGENDA']."' style='width:100%; position:center'>";
+                                                }
+                                            ?></td>
                                             <td> <?php echo $row['ISI_AGENDA'];?></td>
                                             <td> <?php echo $row['TANGGAL_AGENDA'];?></td>
                                             <td> <?php echo $row['TEMPAT_AGENDA'];?></td>
+                                            <td> <?php echo $row['DESKRIPSI_AGENDA'];?></td>
+                                            
                                             <?php if($session == 'admin' || $session == 'mentor'){?>
                                             <td>
                                                 <a href="<?php echo base_url();?>agenda/deleteAgenda/<?php echo $row['ID_AGENDA'];?>"    onClick="return confirm('Delete This Artikel?')" class="btn btn-danger" value="Hapus">Hapus</a>

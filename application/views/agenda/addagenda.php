@@ -32,9 +32,9 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-8 col-md-offset-2">
-                                    <form role="form" action='<?php echo base_url();?>index.php/agenda/add' method='post'>
+                                    <form role="form" action='<?php echo base_url();?>index.php/agenda/add' method='post' enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label>Isi Agenda</label>
+                                            <label>Judul Agenda</label>
                                             <input type='text' name='isiagenda'class="form-control" required>
                                         </div>       
                                         <div class="form-group">
@@ -53,6 +53,14 @@
                                             <label>Tempat Agenda</label>
                                             <input type='text' name='tempatagenda'class="form-control" required>
                                         </div>               
+                                        <div class="form-group">
+                                            <label>Foto Agenda</label>
+                                            <input name="poster" type="file" tabindex="1" value="NULL"  required/> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Deskripsi Agenda</label>
+                                            <input type='text' name='deskripsiagenda'class="form-control" required>
+                                        </div>
                                         <div>
                                             <button type="submit" class="btn btn-default">Tambahkan</button>
                                         </div>
