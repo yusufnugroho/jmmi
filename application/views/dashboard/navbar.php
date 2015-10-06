@@ -12,7 +12,9 @@
                 <a class="navbar-brand" target="auto" href="<?php echo base_url();?>"><img src="<?php echo base_url();?>assets/userfile/logo.png"></a>
             </div>
             <ul class="nav navbar-top-links navbar-right">
- 
+                <li class="">
+                    <a href="<?php echo base_url();?>managepage/profil"><i class="fa fa-user fa-fw"></i> Halaman Profil</a>
+                </li>
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -39,7 +41,6 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        
                         <li>
                             <a href="<?php echo base_url();?>dashboard/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>

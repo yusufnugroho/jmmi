@@ -58,6 +58,162 @@
         <i class="icon-angle-right"></i>
     </a>
 </section><!--/#main-slider-->
+
+<div class="section" style="background-color: #fff">
+    <center>
+        <h1>
+            <i>Upload Terbaru</i>
+        </h1>
+        <h4>
+            <br>
+        </h4>
+    </center>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 blog-sidebar">
+                <h4>Materi Tertulis Terbaru </h4>
+                <ul class="recent-posts">
+                    <?php
+                    foreach ($materi_terbaru as $key_materi_terbaru => $value_materi_terbaru) {
+                        ?>
+                            <li><a href="<?php echo base_url(); echo 'pages/materi/baca/'; echo $value_materi_terbaru['ID_MATERI']?>">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <?php
+                                        if (!empty($value_materi_terbaru['PATH_MATERI'])){
+                                            echo "<img src='".base_url().$value_materi_terbaru['PATH_MATERI']."' style='width:100%; position:center'>";
+                                        }
+                                        else {?>
+                                        <img src="<?php echo base_url();?>File/fail.png" style="width: 100%; ">
+                                        <?php }
+                                        ?>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <b>
+                                        <?php
+                                        echo $value_materi_terbaru['JUDUL_MATERI'];
+                                        ?>
+                                        </b>
+                                        <p>
+                                            <?php echo $value_materi_terbaru['TANGGAL_MATERI'];?> by 
+                                            <?php echo $value_materi_terbaru['PENULIS_MATERI'];?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a></li>
+                        <?php
+                    }
+                    ?>
+                    <li><a href="<?php echo base_url(); echo 'pages/materi/tulisan';?>">
+                        <div class="row">
+                            <center>
+                                Lihat yang Lain ...
+                            </center>
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4 blog-sidebar">
+                <h4>Artikel Terbaru </h4>
+                <ul class="recent-posts">
+                    <?php
+                    foreach ($artikel_terbaru as $key_artikel_terbaru => $value_artikel_terbaru) {
+                        ?>
+                            <li><a href="<?php echo base_url(); echo 'pages/artikel/baca/'; echo $value_artikel_terbaru['ID_ARTIKEL']?>">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <?php
+                                        if (!empty($value_artikel_terbaru['PATH_ARTIKEL'])){
+                                            echo "<img src='".base_url().$value_artikel_terbaru['PATH_ARTIKEL']."' style='width:100%; position:center'>";
+                                        }
+                                        else {?>
+                                        <img src="<?php echo base_url();?>File/fail.png" style="width: 100%; ">
+                                        <?php }
+                                        ?>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <b>
+                                        <?php
+                                        echo $value_artikel_terbaru['JUDUL_ARTIKEL'];
+                                        ?>
+                                        </b>
+                                        <p>
+                                            <?php echo $value_artikel_terbaru['TANGGAL_ARTIKEL'];?> by 
+                                            <?php echo $value_artikel_terbaru['PENULIS_ARTIKEL'];?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a></li>
+                        <?php
+                    }
+                    ?>
+                    <li><a href="<?php echo base_url(); echo 'pages/artikel/';?>">
+                        <div class="row">
+                            <center>
+                                Lihat yang Lain ...
+                            </center>
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4 blog-sidebar">
+                <h4>Agenda Terbaru</h4>
+                <ul class="recent-posts">
+                    <?php
+                    foreach ($agenda_terbaru as $key_agenda_terbaru => $value_agenda_terbaru) {
+                        ?>
+                            <li><a href="#">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <?php
+                                        if (!empty($value_agenda_terbaru['PATH_AGENDA'])){
+                                            echo "<img src='".base_url().$value_agenda_terbaru['PATH_AGENDA']."' style='width:100%; position:center'>";
+                                        }
+                                        else {?>
+                                        <img src="<?php echo base_url();?>File/fail.png" style="width: 100%; ">
+                                        <?php }
+                                        ?>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <?php
+                                        echo $value_agenda_terbaru['TANGGAL_AGENDA'];
+                                        ?>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <?php
+                                        echo $value_agenda_terbaru['ISI_AGENDA'];
+                                        ?>
+                                        di :
+                                        <?php
+                                        echo $value_agenda_terbaru['TEMPAT_AGENDA'];
+                                        ?>
+                                    </div>
+                                </div>
+                            </a></li>
+                        <?php
+                    }
+                    ?>
+                    <li><a href="">
+                        <div class="row">
+                            <center>
+                                Lihat yang Lain ...
+                            </center>
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section section-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Navigasi</h1>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="section container">
     <center>
         <h1>
@@ -125,38 +281,7 @@
         </div>
     </div>
 </div>
-<div class="section section-breadcrumbs">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Agenda Terdekat</h1>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <?php
-            foreach ($agenda_terbaru as $key_agenda => $value_agenda) {
-                ?>
-                    <div class="col-lg-6">
-                        <h3>
-                        <?php 
-                            echo $value_agenda['TANGGAL_AGENDA'];
-                            echo ": ";
-                            echo $value_agenda['ISI_AGENDA'];
-                            echo " di ";
-                            echo $value_agenda['TEMPAT_AGENDA'];
-                        ?>
-                        </h3>
-                    </div>
-                <?php
-            }
-            ?>
-        </div>
-    </div>
-</div>
+
 <style type="text/css">
 .menu{
     border: 1px solid #DDD;
