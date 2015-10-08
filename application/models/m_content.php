@@ -33,4 +33,9 @@ class m_content extends CI_Model {
     public function update_db($table, $update_val, $where){
 		return $this->db->update($table, $update_val, $where);
 	}
+
+	public function hapus($id_content)
+	{
+		$this->db->query("DELETE FROM lib_contents WHERE id_content='$id_content'");
+	}
 }
