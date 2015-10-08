@@ -30,4 +30,7 @@ class m_content extends CI_Model {
         $this->db->delete($table);
         
     }
+    public function update_db($table, $update_val, $where){
+		return $this->db->update($table, $update_val, $where);
+	}
 }
