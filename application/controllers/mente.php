@@ -95,20 +95,27 @@ class Mente extends CI_Controller {
         $data['existed_nilai'] = $this->m_nilai->select_where('nilai', 
             array("nrp_mente"=>$nrp,)
             );
+        $data['res_mente'] = $this->m_nilai->select_where('mente', 
+                array('NRP_MENTE' => $nrp));
 
-        if (empty($existed_nilai)){
-
+        if (empty($data['existed_nilai'])){
             // INITIALIZE NILAI IF DATA NOT EXIST
-            
             $this->m_nilai->insert('nilai', 
-                array('nrp_mente' => $nrp));
+                array('nrp_mente' => $nrp,
+                    
+                    ));
+
             // ASSIGN INITIALIZED NILAI TO DATA
             $data['existed_nilai'] = $this->m_nilai->select_where('nilai',
-                array('NRP_MENTE' => $nrp)
+                array('NRP_MENTE' => $nrp,
+                    
+                    )
                 );
         }
-        print_r($data['existed_nilai']);
-        die();
+        foreach ($data['existed_nilai'][0] as $key => $value) {
+            if (is_null($value)) $data['existed_nilai'][0][$key] = 0;
+        }
+        // CALL VIEW
         $this->load->view('dashboard/header');
         $this->load->view('dashboard/navbar', $data);
         $this->load->view('mente/nilaibaru',$data);
@@ -193,6 +200,54 @@ class Mente extends CI_Controller {
     	$this->m_mente->updateNilai($nrpmente,$nilai);
     	$this->index();
     }
+    public function UpNilai_Score(){
+        $form_set = array();
+        foreach ($_POST as $post_key => $post_value) {
+            if (substr($post_key, 0, 5) == "form_"){
+                $form_set[strtoupper(substr($post_key, 5, strlen($post_key)))] = $post_value;
+            }
+        }
+        $this->m_mente->updateBaru($form_set, 
+            array('id_nilai' => $this->input->post('id_nilai')),
+            'nilai');
+        $this->UpdateFinalScore($this->input->post('id_nilai'));
+        redirect($this->input->post('return_link'));
+    }
 
+    public function UpdateFinalScore($id_nilai){
+        $res_nilai = $this->m_nilai->select_where('nilai', 
+            array( 'id_nilai' => $id_nilai,
+            ));
+
+        $total_screening = intval($res_nilai[0]['TES_TULIS']) + 
+            intval($res_nilai[0]['QUISIONER']) + 
+            intval($res_nilai[0]['TILAWAH']);
+        $total_event = intval($res_nilai[0]['E_GOM']) + 
+            intval($res_nilai[0]['E_MA']) + 
+            intval($res_nilai[0]['E_MK']);
+        $total_kehadiran = 0;
+        foreach ($res_nilai[0] as $key => $value) {
+            if (substr($key, 0, 9) == 'KEHADIRAN'){
+                $total_kehadiran = $total_kehadiran + intval($value);
+            }
+        }
+        $total_uas = intval($res_nilai[0]['UAS_TULIS']) + 
+            intval($res_nilai[0]['UAS_KUIS']);
+        $total_nilai = (0.15*$total_event/3*100) + (0.40*$total_kehadiran/10*100) + (0.15*intval($res_nilai[0]['UAS_TILAWAH'])) + (0.30*($total_uas/2));
+        $huruf_nilai = "E";
+        if ($total_nilai > 81 && $total_nilai < 100) $huruf_nilai = "A";
+        else if ($total_nilai > 71 && $total_nilai < 80) $huruf_nilai = "AB";
+        else if ($total_nilai > 66 && $total_nilai < 70) $huruf_nilai = "B";
+        else if ($total_nilai > 61 && $total_nilai < 65) $huruf_nilai = "BC";
+        else if ($total_nilai > 51 && $total_nilai < 60) $huruf_nilai = "C";
+        else if ($total_nilai > 41 && $total_nilai < 50) $huruf_nilai = "D";
+        $this->m_mente->updateBaru(
+            array('NILAI_MENTE' => $total_nilai,
+                'HURUF_MENTE' => $huruf_nilai,
+                ),
+            array('NRP_MENTE' => $res_nilai[0]['nrp_mente']),
+            'mente'
+            );
+    }
 }
 
