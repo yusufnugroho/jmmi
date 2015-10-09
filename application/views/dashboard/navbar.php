@@ -15,6 +15,12 @@
                 <li class="">
                     <a href="<?php echo base_url();?>managepage/profil"><i class="fa fa-user fa-fw"></i> Halaman Profil</a>
                 </li>
+                <li class="">
+                    <a href="<?php echo base_url();?>managepage/faq"><i class="fa fa-user fa-fw"></i> Halaman FAQ</a>
+                </li>
+                <li class="">
+                    <a href="<?php echo base_url();?>managepage/kontak"><i class="fa fa-user fa-fw"></i> Halaman Kontak</a>
+                </li>
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
