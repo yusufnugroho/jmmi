@@ -18,7 +18,7 @@ $assets_location = base_url()."assets/basica/";
 	    			<!-- Product Image & Available Colors -->
 	    			<div class="col-sm-6">
 	    				<div class="product-image-large">
-	    					<img src="<?php echo base_url();?>assets/userfile/bpm_logo.jpg" alt="Item Name">
+	    					<img src="<?php echo base_url().$logo_profil[0]['content_content'];?>" alt="Item Name">
 	    				</div>
 	    				<div class="colors">
 							<span class="color-white"></span>
@@ -31,44 +31,28 @@ $assets_location = base_url()."assets/basica/";
 	    			<!-- End Product Image & Available Colors -->
 	    			<!-- Product Summary & Options -->
 	    			<div class="col-sm-6 product-details">
-	    				<h1>
-	    					Sekilas BPM
-	    				</h1>
-	    				<p>
-	    					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.
-	    				</p>
-	    				<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus.
-						</p>
-	    				<hr>
-	    				<p >
-	    					<h2 >Visi BPM :</h2>
+	    				<?php
+	    				foreach ($list_profil as $key_list => $value_value) {
+	    					?>
+	    					<h2 ><?php echo $value_value['label_content']?></h2>
 	    					<p >
-	    						1. Visi pertama </br>
-	    						2. Ini adalah visi yang kedua </br>
+	    						<?php echo $value_value['content_content']?>
 	    					</p>
 	    					<hr>
-	    					<h2>Misi BPM :</h2>
-	    					<p>
-	    						1. Misi pertama </br>
-	    						2. Ini adalah misi yang kedua </br>
-	    						3. Sedangkan yang ini adalah misi yang ketiga </br>
-	    						4. Misi keempat </br>
-	    						5. Mungkin bisa ditambah misi kelima </br>
-	    						6. Dan misi keenam </br>
-	    					</p>
-	    				</p>
-	    				<hr>
+	    					<?php
+	    				}
+	    				?>
+	    				
 	    			</div>
 	    			<!-- End Product Summary & Options -->
 
 	    			
 	    		</div>
     				<h2 align="center" style="margin-top: 100px">
-    					Enjoy Mentoring!
+    					<?php echo $moto_profil[0]['label_content']?>
     				</h3>
     				<blockquote>
-    					<p>Mentoring adalah gerbang awal pembinaan kepribadian muslim. Ya! Dari mentoring, segala macam pintu kebaikan akan terbuka. Bersama mentoring, siap cetak SDM muslim yang bermoral. Bersama mentoring kita bangun Indonesia madani </p>
+    					<?php echo $moto_profil[0]['content_content']?>
     				</blockquote>
 			</div>
 		</div>

@@ -20,42 +20,22 @@ $assets_location = base_url()."assets/basica/";
 	    			<!-- End Product Image & Available Colors -->
 	    			<!-- Product Summary & Options -->
 	    			<div class="col-sm-8" >
-	    				<div>
-		    				<h2>
-	    						Q: What is this website?
-		    				</h2>
-		    				<blockquote>
-		    					A: this is BPM's website
-		    				</blockquote>
-	    				</div>
-	    				<hr>
-	    				<div>
-		    				<h2>
-	    						Q: Explain me the content of this website . . .
-		    				</h2>
-		    				<blockquote>
-		    					A: It will take a long time to write it
-		    				</blockquote>
-	    				</div>
-	    				<hr>
-	    				<div>
-		    				<h2>
-	    						Q: What is this site address?
-		    				</h2>
-		    				<blockquote>
-		    					A: You can see it on the address bar in your browser
-		    				</blockquote>
-	    				</div>
-	    				<hr>
-	    				<div>
-		    				<h2>
-	    						Q: Can i leave from this site?
-		    				</h2>
-		    				<blockquote>
-		    					A: Yes, Sure
-		    				</blockquote>
-	    				</div>
-	    				<hr>
+	    				<?php
+	    				foreach ($res_faq as $key => $value) {
+	    					?>
+		    				<div>
+			    				<h2>
+		    						<?php echo $value['label_content']?>
+			    				</h2>
+			    				<blockquote>
+			    					<?php echo $value['content_content']?>
+			    				</blockquote>
+		    				</div>
+		    				<hr>
+	    					<?php
+	    				}
+	    				?>
+	
 	    			</div>
 	    			<!-- End Product Summary & Options -->	    			
 	    		</div>

@@ -9,6 +9,7 @@ class faq extends CI_Controller {
 		$this->load->model('m_mente');
 		$this->load->model('m_dosen');
 		$this->load->model('m_kj');
+		$this->load->model('m_content');
 	}
 
 	public function index(){
@@ -23,6 +24,9 @@ class faq extends CI_Controller {
 		$data = array();
 		$data['isLogin'] = $isLogin;
 		$data['session_data'] = $session_data;
+		$data['res_faq'] = $this->m_content->select_where('lib_contents', 
+			array('id_pages' => 2 ,
+				'id_type' => 2,));
 		$this->load->view('frontend/header/header', $data);
 		$this->load->view('frontend/content/faq');
 		$this->load->view('frontend/footer/footer');
