@@ -8,6 +8,7 @@ class Mente extends CI_Controller {
 		$this->load->model('m_mentor');
 		$this->load->model('m_mente');
 		$this->load->model('m_dosen');
+        $this->load->model('m_nilai');
 	}
 
 	public function index($notification = '')
@@ -82,6 +83,38 @@ class Mente extends CI_Controller {
     	$this->load->view('mente/updateNilai',$data);
     	$this->load->view('dashboard/footer');
     }
+    public function nilaiBaru($nrp){
+
+        // SESSION CHECK
+        $session[] = $this->session->userdata('akses');
+        if (!empty($session) && $session[0] == "") redirect('welcome/logout');
+        $data['session'] = $session[0];
+        $data['mente'] = $this->m_mente->getData($nrp);
+
+        // GET EXISTING NILAI FROM DATABASE
+        $data['existed_nilai'] = $this->m_nilai->select_where('nilai', 
+            array("nrp_mente"=>$nrp,)
+            );
+
+        if (empty($existed_nilai)){
+
+            // INITIALIZE NILAI IF DATA NOT EXIST
+            
+            $this->m_nilai->insert('nilai', 
+                array('nrp_mente' => $nrp));
+            // ASSIGN INITIALIZED NILAI TO DATA
+            $data['existed_nilai'] = $this->m_nilai->select_where('nilai',
+                array('NRP_MENTE' => $nrp)
+                );
+        }
+        print_r($data['existed_nilai']);
+        die();
+        $this->load->view('dashboard/header');
+        $this->load->view('dashboard/navbar', $data);
+        $this->load->view('mente/nilaibaru',$data);
+        $this->load->view('dashboard/footer');
+    }
+
     public function active($nrp)
     {
     	$this->m_mente->active($nrp);
