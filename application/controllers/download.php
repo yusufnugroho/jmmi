@@ -30,9 +30,9 @@ class Download extends CI_Controller {
 		$this->excel->getActiveSheet()->setCellValue('H2', 'Tilawah');
 		$this->excel->getActiveSheet()->mergeCells('I1:K1');
 		$this->excel->getActiveSheet()->setCellValue('F1', 'SCREENING MENTORING');
-		$this->excel->getActiveSheet()->setCellValue('I2', 'GOM');
-		$this->excel->getActiveSheet()->setCellValue('J2', 'MA');
-		$this->excel->getActiveSheet()->setCellValue('K2', 'MK');
+		$this->excel->getActiveSheet()->setCellValue('I2', 'E_GOM');
+		$this->excel->getActiveSheet()->setCellValue('J2', 'E_MA');
+		$this->excel->getActiveSheet()->setCellValue('K2', 'E_MK');
 		$this->excel->getActiveSheet()->mergeCells('L1:U1');
 		$this->excel->getActiveSheet()->setCellValue('L1', 'Pertemuan');
 		$this->excel->getActiveSheet()->setCellValue('L2', '1');
@@ -67,9 +67,9 @@ class Download extends CI_Controller {
 		    $this->excel->getActiveSheet()->SetCellValue('F'.$rowCount, $row['TES_TULIS']); 
 		    $this->excel->getActiveSheet()->SetCellValue('G'.$rowCount, $row['QUISIONER']); 
 		    $this->excel->getActiveSheet()->SetCellValue('H'.$rowCount, $row['TILAWAH']); 
-		    $this->excel->getActiveSheet()->SetCellValue('I'.$rowCount, $row['GOM']); 
-		    $this->excel->getActiveSheet()->SetCellValue('J'.$rowCount, $row['MA']); 
-		    $this->excel->getActiveSheet()->SetCellValue('K'.$rowCount, $row['MK']); 
+		    $this->excel->getActiveSheet()->SetCellValue('I'.$rowCount, $row['E_GOM']); 
+		    $this->excel->getActiveSheet()->SetCellValue('J'.$rowCount, $row['E_MA']); 
+		    $this->excel->getActiveSheet()->SetCellValue('K'.$rowCount, $row['E_MK']); 
 		    $this->excel->getActiveSheet()->SetCellValue('L'.$rowCount, $row['KEHADIRAN_1']); 
 		    $this->excel->getActiveSheet()->SetCellValue('M'.$rowCount, $row['KEHADIRAN_2']); 
 		    $this->excel->getActiveSheet()->SetCellValue('N'.$rowCount, $row['KEHADIRAN_3']);
@@ -84,7 +84,7 @@ class Download extends CI_Controller {
 		    $this->excel->getActiveSheet()->SetCellValue('W'.$rowCount, $row['UAS_KUIS']); 
 		    $this->excel->getActiveSheet()->SetCellValue('X'.$rowCount, $row['UAS_TILAWAH']); 
 		    $this->excel->getActiveSheet()->SetCellValue('Y'.$rowCount, 0.15*$row['nilai_bpm']+0.4*$row['kehadiran']+0.15*$row['UAS_TILAWAH']+0.3*$row['nilai_uas']); 
-		    $this->excel->getActiveSheet()->SetCellValue('Z'.$rowCount, 'Tinggal ini yang belum dibuat'); 
+		    $this->excel->getActiveSheet()->SetCellValue('Z'.$rowCount, $row['NILAI_HURUF']); 
 		    $rowCount++;
 		    $no++;
 		}
