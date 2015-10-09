@@ -12,8 +12,8 @@ class Download extends CI_Controller {
 	}
 
 	public function nilai(){
-		$this->load->model('universal');
-		$data = $this->universal->getall('mente');
+		$this->load->model('m_download');
+		$data = $this->m_download->select();
 		$this->load->library('excel');
 		$this->excel->setActiveSheetIndex(0);
 		$this->excel->getActiveSheet()->mergeCells('A1:D1');
@@ -21,16 +21,20 @@ class Download extends CI_Controller {
 		$this->excel->getActiveSheet()->setCellValue('A2', 'NO');
 		$this->excel->getActiveSheet()->setCellValue('B2', 'NRP');
 		$this->excel->getActiveSheet()->setCellValue('C2', 'Nama');
-		$this->excel->getActiveSheet()->setCellValue('D2', 'Nilai');
+		$this->excel->getActiveSheet()->setCellValue('D2', 'Mentor');
+		$this->excel->getActiveSheet()->setCellValue('E2', 'Dosen');
+		$this->excel->getActiveSheet()->setCellValue('F2', 'Nilai');
 		$this->excel->getActiveSheet()->setTitle('Nilai Mentoring Mahasiswa ITS');
 		$rowCount = 3;
 		$no = 1;
 		foreach ($data as $row) {
 			# code...
 			$this->excel->getActiveSheet()->SetCellValue('A'.$rowCount, $no); 
-			$this->excel->getActiveSheet()->SetCellValue('B'.$rowCount, $row->NRP_MENTE); 
-		    $this->excel->getActiveSheet()->SetCellValue('C'.$rowCount, $row->NAMA_DEPAN_MENTE." ".$row->NAMA_BELAKANG_MENTE); 
-		    $this->excel->getActiveSheet()->SetCellValue('D'.$rowCount, $row->NILAI_MENTE); 
+			$this->excel->getActiveSheet()->SetCellValue('B'.$rowCount, $row['NRP_MENTE']); 
+		    $this->excel->getActiveSheet()->SetCellValue('C'.$rowCount, $row['NAMA_DEPAN_MENTE']." ".$row['NAMA_BELAKANG_MENTE']); 
+		    $this->excel->getActiveSheet()->SetCellValue('D'.$rowCount, $row['nama_depan_mentor']." ".$row['nama_belakang_mentor']); 
+		    $this->excel->getActiveSheet()->SetCellValue('E'.$rowCount, $row['nama_depan_dosen']." ".$row['nama_belakang_dosen']); 
+		    $this->excel->getActiveSheet()->SetCellValue('F'.$rowCount, $row['NILAI_MENTE']); 
 		    $rowCount++;
 		    $no++;
 		}
