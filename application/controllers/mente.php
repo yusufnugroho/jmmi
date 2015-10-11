@@ -27,10 +27,16 @@ class Mente extends CI_Controller {
             $where = array('NIP_DOSEN' => $NIP_DOSEN, );
             $data['mente'] = $this->m_mente->select_where_dosen($NIP_DOSEN);
         }
-        else{
-            $data['mente'] = $this->m_mente->getDataMente();
+        else if($data['session']=="mentor"){ 
+            $NRP_MENTOR = $this->session->userdata('1');
+            $table = "mente";
+            $where = array('NRP_MENTOR' => $NRP_MENTOR, );
+            $data['mente'] = $this->m_mente->select_where('mente', $where);
         }
-        //print_r($data['mente']);
+        else{
+            $data['mente'] = $this->m_mente->get_all('mente');
+        }
+
         $this->load->view('dashboard/header');
         $this->load->view('dashboard/navbar',$data);
         $this->load->view('mente/indexMente',$data);
@@ -46,6 +52,11 @@ class Mente extends CI_Controller {
     	$data['mentor'] = $this->m_mentor->getDataMentorActive();
     	$data['dosen'] = $this->m_dosen->getDataDosen();
         $data['notification'] = $notification;
+        
+        $data['status_mentor'] = $this->session->userdata('5');
+        $data['akses'] = $this->session->userdata('akses');
+        $data['my_nrp'] = $this->session->userdata('1');
+        
     	$this->load->view('dashboard/header');
     	$this->load->view('dashboard/navbar', $data);
     	$this->load->view('mente/addMente',$data);

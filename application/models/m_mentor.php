@@ -5,6 +5,9 @@ class M_mentor extends CI_Model {
         {
 		parent::__construct();
 	}
+	public function get_all($table){
+		return $this->db->get($table)->result_array();
+	}
 	public function getDataMentor()
 	{
 		return $this->db->query("select * from mentor where 1");

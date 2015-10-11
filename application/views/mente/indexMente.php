@@ -46,27 +46,29 @@
                                 </tr>   
                             </thead>
                             <tbody>
-                                <?php foreach($mente->result() as $row){
+
+                                <?php
+                                foreach ($mente as $key => $value) {
 
                                     echo '<tr>
-                                    <td>'. $row->NRP_MENTE .'</td>
-                                    <td>'. $row->NRP_MENTOR .'</td>
-                                    <td>'. $row->NAMA_DEPAN_MENTE." ". $row->NAMA_BELAKANG_MENTE.'</td>
-                                    <td>'.$row->JK_MENTE.'</td>
-                                    <td>'. $row->TELEPON_MENTE .'</td>
-                                    <td>'. $row->NRP_MENTOR.'</td>
-                                    <td>'. $row->NIP_DOSEN.'</td>
-                                    <td>'. $row->NILAI_MENTE.'</td>
+                                    <td>'. $value['NRP_MENTE'] .'</td>
+                                    <td>'. $value['NRP_MENTOR'] .'</td>
+                                    <td>'. $value['NAMA_DEPAN_MENTE']." ". $value['NAMA_BELAKANG_MENTE'].'</td>
+                                    <td>'.$value['JK_MENTE'].'</td>
+                                    <td>'. $value['TELEPON_MENTE'] .'</td>
+                                    <td>'. $value['NRP_MENTOR'].'</td>
+                                    <td>'. $value['NIP_DOSEN'].'</td>
+                                    <td>'. $value['NILAI_MENTE'].'</td>
                                     <td>'; 
-                                        $status=$row->STATUS_MENTE;
+                                        $status=$value['STATUS_MENTE'];
                                         if($session == 'admin' || $session == 'mentor'){  
                                             if($status == "Aktif")
                                             {
-                                                echo '<a href='. base_url()."index.php/mente/deactive/".$row->NRP_MENTE.' class="btn btn-success">Activated</a>';
+                                                echo '<a href='. base_url()."index.php/mente/deactive/".$value['NRP_MENTE'].' class="btn btn-success">Activated</a>';
                                             }
                                             elseif($status == "Tidak Aktif")
                                             {
-                                               echo '<a href='. base_url()."index.php/mente/active/".$row->NRP_MENTE.' class="btn btn-danger">Deactivated</a>';
+                                               echo '<a href='. base_url()."index.php/mente/active/".$value['NRP_MENTE'].' class="btn btn-danger">Deactivated</a>';
                                            };
                                         }
                                         else {
@@ -81,9 +83,9 @@
                                         }
                                        echo '<td>';
                                        if($session == 'admin' || $session == 'mentor'|| $session == 'kj') echo '
-                                       <a href='. base_url()."index.php/mente/nilaiBaru/".$row->NRP_MENTE.' class="btn btn-info"> Nilai</a>
-                                       <a href='. base_url()."index.php/mente/update/".$row->NRP_MENTE.' class="btn btn-warning"> Edit</a>
-                                       <a href='. base_url()."index.php/mente/hapus/".$row->NRP_MENTE.' class="btn btn-danger"> Hapus </a> </td></tr>';    
+                                       <a href='. base_url()."index.php/mente/nilaiBaru/".$value['NRP_MENTE'].' class="btn btn-info"> Nilai</a>
+                                       <a href='. base_url()."index.php/mente/update/".$value['NRP_MENTE'].' class="btn btn-warning"> Edit</a>
+                                       <a href='. base_url()."index.php/mente/hapus/".$value['NRP_MENTE'].' class="btn btn-danger"> Hapus </a> </td></tr>';    
                                    }       
                                    ?>
                                </tbody>

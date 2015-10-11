@@ -43,23 +43,25 @@
                                         </tr>   
                                     </thead>
                                     <tbody>
-                                    <?php foreach($mentor->result() as $row){
+                                    <?php 
+                                    foreach ($mentor as $key => $value) 
+                                    {
 
-                                        echo '<tr><td>'. $row->NRP_MENTOR .'</td>
-                                            <td>'. $row->NAMA_DEPAN_MENTOR." ". $row->NAMA_BELAKANG_MENTOR.'</td>
-                                            <td>'. $row->jk_mentor .'
-                                            <td>'. $row->TELEPON_MENTOR .'</td>
+                                        echo '<tr><td>'. $value['NRP_MENTOR'] .'</td>
+                                            <td>'. $value['NAMA_DEPAN_MENTOR']." ". $value['NAMA_BELAKANG_MENTOR'].'</td>
+                                            <td>'. $value['jk_mentor'] .'
+                                            <td>'. $value['TELEPON_MENTOR'] .'</td>
                                             <td> 
                                             ';
-                                            $status=$row->STATUS_MENTOR;
+                                            $status=$value['STATUS_MENTOR'];
                                                 if($session == 'admin' || $session == 'mentor'){  
                                                     if($status == "Aktif")
                                                     {
-                                                        echo '<a href='. base_url()."index.php/mentor/deactive/".$row->NRP_MENTOR.' class="btn btn-success">Activated</a>';
+                                                        echo '<a href='. base_url()."index.php/mentor/deactive/".$value['NRP_MENTOR'].' class="btn btn-success">Activated</a>';
                                                     }
                                                     elseif($status == "Tidak Aktif")
                                                     {
-                                                        echo '<a href='. base_url()."index.php/mentor/active/".$row->NRP_MENTOR.' class="btn btn-danger">Deactivated</a>';
+                                                        echo '<a href='. base_url()."index.php/mentor/active/".$value['NRP_MENTOR'].' class="btn btn-danger">Deactivated</a>';
                                                     };
                                                 }
                                                 else {
@@ -75,8 +77,8 @@
                                             echo '</td>';
                                             if($session == 'admin' || $session =='mentor')
                                                 echo '<td> 
-                                                <a href='. base_url()."index.php/mentor/update/".$row->NRP_MENTOR.' class="btn btn-warning"> Edit</a>
-                                                <a href='. base_url()."index.php/mentor/hapus/".$row->NRP_MENTOR.' class="btn btn-danger"> Hapus </a> </td></tr>';
+                                                <a href='. base_url()."index.php/mentor/update/".$value['NRP_MENTOR'].' class="btn btn-warning"> Edit</a>
+                                                <a href='. base_url()."index.php/mentor/hapus/".$value['NRP_MENTOR'].' class="btn btn-danger"> Hapus </a> </td></tr>';
                                             else echo '<td> </td>';
                                     }       
                                     ?>

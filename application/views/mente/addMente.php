@@ -30,6 +30,9 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-6">
+                    <?php
+                    if ($status_mentor == 'Aktif' || $akses != 'mentor'){
+                    ?>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Masukkan data Mente
@@ -68,12 +71,14 @@
                                         </div> 
                                         <div class="form-group">
                                             <label>NRP - Nama Mentor</label>
-                                            <select name='nrpmentor' class="form-control" required>
+                                            <select name='nrpmentor' class="form-control" required <?php if ($akses == 'mentor') echo "disabled"?>>
                                             <option> </option>
                                             <?php
                                                 foreach ($mentor->result() as $row)
                                                 {
-                                                    echo '<option value='.$row->NRP_MENTOR.'>';
+                                                    $adder = '';
+                                                    if ($akses == 'mentor' && $my_nrp == $row->NRP_MENTOR) $adder = ' selected ';
+                                                    echo '<option value='.$row->NRP_MENTOR.$adder.'>';
                                                     echo $row->NRP_MENTOR." - ";
                                                     echo $row->NAMA_DEPAN_MENTOR." ";
                                                     echo $row->NAMA_BELAKANG_MENTOR;
@@ -111,6 +116,18 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
+                    <?php
+                    }
+                    else{
+                    ?>
+                    <div class="alert alert-danger">
+                        <b>
+                            Status Anda sedang <i> Tidak Aktif </i>, tidak diperkenankan menambah Mente
+                        </b>
+                    </div>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <!-- /.col-lg-6 -->
             </div>

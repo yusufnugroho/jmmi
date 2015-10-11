@@ -8,6 +8,10 @@ class M_mente extends CI_Model {
 	{
 		return $this->db->query("select * from mente where 1");
 	}
+	public function get_all($table){
+		return $this->db->get($table)->result_array();
+	}
+
 	public function insert($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$jkmente,$hpmente)
 	{
 		$this->db->query("insert into mente values('$nrpmente','$nrpmentor','$nipdosen','$depanmente','$belakangmente','$jkmente','$hpmente','$nrpmente','0','Aktif')");

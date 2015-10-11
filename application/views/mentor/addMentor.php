@@ -30,6 +30,9 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-6">
+                    <?php
+                    if ($status_kj == 'Aktif' || $akses != 'kj'){
+                    ?>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Masukkan data Mentor
@@ -68,12 +71,14 @@
                                         </div> 
                                         <div class="form-group">
                                             <label>NRP - Nama KJ</label>
-                                            <select name='nrpkj' class="form-control" required>
+                                            <select name='nrpkj' class="form-control" required <?php if ($akses == 'kj') echo "disabled"?>>
                                             <option> </option>
                                             <?php
                                                 foreach ($kj->result() as $row)
                                                 {
-                                                    echo '<option value='.$row->NRP_KJ.'>';
+                                                    $adder = '';
+                                                    if ($akses == 'kj' && $my_nrp == $row->NRP_KJ) $adder = ' selected ';
+                                                    echo '<option value='.$row->NRP_KJ.$adder.'>';
                                                     echo $row->NRP_KJ." ";
                                                     echo $row->NAMA_DEPAN_KJ." ";
                                                     echo $row->NAMA_BELAKANG_KJ;
@@ -95,6 +100,19 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
+                    <?php
+                    }
+                    else{
+                    ?>
+                    <div class="alert alert-danger">
+                        <b>
+                            Status Anda sedang <i> Tidak Aktif </i>, tidak diperkenankan menambah mentor
+                        </b>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                    
                 </div>
                 <!-- /.col-lg-6 -->
             </div>

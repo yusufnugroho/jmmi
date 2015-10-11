@@ -16,7 +16,12 @@ class Mentor extends CI_Controller {
         $session[] = $this->session->userdata('akses');
 		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
-		$data['mentor'] = $this->m_mentor->getDataMentor();
+        $data['mentor'] = array();
+        if ($this->session->userdata('akses') == 'kj') 
+        	$data['mentor'] = $this->m_mentor->select_where('mentor',
+        		array('NRP_KJ' => $this->session->userdata('1')));
+        else 
+        	$data['mentor'] = $this->m_mentor->get_all('mentor');
 		$data['notification'] = $notification;
 		$this->load->view('dashboard/header');
         $this->load->view('dashboard/navbar', $data);
@@ -32,6 +37,9 @@ class Mentor extends CI_Controller {
         $data['session'] = $session[0];
         $data['kj'] = $this->m_kj->getDataKJActive();
         $data['notification'] = $notification;
+        $data['status_kj'] = $this->session->userdata('5');
+        $data['akses'] = $this->session->userdata('akses');
+        $data['my_nrp'] = $this->session->userdata('1');
         $this->load->view('dashboard/header');
         $this->load->view('dashboard/navbar', $data);
 		$this->load->view('mentor/addMentor',$data);
