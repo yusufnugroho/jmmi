@@ -14,7 +14,7 @@ class M_mente extends CI_Model {
 
 	public function insert($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$jkmente,$hpmente)
 	{
-		$this->db->query("insert into mente values('$nrpmente','$nrpmentor','$nipdosen','$depanmente','$belakangmente','$jkmente','$hpmente','$nrpmente','0','Aktif')");
+		$this->db->query("insert into mente values('$nrpmente','$nrpmentor','$nipdosen','$depanmente','$belakangmente','$jkmente','$hpmente','$nrpmente','','0','Aktif')");
 	}
 	public function update($nrpmente,$nrpmentor,$nipdosen,$depanmente,$belakangmente,$hpmente,$jkmente)
 	{
@@ -35,7 +35,7 @@ class M_mente extends CI_Model {
 	}
 	public function hapusMente($nrp)
 	{
-		$this->db->query("DELETE FROM `mente` WHERE nrp_mente =$nrp");
+		$this->db->query("DELETE FROM `mente` WHERE nrp_mente ='$nrp'");
 	}
     public function select_where($tablename, $where)
 	{

@@ -50,6 +50,7 @@ class Mente extends CI_Controller {
 		if (!empty($session) && $session[0] == "") redirect('welcome/logout');
         $data['session'] = $session[0];
     	$data['mentor'] = $this->m_mentor->getDataMentorActive();
+    	$data['mentor'] = $data['mentor']->result_array();
     	$data['dosen'] = $this->m_dosen->getDataDosen();
         $data['notification'] = $notification;
         

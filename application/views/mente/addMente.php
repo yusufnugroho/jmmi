@@ -74,14 +74,14 @@
                                             <select name='nrpmentor' class="form-control" required <?php if ($akses == 'mentor') echo "disabled"?>>
                                             <option> </option>
                                             <?php
-                                                foreach ($mentor->result() as $row)
+						foreach($mentor as $mentor_key => $row)
                                                 {
                                                     $adder = '';
-                                                    if ($akses == 'mentor' && $my_nrp == $row->NRP_MENTOR) $adder = ' selected ';
-                                                    echo '<option value='.$row->NRP_MENTOR.$adder.'>';
-                                                    echo $row->NRP_MENTOR." - ";
-                                                    echo $row->NAMA_DEPAN_MENTOR." ";
-                                                    echo $row->NAMA_BELAKANG_MENTOR;
+                                                    if ($akses == 'mentor' && $my_nrp == $row['NRP_MENTOR']) $adder = ' selected ';
+                                                    echo '<option value='.$row['NRP_MENTOR'].$adder.'>';
+                                                    echo $row['NRP_MENTOR']." - ";
+                                                    echo $row['NAMA_DEPAN_MENTOR']." ";
+                                                    echo $row['NAMA_BELAKANG_MENTOR'];
                                                     echo '</option>';
                                                 }
                                             ?>

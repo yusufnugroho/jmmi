@@ -35,7 +35,7 @@ class Kj extends CI_Controller {
 		$data['notification'] = $notification;
         $this->load->view('dashboard/header');
         $this->load->view('dashboard/navbar', $data);
-		$this->load->view('kj/addkj', $data);
+		$this->load->view('kj/addKJ',$data);
         $this->load->view('dashboard/footer');
         }
 	public function update($NRP)

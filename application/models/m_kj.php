@@ -6,11 +6,11 @@ class M_kj extends CI_Model {
 	}
 	public function getDataKJ()
 	{
-		return $this->db->query("select * from KJ where 1");
+		return $this->db->query("select * from kj where 1");
 	}
 	public function getDataKJActive()
 	{
-		return $this->db->query("select * from KJ where STATUS_KJ='Aktif' ");
+		return $this->db->query("select * from kj where STATUS_KJ='Aktif' ");
 	}        
 	public function insert($nrpkj,$depankj,$belakangkj,$jkkj,$telepon_kj)
 	{

@@ -22,8 +22,9 @@ class Mentor extends CI_Controller {
         		array('NRP_KJ' => $this->session->userdata('1')));
         else 
         	$data['mentor'] = $this->m_mentor->get_all('mentor');
-		$data['notification'] = $notification;
-		$this->load->view('dashboard/header');
+//        print_r($data['mentor']);
+	$data['notification'] = $notification;
+	$this->load->view('dashboard/header');
         $this->load->view('dashboard/navbar', $data);
         $this->load->view('mentor/indexMentor',$data);
         $this->load->view('dashboard/footer');
